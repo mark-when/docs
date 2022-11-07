@@ -1,0 +1,34 @@
+:root {
+  --vp-c-brand: #646cff;
+  --vp-c-brand-light: #747bff;
+  --vp-c-brand-lighter: #747bff;
+  --vp-c-brand-dark: #9196ff;
+  --vp-c-brand-darker: #242fff;
+}
+
+.outline-marker {
+  width: 4px !important;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.planPill {
+  border-radius: 0.25rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  border-width: 2px;
+  border-style: solid;
+}
+
+.planPill.personal {
+  color: rgb(22 101 52);
+  background-color: rgb(220 252 231);
+  border-color: rgb(187 247 208);
+}
+
+.planPill.business {
+  color: rgb(107 33 168);
+  background-color: rgb(243 232 255);
+  border-color: rgb(233 213 255);
+}
