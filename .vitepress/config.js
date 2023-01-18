@@ -6,22 +6,45 @@ export default {
     sidebar: [
       {
         text: "Documentation",
+        link: "/",
         items: [
           {
             text: "Overview",
             link: "/",
           },
+        ],
+      },
+      {
+        text: "Parser",
+        items: [
           {
-            text: "Syntax",
-            link: "/syntax",
+            text: "Playground",
+            link: "/parser/playground",
           },
           {
-            text: "Parser",
-            link: "/parser",
+            text: "Output",
+            link: "/parser/output",
+          },
+        ],
+      },
+      {
+        text: "Syntax",
+        items: [
+          {
+            text: "Overview",
+            link: "/syntax/overview",
           },
           {
-            text: "Visualizations",
-            link: "/visualizations",
+            text: "Header",
+            link: "/syntax/header",
+          },
+          {
+            text: "Events",
+            link: "/syntax/events",
+          },
+          {
+            text: "Dates and Ranges",
+            link: "/syntax/dates-and-ranges",
           },
         ],
       },

@@ -43,6 +43,7 @@ onMounted(() => {
 
 <template>
   <div class="flex flex-col">
+    <div class="font-bold">Input</div>
     <textarea
       class="font-mono border border-solid dark:border-gray-700 border-gray-200 p-2 rounded text-sm h-96 bg-gray-100 dark:bg-gray-900"
       v-model="text"
@@ -63,6 +64,7 @@ onMounted(() => {
         />
       </svg>
     </div>
+    <div class="font-bold">Output</div>
     <pre
       class="text-sm overflow-scroll rounded border border-solid dark:border-gray-700 border-gray-200 p-2 h-96 bg-gray-100 dark:bg-gray-900"
       >{{ textOutput }}</pre

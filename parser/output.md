@@ -1,18 +1,5 @@
-<script setup>
 
-import Parser from "./src/Parser.vue"
-
-</script>
-
-# Parser
-
-[Markwhen parser on github](https://github.com/mark-when/parser)
-
-## Playground
-
-<Parser/>
-
-## Output
+# Output
 
 The parser produces an array of timelines and associated metadata:
 

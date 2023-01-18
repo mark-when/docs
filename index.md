@@ -13,4 +13,4 @@ Use the editor at [markwhen.com](https://markwhen.com).
 
 ![](https://blog.markwhen.com/images/calendar1.png)
 
-Read more about [markwhen's syntax](/syntax), the [parser](/parser), or [visualizations](/visualizations).
+Read more about [markwhen's syntax](/syntax/overview), the [parser](/parser), or [visualizations](/visualizations).
