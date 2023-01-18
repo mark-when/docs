@@ -54,11 +54,24 @@ export default {
             text: "Groups and Sections",
             link: "/syntax/groups-and-sections",
           },
+          {
+            text: "Pages",
+            link: "/syntax/pages",
+          },
         ],
+      },
+      {
+        text: "Web interface",
+        link: "/interface",
+        items: [{ text: "Overview", link: "/interface/overview"}]
       },
       {
         text: "Links",
         items: [
+          {
+            text: "Github",
+            link: "https://github.com/mark-when/markwhen",
+          },
           {
             text: "Markwhen.com",
             link: "https://markwhen.com",

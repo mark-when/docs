@@ -1,68 +1,4 @@
-<!-- ### Table of contents
-
-- [Overview](#overview)
-- [Timeline](#timeline)
-- [Header](#header)
-  - [Title](#title)
-  - [Description](#description)
-  - [Viewers](#viewers)
-  - [Tags and colors](#tags-and-colors)
-  - [Date formatting](#date-formatting)
-  - [Header Quick Reference](#header-quick-reference)
-- [Events](#events)
-  - [Quick Reference](#quick-reference)
-  - [EDTF Date Ranges](#edtf-date-ranges)
-    - [EDTF Date](#edtf-date)
-  - [Date Ranges](#date-ranges)
-    - [Dates](#dates)
-  - [Relative Dates](#relative-dates)
-    - [Event IDs](#event-ids)
-    - [Due dates](#ue-dates)
-    - [Week days](#week-days)
-  - [Event Description](#event-description)
-    - [Tags](#tags)
-    - [Links](#links)
-    - [Locations](#locations)
-    - [Photos](#photos)
-    - [References](#references)
-    - [Task list](#task-list)
-    - [Percent](#percent)
-- [Groups and Sections](#groups-and-sections)
-- [Pages](#pages)
-- [Sorting](#sorting)
-- [Drag and Drop](#drag-and-drop)
-- [Editing from the timeline](#editing-from-the-timeline)
-- [Saving and sharing](#saving-and-sharing)
-  - [Sharing](#sharing)
-    - [Random url](#random-url)
-    - [Custom url](#custom-url)
-    - [Access control](#access-control)
-  - [Exporting](#exporting)
-    - [Text](#text)
-    - [PNG or PDF](#png-or-pdf)
-  - [Importing](#importing)
-
--->
-
-# Syntax
-
-A markwhen document is a simple text file. Its content type is `text/markwhen`; though, when importing from other sources, `text/plain` works fine. A markwhen document is separated into timeline pages via a page break token (`\n_-_-_break_-_-_\n`).
-
-## Timeline
-
-A Timeline page is composed of an optional [header](#header) and one or more [events](#events).
-
-
-
-### Event Description
-
-
-
-## Pages
-
-When one timeline isn't enough, add pages. Pages are implemented by inserting a special token (`\n_-_-_break_-_-_\n`) at the point where a new page should be.
-
-![](/images/pages.gif)
+# Web interface
 
 ## Sorting
 
@@ -110,7 +46,6 @@ All in all, the steps are:
 4. Share your markwhen page
 
 #### Access control
-
 
 Specify who can view your shared timeline by adding a `view` field to your header:
 
