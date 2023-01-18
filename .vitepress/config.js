@@ -2,7 +2,7 @@ export default {
   title: "Markwhen Documentation",
   themeConfig: {
     siteTitle: "Markwhen",
-    logo: "/favicon.svg",
+    logo: "/icon_192.png",
     sidebar: [
       {
         text: "Documentation",
