@@ -46,6 +46,10 @@ export default {
             text: "Dates and Ranges",
             link: "/syntax/dates-and-ranges",
           },
+          {
+            text: "Event Descriptions",
+            link: "/syntax/event-descriptions",
+          },
         ],
       },
       {

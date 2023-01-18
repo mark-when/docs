@@ -223,3 +223,20 @@ The second event starts after the first and lasts 10 weekdays, which would take 
 ```
 
 Week days do not take into account holidays - only weekends. It also assumes a 5 day work week, unfortunately. [Hopefully soon it will be 4 days](https://4dayweek.io).
+
+## Recurring events
+
+To have an event repeat itself some number of times, you can use recurrence syntax between the event range and the event description:
+
+```
+October 7, 1989 every year for 10 years: ...
+2025-03-04 every week for 12 weeks: ...
+2022-01/2022-03 every other year x9: ...
+Feb 1 2023 every 6 months for 10 times: ...
+```
+
+Recurrence syntax essentially takes the form of 
+
+```
+every (duration) (for (number of times | duration)) | x(amount)
+```
