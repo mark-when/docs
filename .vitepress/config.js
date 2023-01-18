@@ -50,6 +50,10 @@ export default {
             text: "Event Descriptions",
             link: "/syntax/event-descriptions",
           },
+          {
+            text: "Groups and Sections",
+            link: "/syntax/groups-and-sections",
+          },
         ],
       },
       {
