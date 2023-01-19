@@ -240,3 +240,6 @@ Recurrence syntax essentially takes the form of
 ```
 every (duration) (for (number of times | duration)) | x(amount)
 ```
+
+![](/images/recurring_syntax.png)
+![](/images/recurring_timeline.png)
