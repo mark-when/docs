@@ -1,6 +1,6 @@
 # Events
 
-An event is a [date Range](#dates-and-ranges) followed by a colon followed by an [event description](#event-description):
+An event is a [date range](/syntax/dates-and-ranges) followed by a colon followed by an [event description](/syntax/event-descriptions):
 
 ```
 12/2012: End of the world
@@ -34,7 +34,7 @@ Launched US into WWII
 | ISO8601 format. The `T` and `Z` are required.                                                              | `YYYY-MM-DD`T`HH:MM:SS:MS`Z                                                             | `1859-05-09T12:01:01Z`                                                                                                      |
 | [Relative Date](/syntax/dates-and-ranges#relative-dates) (base this date off of another)                   | `[after] [!eventId] Amount`                                                             | `after !Birthday 3 weeks 2 days`, `2 days - 3 months 4 days 8 seconds`, `!ww1 21 years - 6 years`                           |
 | Amount (used in relative dates)                                                                            | `[digit] [milliseconds\|seconds\|minutes\|hours\|days\|weeks\|months\|years]`           | `after !Birthday 3 weeks`, `2 days - 3 months`, `!ww1 21 years - 6 years`                                                   |
-| [Event description](#event-description)                                                                    | `([text]\|[Tag]\|[Location]\|[Link])*`                                                  | `07/2014: 4th of July in DC ![](https:/linktomyimage.com/imagelink.png) #Travel @sue @greg [Washington, DC](location)`      |
+| [Event description](/syntax/event-descriptions)                                                                    | `([text]\|[Tag]\|[Location]\|[Link])*`                                                  | `07/2014: 4th of July in DC ![](https:/linktomyimage.com/imagelink.png) #Travel @sue @greg [Washington, DC](location)`      |
 | [Tag](#tags)                                                                                               | `#[tag name]`                                                                           | `1999: The Matrix #Movies`                                                                                                  |
 | [Location](#locations)                                                                                     | `[location name](location\|map)`                                                        | `02/23/1836: Battle of the Alamo (The Alamo, TX)[map]`                                                                      |
 | [Link](#links)                                                                                             | `[display text](link)`                                                                  | `05/25/2021: [cascade.page](https://cascade.page) featured on [Hacker News](https://news.ycombinator.com/item?id=27282842)` |
