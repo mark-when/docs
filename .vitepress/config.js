@@ -3,6 +3,11 @@ export default {
   themeConfig: {
     siteTitle: "Markwhen",
     logo: "/icon_192.png",
+    algolia: {
+      appId: "TZGD5630J7",
+      apiKey: "d817da01577fa9553ed176b1115bb454",
+      indexName: "markwhen",
+    },
     sidebar: [
       {
         text: "Documentation",
@@ -63,7 +68,7 @@ export default {
       {
         text: "Web interface",
         link: "/interface",
-        items: [{ text: "Overview", link: "/interface/overview"}]
+        items: [{ text: "Overview", link: "/interface/overview" }],
       },
       {
         text: "Links",
