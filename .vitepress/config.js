@@ -93,4 +93,14 @@ export default {
       },
     ],
   },
+  head: [
+    [
+      "script",
+      {
+        defer: "",
+        src: "https://static.cloudflareinsights.com/beacon.min.js",
+        "data-cf-beacon": '{"token": "fb4546a09d0e498cac0a8f3630cf0d9f"}',
+      },
+    ],
+  ],
 };
