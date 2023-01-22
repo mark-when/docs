@@ -1,7 +1,5 @@
 <script setup>
-
 import Parser from "../src/Parser.vue"
-
 </script>
 
 # Playground

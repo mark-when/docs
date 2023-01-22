@@ -92,6 +92,10 @@ export default {
         ],
       },
     ],
+    socialLinks: [
+      { icon: "discord", link: "https://discord.gg/kQbqP4uz" },
+      { icon: "github", link: "https://github.com/mark-when/markwhen" },
+    ],
   },
   head: [
     [
