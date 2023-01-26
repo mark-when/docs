@@ -9,6 +9,8 @@ Markwhen is a text-to-timeline tool. You write markdown-ish text and it gets con
 
 Use the editor at [markwhen.com](https://markwhen.com).
 
+[View example timeline that uses all of markwhen's features](https://markwhen.com/example).
+
 <video autoplay loop playsinline muted src="https://blog.markwhen.com/images/jump.webm"></video>
 
 ![](https://blog.markwhen.com/images/calendar1.png)
