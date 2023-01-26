@@ -78,6 +78,10 @@ export default {
             link: "https://github.com/mark-when/markwhen",
           },
           {
+            text: "Example timeline",
+            link: "https://markwhen.com/example"
+          },
+          {
             text: "Markwhen.com",
             link: "https://markwhen.com",
           },
