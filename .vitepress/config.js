@@ -71,6 +71,20 @@ export default {
         items: [{ text: "Overview", link: "/interface/overview" }],
       },
       {
+        text: "Visualizations",
+        link: "/visualizations",
+        items: [
+          {
+            text: "Overview",
+            link: "/visualizations",
+          },
+          {
+            text: "Starter template",
+            link: "/visualizations/starter-template",
+          },
+        ],
+      },
+      {
         text: "Links",
         items: [
           {
@@ -79,7 +93,7 @@ export default {
           },
           {
             text: "Example timeline",
-            link: "https://markwhen.com/example"
+            link: "https://markwhen.com/example",
           },
           {
             text: "Markwhen.com",
