@@ -61,8 +61,6 @@ See [access control](#access-control).
 
 ## Editors
 
-<SubscriptionPillButtons/>
-
 Allow others to edit your shared document with an `edit` field in the header:
 
 ```

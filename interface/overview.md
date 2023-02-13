@@ -59,16 +59,6 @@ view: jill@webkit.org, corey@internetexplorer.com, *@example.com
 
 See [viewers](#viewers).
 
-### Exporting
-
-#### Text
-
-There are a few ways to export your markwhen file, all of which can be found in the export file menu. You can download a `.mw` file or copy the whole text document.
-
-![](/images/file_menu.png)
-
-And, while not in the file menu, by adding `.mw` to a shared markwhen.com page, you can view the page's raw text.
-
 ### Importing
 
 Similar to [exporting](#exporting) a markwhen page, you can import a markwhen file from your computer or load one via a url. Note that the url should return raw text (either `text/markwhen` or `text/plain`), **not** html.

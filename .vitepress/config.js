@@ -68,7 +68,10 @@ export default {
       {
         text: "Web interface",
         link: "/interface",
-        items: [{ text: "Overview", link: "/interface/overview" }],
+        items: [
+          { text: "Overview", link: "/interface/overview" },
+          { text: "Exporting", link: "/interface/exporting" },
+        ],
       },
       {
         text: "Visualizations",
