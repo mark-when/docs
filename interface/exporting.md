@@ -67,7 +67,7 @@ Supported query parameters:
 
 ### Caveats
 
-- It's not fast (yet).
+- Initial load is slow
 - Groups are not supported
 
 ## Text
