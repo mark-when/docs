@@ -16,3 +16,7 @@ Use the editor at [markwhen.com](https://markwhen.com).
 ![](https://blog.markwhen.com/images/calendar1.png)
 
 Read more about [markwhen's syntax](/syntax/overview), the [parser](/parser/playground), or [visualizations](/visualizations).
+
+## Diagram of repositories
+
+![](/images/markwhen.excalidraw.svg)

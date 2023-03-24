@@ -31,6 +31,19 @@ export default {
             link: "/parser/output",
           },
         ],
+        collapsible: true,
+        collapsed: true
+      },
+      {
+        text: "CLI",
+        items: [
+          { 
+            text: "Overview",
+            link: "/cli"
+          }
+        ],
+        collapsible: true,
+        collapsed: true
       },
       {
         text: "Syntax",
@@ -64,6 +77,8 @@ export default {
             link: "/syntax/pages",
           },
         ],
+        collapsible: true,
+        collapsed: true
       },
       {
         text: "Web interface",
@@ -72,6 +87,8 @@ export default {
           { text: "Overview", link: "/interface/overview" },
           { text: "Exporting", link: "/interface/exporting" },
         ],
+        collapsible: true,
+        collapsed: true
       },
       {
         text: "Visualizations",
@@ -86,6 +103,8 @@ export default {
             link: "/visualizations/starter-template",
           },
         ],
+        collapsible: true,
+        collapsed: true
       },
       {
         text: "Links",

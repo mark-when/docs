@@ -2,12 +2,14 @@
 
 Markwhen and markwhen.com are built to be extensible, primarily in that the app does not assume what kind of visualization will be used from the parsed text.
 
-All current visualizations are separate apps:
-|View|Repo|Framework|
-|---|---|---|
-|Timeline|[mark-when/timeline](https://github.com/mark-when/timeline)|Vue|
-|Calendar|[mark-when/calendar](https://github.com/mark-when/calendar)|React|
-|Map||Vue|
+[List of visualizations](https://github.com/mark-when/visualizations)
+
+|Name|Repo|Link|By|Notes|
+|---|---|---|---|---|
+|Timeline/gantt|[mark-when/timeline](https://github.com/mark-when/timeline)|[timeline.markwhen.com](https://timeline.markwhen.com)|[markwhen](https://github.com/mark-when)|Timeline and gantt view in one|
+|Calendar|[mark-when/calendar](https://github.com/mark-when/calendar)|[calendar.markwhen.com](https://calendar.markwhen.com)|[markwhen](https://github.com/mark-when)|Calendar|
+|Map||[map.markwhen.com](https:///map.markwhen.com)|[markwhen](https://github.com/mark-when)|Map|
+|Resume|[mark-when/resume](https://github.com/mark-when/resume)|[resume.markwhen.com](https://resume.markwhen.com)|[markwhen](https://github.com/mark-when)|Specific syntax, see [here]([https://github.com/kochrt/kochrt.github.io/resume.mw](https://github.com/kochrt/kochrt.github.io/blob/master/resume.mw)) for an example|
 
 ## Making your own view
 
