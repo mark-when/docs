@@ -82,7 +82,7 @@ view:
 
 Lack of a `view` line indicates that the document is public.
 
-See [access control](/interface/#access-control).
+See [access control](/interface/overview#access-control).
 
 ## Editors
 
