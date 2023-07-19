@@ -10,6 +10,7 @@ import SubscriptionPillButtons from "../src/SubscriptionPillButtons.vue"
   - [Editors](#editors)
   - [Tags and colors](#tags-and-colors)
   - [Date formatting](#date-formatting)
+  - [Imports](#imports)
   - [Header Quick Reference](#header-quick-reference)
 
 # Header / Frontmatter
@@ -21,7 +22,8 @@ The header is parsed as yaml, similar to frontmatter in some markdown parsers. A
 ```md
 title: Timeline
 key:
-  - entry
+
+- entry
 
 Dec 29 2029: Some date
 ```
@@ -67,7 +69,7 @@ description: These are the main events for the party, try to stick to the plan!!
 Limit access to your timeline by adding a `view:` entry:
 
 ```
-view: 
+view:
   - onlymypeople@example.com
   - myteam@example.com
 ```
@@ -76,7 +78,7 @@ Wildcards are also supported:
 
 ```
 // Anyone can view
-view: 
+view:
   - \*
 ```
 
@@ -91,7 +93,7 @@ See [access control](/interface/overview#access-control).
 Allow others to edit your shared document with an `edit` field in the header:
 
 ```
-edit: 
+edit:
   - onlymypeople@example.com
   - myteam@example.com
 ```
@@ -100,7 +102,7 @@ Wildcards are also supported:
 
 ```
 // Anyone can edit
-edit: 
+edit:
   - \*
 ```
 
@@ -135,6 +137,17 @@ dateFormat: d/M/y
 ```
 
 This is a hardcoded line, any other format attempt will not work. [See all supported date formats](/syntax/dates-and-ranges).
+
+## Imports
+
+You can import other shared markwhen into your own for viewing purposes, simply by adding it to an `import` list in the header:
+```
+import:
+  - blake/info-timeline
+  - priya/q3-q4
+```
+
+Events from imported timelines will be merged into visualizations.
 
 ## Header Quick Reference
 
