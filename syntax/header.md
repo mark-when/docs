@@ -64,36 +64,44 @@ description: These are the main events for the party, try to stick to the plan!!
 
 <SubscriptionPillButtons/>
 
-Limit access to your timeline by adding a `view:` line:
+Limit access to your timeline by adding a `view:` entry:
 
 ```
-view: onlymypeople@example.com, myteam@example.com
+view: 
+  - onlymypeople@example.com
+  - myteam@example.com
 ```
 
 Wildcards are also supported:
 
 ```
-// Anyone with an @example.com email address
-view: *@example.com
+// Anyone can view
+view: 
+  - \*
 ```
 
 Lack of a `view` line indicates that the document is public.
 
-See [access control](#access-control).
+See [access control](/interface/#access-control).
 
 ## Editors
+
+<SubscriptionPillButtons/>
 
 Allow others to edit your shared document with an `edit` field in the header:
 
 ```
-edit: onlymypeople@example.com, myteam@example.com
+edit: 
+  - onlymypeople@example.com
+  - myteam@example.com
 ```
 
 Wildcards are also supported:
 
 ```
-// Anyone with an @example.com email address
-edit: *@example.com
+// Anyone can edit
+edit: 
+  - \*
 ```
 
 Lack of an `edit` line indicates that no one besides the owner can edit it.

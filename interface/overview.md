@@ -26,13 +26,11 @@ Note that the interpolated events' date formats will be inferred from the date f
 
 To save a markwhen document, click the `Save locally` button from the `File` menu while on the Editor tab of the sidebar. It will be saved locally **in your browser**, and you can come back and edit or view it later, as long as it's on the same device.
 
-You can view markwhen documents that you've saved from the profile tab of the sidebar.
-
 ### Sharing
 
-#### Random url
+<SubscriptionPillButtons/>
 
-To share a markwhen document with a link, click the `Share` button. You do not need an account to do this.
+Sharing via links is a paid feature - subscribe in the web app to use it.
 
 #### Custom url
 
@@ -50,14 +48,14 @@ All in all, the steps are:
 Specify who can view your shared timeline by adding a `view` field to your header:
 
 ```
-// Only allow Jill, Corey, and everyone at example.com
+// Only allow Jill and Corey
 // to view this shared timeline
-view: jill@webkit.org, corey@internetexplorer.com, *@example.com
+view: 
+  - jill@webkit.org
+  - corey@internetexplorer.com
 ```
 
 **This only affects markwhen documents shared on markwhen.com**, and is a paid feature - you need a subscription for the `view` field to take effect.
-
-See [viewers](#viewers).
 
 ### Importing
 

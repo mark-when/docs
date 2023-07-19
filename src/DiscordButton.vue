@@ -3,7 +3,7 @@
 <template>
   <a
     class="text-gray-300 hover:text-gray-400"
-    href="https://discord.gg/kQbqP4uz"
+    href="https://discord.gg/NqwB2qTf"
     ><small class="flex flex-row items-center transition" style="gap: 0.25rem"
       ><svg
         xmlns="http://www.w3.org/2000/svg"

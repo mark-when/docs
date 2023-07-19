@@ -85,6 +85,7 @@ export default {
         link: "/interface",
         items: [
           { text: "Overview", link: "/interface/overview" },
+          { text: "Collaborative editing", link: '/interface/collaborative-editing' },
           { text: "Exporting", link: "/interface/exporting" },
         ],
         collapsible: true,
