@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { parse } from "@markwhen/parser";
 import { computed, ref, watch, toRaw, watchEffect, onMounted } from "vue";
+import JsonViewer from "vue-json-viewer";
 
 const text = ref(`title: My timeline example
 description: Hello, world!
@@ -43,32 +44,19 @@ onMounted(() => {
 
 <template>
   <div class="flex flex-col">
-    <div class="font-bold">Input</div>
-    <textarea
-      class="font-mono border border-solid dark:border-gray-700 border-gray-200 p-2 rounded text-sm h-96 bg-gray-100 dark:bg-gray-900"
-      v-model="text"
-    ></textarea>
-    <div class="flex flex-row items-center justify-center my-2">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="w-4 h-4"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
-        />
-      </svg>
+    <div class="flex flex-row">
+      <div class="flex flex-col w-1/2">
+        <div class="font-bold">Input</div>
+        <textarea
+          class="font-mono border border-solid dark:border-gray-700 border-gray-200 p-2 text-sm h-96 bg-gray-100 dark:bg-gray-900"
+          v-model="text"
+        ></textarea>
+      </div>
+      <div class="flex flex-col w-1/2">
+        <div class="font-bold">Output</div>
+        <JsonViewer :value="parsed"></JsonViewer>
+      </div>
     </div>
-    <div class="font-bold">Output</div>
-    <pre
-      class="text-sm overflow-scroll rounded border border-solid dark:border-gray-700 border-gray-200 p-2 h-96 bg-gray-100 dark:bg-gray-900"
-      >{{ textOutput }}</pre
-    >
     <p>
       You can also play with the parser and the output of the playground in the
       javascript console, with <code>window.parse</code> and
