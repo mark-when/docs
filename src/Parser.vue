@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { parse } from "@markwhen/parser";
-import { computed, ref, watch, toRaw, watchEffect, onMounted } from "vue";
-import JsonViewer from "vue-json-viewer";
+import { computed, ref, toRaw, watchEffect, onMounted } from "vue";
 
 const text = ref(`title: My timeline example
 description: Hello, world!
@@ -54,7 +53,10 @@ onMounted(() => {
       </div>
       <div class="flex flex-col w-1/2">
         <div class="font-bold">Output</div>
-        <JsonViewer :value="parsed"></JsonViewer>
+        <pre
+          class="text-sm overflow-scroll rounded border border-solid dark:border-gray-700 border-gray-200 p-2 h-96 bg-gray-100 dark:bg-gray-900"
+          >{{ textOutput }}</pre
+        >
       </div>
     </div>
     <p>

@@ -20,7 +20,6 @@
   },
   "dependencies": {
     "@markwhen/parser": "^0.9.1",
-    "shiki": "^0.11.1",
-    "vue-json-viewer": "^3.0.4"
+    "shiki": "^0.11.1"
   }
 }
