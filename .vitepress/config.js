@@ -87,7 +87,7 @@ export default {
           { text: "Overview", link: "/interface/overview" },
           { text: "Collaborative editing", link: '/interface/collaborative-editing' },
           { text: "Snippets", link: '/interface/snippets' },
-          { text: "Exporting", link: "/interface/exporting" },
+          { text: "Commands", link: "/interface/commands" },
         ],
         collapsible: true,
         collapsed: true
