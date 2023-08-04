@@ -7,7 +7,9 @@ Commands are code that you write that can be executed either via keymap or butto
 
 ## Built in functions
 
-The following functions are built in and can be accessed from any command you write:
+<details><summary>
+The following functions are built in and can be accessed from any command you write. The code is here for your reference:
+</summary>
 
 ```js
 function isEventNode(node) {
@@ -40,6 +42,7 @@ const nodeFromStringIndex = (cursor) => {
   }
 };
 ```
+</details>
 
 ## Command library & examples
 
