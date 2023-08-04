@@ -41,9 +41,9 @@ const nodeFromStringIndex = (cursor) => {
 };
 ```
 
-## Examples
+## Command library & examples
 
-Insert the text "Hello world" at the beginning of the document:
+<details><summary>Insert the text "Hello world" at the beginning of the document</summary>
 
 ```js
 return {
@@ -55,8 +55,8 @@ return {
   ],
 };
 ```
-
-Remove all vowels in the selected text:
+</details>
+<details><summary>Remove all vowels in the selected text</summary>
 
 ```js
 const selection = context.editor.selections.main;
@@ -77,8 +77,9 @@ return {
   ],
 };
 ```
-
-Check all checkboxes in an event:
+</details>
+<details><summary>
+Check all checkboxes in an event</summary>
 
 ```js
 const node = nodeFromStringIndex(context.editor.selections.main.from)
@@ -103,3 +104,4 @@ return {
   }]
 }
 ```
+</details>
