@@ -145,4 +145,4 @@ Basically, do not expect smart merging of tags' properties:
 2021: Was working while in school #school #work
 ```
 
-Events tagged with both `#school` and `#work` will not be colored orange because `#school` is red and `#work` is yellow. It will be one or the other. Similarly with timezones -- an event can't simultaneously have two different timezones. You should be specific with your tags.
+Events tagged with both `#school` and `#work` will not be colored orange because `#school` is red and `#work` is yellow. It will be one or the other. Similarly with timezones -- an event can't simultaneously have two different timezones. You should be specific with your tags. Reminders, however, are cumulative. If you have different reminders set on two different tags, an event with both tags will receive both sets of reminders.
