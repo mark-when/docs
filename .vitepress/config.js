@@ -57,6 +57,10 @@ export default {
             link: "/syntax/header",
           },
           {
+            text: "Tags",
+            link: "/syntax/tags"
+          },
+          {
             text: "Events",
             link: "/syntax/events",
           },
