@@ -11,9 +11,9 @@
 }
 
 .outline-marker {
-  width: 4px !important;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  width: 8px !important;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .planPill {

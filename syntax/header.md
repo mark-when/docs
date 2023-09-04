@@ -3,16 +3,6 @@ import SubscriptionPillButtons from "../src/SubscriptionPillButtons.vue"
 
 </script>
 
-- [Header / Frontmatter](#header--frontmatter)
-  - [Title](#title)
-  - [Description](#description)
-  - [Viewers](#viewers)
-  - [Editors](#editors)
-  - [Tags and colors](#tags-and-colors)
-  - [Date formatting](#date-formatting)
-  - [Imports](#imports)
-  - [Header Quick Reference](#header-quick-reference)
-
 # Header / Frontmatter
 
 The header of a timeline indicates things about the timeline like visual preferences and metadata. It is the first part of a timeline; that is, anything before the first event is considered the header.
@@ -108,7 +98,7 @@ edit:
 
 Lack of an `edit` line indicates that no one besides the owner can edit it.
 
-## Tags and colors
+## Tags
 
 You can indicate the color you want certain tagged events to appear like so:
 
@@ -127,6 +117,10 @@ So, if you have an event like the following
 ```
 
 it will be colored as blue in the timeline view.
+
+### Advanced
+
+Documentation for advanced tag configurations, including timezones and reminders, can be found [here](/syntax/tags).
 
 ## Date formatting
 
@@ -149,6 +143,9 @@ import:
 
 Events from imported timelines will be merged into visualizations.
 
+## Timezones
+
+
 ## Header Quick Reference
 
 | Item                                                  | Syntax                       | Example                                         |
@@ -159,3 +156,4 @@ Events from imported timelines will be merged into visualizations.
 | Description of the page                               | `description: <description>` | `description: If anything looks off here, lmk!` |
 | Viewers                                               | `view: <viewer emails>`      | `view: you@example.com`                         |
 | Editors                                               | `edit: <editor emails>`      | `edit: otherperson@example.com`                 |
+| Timezones                                             | `timezone: <timezone>`       | `timezone: +5` or `timezone: America/New_York`  |
