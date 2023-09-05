@@ -9,7 +9,7 @@ const { Layout } = DefaultTheme;
     <template #aside-outline-after>
       <a
         class="dark:text-gray-400"
-        href="https://discord.gg/NqwB2qTf"
+        href="https://discord.gg/3rTpUD94ac"
         style="padding-top: 0.5rem; padding-left: 1rem"
         ><small
           class="flex flex-row items-center transition"

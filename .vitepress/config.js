@@ -139,7 +139,7 @@ export default {
       },
     ],
     socialLinks: [
-      { icon: "discord", link: "https://discord.gg/kQbqP4uz" },
+      { icon: "discord", link: "https://discord.gg/3rTpUD94ac" },
       { icon: "github", link: "https://github.com/mark-when/markwhen" },
     ],
   },
