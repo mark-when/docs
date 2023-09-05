@@ -90,7 +90,18 @@ Time zones can be specified by their name, like `America/Los_Angeles`, or by a o
 ## Reminders
 
 <SubscriptionPillButtons></SubscriptionPillButtons>
-Markwhen.com can send you email reminders about events. You can specify reminders on your tags:
+Markwhen.com can send you email reminders about events. If you want to get reminders for all events, specify a top-level entry in your header:
+
+```
+---
+title: Important meetings
+reminders: [1 day]
+---
+
+2023-09-08: ...
+```
+
+Alternatively you can specify reminders on specific tags, to only receive reminders about events that have that tag:
 
 ```
 #work:
@@ -131,6 +142,8 @@ You may get even more specific with your reminders with `beforeBegin`, `afterBeg
 
 Sep 8 2023 9am: Suport important meeting #work
 ```
+
+Note that currently reminders do not work with recurring events - only the first instance of the event will trigger any applicable reminders.
 
 ## Multiple tags
 
