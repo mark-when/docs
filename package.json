@@ -19,7 +19,7 @@
     "vitepress": "^1.0.0-alpha.40"
   },
   "dependencies": {
-    "@markwhen/parser": "^0.9.1",
+    "@markwhen/parser": "^0.10.5",
     "shiki": "^0.11.1"
   }
 }

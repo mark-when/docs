@@ -87,7 +87,7 @@ This way, any event that isn't otherwise explicitly given a zone will be in the 
 
 Time zones can be specified by their name, like `America/Los_Angeles`, or by a offset, like `+5` or `-3`.
 
-## Reminders
+## Reminders (beta)
 
 <SubscriptionPillButtons></SubscriptionPillButtons>
 Markwhen.com can send you email reminders about events. If you want to get reminders for all events, specify a top-level entry in your header:
