@@ -85,7 +85,7 @@ export default {
         collapsed: true
       },
       {
-        text: "Web interface",
+        text: "Web app",
         link: "/interface",
         items: [
           { text: "Overview", link: "/interface/overview" },

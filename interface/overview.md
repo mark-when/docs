@@ -1,4 +1,4 @@
-# Web interface
+# Web app
 
 ## Sorting
 
