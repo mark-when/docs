@@ -1,4 +1,4 @@
-# Web app
+# Editor
 
 ## Sorting
 
