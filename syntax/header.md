@@ -1,8 +1,3 @@
-<script setup>
-import SubscriptionPillButtons from "../src/SubscriptionPillButtons.vue"
-
-</script>
-
 # Header / Frontmatter
 
 The header of a timeline indicates things about the timeline like visual preferences and metadata. It is the first part of a timeline; that is, anything before the first event is considered the header.
@@ -54,8 +49,6 @@ description: These are the main events for the party, try to stick to the plan!!
 
 ## Viewers
 
-<SubscriptionPillButtons/>
-
 Limit access to your timeline by adding a `view:` entry:
 
 ```
@@ -77,8 +70,6 @@ Lack of a `view` line indicates that the document is public.
 See [access control](/interface/overview#access-control).
 
 ## Editors
-
-<SubscriptionPillButtons/>
 
 Allow others to edit your shared document with an `edit` field in the header:
 
@@ -135,6 +126,7 @@ This is a hardcoded line, any other format attempt will not work. [See all suppo
 ## Imports
 
 You can import other shared markwhen into your own for viewing purposes, simply by adding it to an `import` list in the header:
+
 ```
 import:
   - blake/info-timeline
@@ -144,7 +136,6 @@ import:
 Events from imported timelines will be merged into visualizations.
 
 ## Timezones
-
 
 ## Header Quick Reference
 

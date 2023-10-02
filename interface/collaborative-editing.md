@@ -1,9 +1,5 @@
 # Collaborative editing
 
-<div style="padding-top: 0.25rem; padding-bottom: 0.25rem;">
-  <SubscriptionPillButtons />
-</div>
-
 ![](/images/team3.png)
 
 Markwhen shared via `app.markwhen.com` support live collaborative editing - simply share the link with those you want to collaborate with.

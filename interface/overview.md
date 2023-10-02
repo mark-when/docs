@@ -28,17 +28,13 @@ To save a markwhen document, click the `Save locally` button from the `File` men
 
 ### Sharing
 
-<SubscriptionPillButtons/>
-
-Sharing via links is a paid feature - subscribe in the web app to use it.
-
 #### Custom url
 
 To share a markwhen document with a custom link like `/jeff/mylife`, and to be able to edit it later, you will need to make an account. You can make an account by sending yourself a signin link from the profile page. Once signed in, you will need to choose a username from which your markwhen documents will be hosted. For example, if you choose the name `jeff`, all your markwhen documents will be accessible from `https://markwhen.com/jeff/...`. If you share a markwhen document with the same name as your username, it will be accessible from `https://markwhen.com/[your username]/`, otherwise, it will be accessible from `https://markwhen.com/[your username]/[markwhen name]`.
 
 All in all, the steps are:
 
-1. Send yourself a signin link from the profile tab.
+1. Send yourself a signin link.
 2. Click the link to login.
 3. Choose a username - all your shared timelines will be available from `https://markwhen.com/[your username]/...`
 4. Share your markwhen page
@@ -55,7 +51,7 @@ view:
   - corey@internetexplorer.com
 ```
 
-**This only affects markwhen documents shared on markwhen.com**, and is a paid feature - you need a subscription for the `view` field to take effect.
+**This only affects markwhen documents shared on markwhen.com**.
 
 ### Importing
 
