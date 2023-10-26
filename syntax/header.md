@@ -135,8 +135,6 @@ import:
 
 Events from imported timelines will be merged into visualizations.
 
-## Timezones
-
 ## Header Quick Reference
 
 | Item                                                  | Syntax                       | Example                                         |

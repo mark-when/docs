@@ -32,18 +32,18 @@ export default {
           },
         ],
         collapsible: true,
-        collapsed: true
+        collapsed: false,
       },
       {
         text: "CLI",
         items: [
-          { 
+          {
             text: "Overview",
-            link: "/cli"
-          }
+            link: "/cli",
+          },
         ],
         collapsible: true,
-        collapsed: true
+        collapsed: false,
       },
       {
         text: "Syntax",
@@ -58,7 +58,7 @@ export default {
           },
           {
             text: "Tags",
-            link: "/syntax/tags"
+            link: "/syntax/tags",
           },
           {
             text: "Events",
@@ -77,24 +77,31 @@ export default {
             link: "/syntax/groups-and-sections",
           },
           {
-            text: "Pages",
-            link: "/syntax/pages",
+            text: "Reminders",
+            link: "/syntax/reminders",
+          },
+          {
+            text: "Timezones",
+            link: "/syntax/timezones",
           },
         ],
         collapsible: true,
-        collapsed: true
+        collapsed: false,
       },
       {
         text: "Editor",
         link: "/interface",
         items: [
           { text: "Overview", link: "/interface/overview" },
-          { text: "Collaborative editing", link: '/interface/collaborative-editing' },
-          { text: "Snippets", link: '/interface/snippets' },
+          {
+            text: "Collaborative editing",
+            link: "/interface/collaborative-editing",
+          },
+          { text: "Snippets", link: "/interface/snippets" },
           { text: "Commands", link: "/interface/commands" },
         ],
         collapsible: true,
-        collapsed: true
+        collapsed: false,
       },
       {
         text: "Visualizations",
@@ -110,7 +117,7 @@ export default {
           },
         ],
         collapsible: true,
-        collapsed: true
+        collapsed: false,
       },
       {
         text: "Links",
