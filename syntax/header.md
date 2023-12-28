@@ -65,7 +65,7 @@ view:
   - \*
 ```
 
-Lack of a `view` line indicates that the document is public.
+Lack of a `view` or `edit` entry in the header indicates that the document is private.
 
 See [access control](/interface/overview#access-control).
 
@@ -87,7 +87,7 @@ edit:
   - \*
 ```
 
-Lack of an `edit` line indicates that no one besides the owner can edit it.
+Lack of an `edit` entry indicates that no one besides the owner can edit it.
 
 ## Tags
 
