@@ -2,7 +2,7 @@
 
 Snippets allow you to define autocompletions that active as you type. A `prefix` is the text that you type to trigger the snippet, and the `template` is the text that gets inserted replacing the prefix.
 
-For example, you may find typing `check` easier than `- [] ` - you can define a snippet that will make that replacement:
+For example, you may find typing `todo` easier than `- [] ` - you can define a snippet that will make that replacement:
 
 ![](/images/snippets1.png)
 ![](/images/snippets2.png)
@@ -18,5 +18,5 @@ Have additional suggestions? Make a PR [here](https://github.com/mark-when/docs)
 
 |Prefix|Template|
 |---|---|
-|`check`|`- [${}] ${}`|
+|`todo`|`- [${}] ${}`|
 |`location`|`[${}](location)`|
