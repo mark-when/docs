@@ -54,7 +54,7 @@ For vizualizations that support locations, add a property to the event:
 
 ```
 09/2018: Road trip to Seattle
-locations: Devil's Tower, Glacier National Park, Seattle
+locations: [Devil's Tower, Glacier National Park, Seattle]
 ```
 
 ```
