@@ -15,7 +15,7 @@ Markwhen and markwhen.com are built to be extensible, primarily in that the app 
 
 ### View client library
 
-Views communicate with the renderer/editor via [the view client library](http://www.npmjs.com/package/@markwhen/view-client) ([github](https://github.com/mark-when/view-client)).
+Views communicate with the renderer/editor via [the view client library](http://www.npmjs.com/package/@markwhen/view-client) ([GitHub](https://github.com/mark-when/view-client)).
 
 The simplest implementation of a markwhen view would look something like the following:
 

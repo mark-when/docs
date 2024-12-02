@@ -4,6 +4,6 @@ import Parser from "../src/Parser.vue"
 
 # Playground
 
-[Markwhen parser on github](https://github.com/mark-when/parser)
+[Markwhen parser on GitHub](https://github.com/mark-when/parser)
 
 <Parser/>
