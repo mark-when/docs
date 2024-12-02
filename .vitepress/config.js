@@ -123,7 +123,7 @@ export default {
         text: "Links",
         items: [
           {
-            text: "Github",
+            text: "GitHub",
             link: "https://github.com/mark-when/markwhen",
           },
           {
