@@ -26,10 +26,6 @@ export interface Timeline {
 export interface TimelineMetadata {
   earliestTime: DateTimeIso;
   latestTime: DateTimeIso;
-  startLineIndex: number;
-  startStringIndex: number;
-  endLineIndex: number;
-  endStringIndex: number;
   maxDurationDays: number;
   preferredInterpolationFormat: string | undefined;
 }
