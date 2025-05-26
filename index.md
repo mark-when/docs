@@ -1,15 +1,15 @@
 ---
-title: Overview
-description: Documentation on how to use and create timelines
+title: Markwhen
+description: Markwhen documentation
 ---
 
-# Overview
+# Markwhen
 
-Markwhen is a text-to-timeline tool. You write markdown-ish text and it gets converted into a nice looking cascading timeline or other [visualizations](/visualizations).
+Markwhen is a markdown-like journal language. You write markdown-ish text and it gets converted into a nice looking cascading timeline or other [view](/visualizations).
 
-Use the editor at [markwhen.com](https://markwhen.com).
+Use the editor at [meridiem.markwhen.com](https://meridiem.markwhen.com).
 
-[View example timeline that uses all of markwhen's features](https://markwhen.com/example).
+[View example timeline that uses all of markwhen's features](https://meridiem.markwhen.com/example).
 
 <video autoplay loop playsinline muted src="https://blog.markwhen.com/images/jump.webm"></video>
 
