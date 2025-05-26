@@ -10,16 +10,6 @@ export default {
     },
     sidebar: [
       {
-        text: "Documentation",
-        link: "/",
-        items: [
-          {
-            text: "Overview",
-            link: "/",
-          },
-        ],
-      },
-      {
         text: "Parser",
         items: [
           {
