@@ -1,4 +1,19 @@
+import tailwindcss from "@tailwindcss/vite";
+import { postcssIsolateStyles } from "vitepress";
+
 export default {
+  vite: {
+    plugins: [tailwindcss()],
+    css: {
+      postcss: {
+        plugins: [
+          postcssIsolateStyles({
+            includeFiles: [/vp-doc\.css/, /base\.css/],
+          }),
+        ],
+      },
+    },
+  },
   title: "Markwhen Documentation",
   themeConfig: {
     siteTitle: "Markwhen",

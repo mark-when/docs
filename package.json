@@ -13,7 +13,9 @@
   "license": "MIT",
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.7",
-    "postcss": "^8.4.47",
+    "@tailwindcss/vite": "^4.1.7",
+    "postcss": "^8.5.3",
+    "postcss-prefix-selector": "^2.1.1",
     "tailwindcss": "^4.1.7",
     "typescript": "^5.8.3",
     "vitepress": "^1.6.3"
