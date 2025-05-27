@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --vp-c-brand: #646cff;
@@ -33,4 +34,8 @@
   color: rgb(107 33 168);
   background-color: rgb(243 232 255);
   border-color: rgb(233 213 255);
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: unset !important;
 }

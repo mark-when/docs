@@ -99,16 +99,15 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-1 z-0">
+  <div class="flex gap-1 xl:flex-row flex-col">
     <fieldset
-      class="border border-zinc-400 p-3 rounded-sm flex flex-col gap-2 bg-zinc-100"
+      class="border dark:border-zinc-600 border-zinc-200 p-3 rounded-sm flex flex-col gap-2"
     >
       <legend class="playfair inline-table">
         <span class="px-1 mx-1">Markwhen input</span>
       </legend>
       <div class="flex flex-row gap-2 wrap flex-wrap vp-raw">
         <ExampleButton
-          class="vp-raw border"
           v-for="example in Object.keys(ex)"
           :selected="exampleSelected === example"
           @click="exampleSelected = example"
@@ -116,15 +115,13 @@ watchEffect(() => {
         >
       </div>
       <ContentEditable
-        class="border border-zinc-400"
+        class="border border-zinc-200 dark:border-zinc-600"
         v-for="example in Object.keys(ex)"
         v-model="ex[example]"
         v-show="exampleSelected === example"
       ></ContentEditable>
     </fieldset>
-    <div
-      class="flex flex-row items-center justify-center text-zinc-400 lg:h-4 lg:w-4"
-    >
+    <div class="flex items-center justify-center text-zinc-400">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -135,17 +132,17 @@ watchEffect(() => {
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="h-4 w-4 mt-2 lg:hidden"
+        class="h-4 w-4 xl:rotate-270 mt-2 xl:mt-0"
       >
         <path d="M12 5v14" />
         <path d="m19 12-7 7-7-7" />
       </svg>
     </div>
     <fieldset
-      class="border border-zinc-400 p-3 rounded-sm flex flex-col gap-2 bg-zinc-100"
+      class="border dark:border-zinc-600 border-zinc-200 p-3 rounded-sm flex flex-col gap-2"
     >
-      <legend class="px-1 mx-1 playfair bg-zinc-100 inline-table">
-        Output
+      <legend class="playfair inline-table">
+        <span class="px-1 mx-1">Output</span>
       </legend>
       <div class="flex flex-row gap-2">
         <ExampleButton
@@ -157,12 +154,12 @@ watchEffect(() => {
       </div>
       <div
         v-show="outputSelected === 'JSON'"
-        class="bg-zinc-50 rounded-s h-80 font-mono text-xs p-2 whitespace-pre-wrap overflow-scroll"
+        class="bg-zinc-50 dark:bg-zinc-700 rounded-sm h-80 font-mono text-xs p-2 whitespace-pre-wrap overflow-scroll border border-zinc-200 dark:border-zinc-600"
       >
         {{ parseOutput }}
       </div>
       <div
-        class="bg-zinc-50 rounded-s h-80 font-mono text-xs p-2 whitespace-pre-wrap overflow-scroll border border-zinc-400"
+        class="bg-zinc-50 rounded-sm h-80 font-mono text-xs p-2 whitespace-pre-wrap overflow-scroll"
         v-show="outputSelected === 'Timeline'"
       >
         <iframe
@@ -173,7 +170,7 @@ watchEffect(() => {
         ></iframe>
       </div>
       <div
-        class="bg-zinc-50 rounded-s h-80 font-mono text-xs p-2 whitespace-pre-wrap overflow-scroll"
+        class="bg-zinc-50 rounded-sm h-80 font-mono text-xs p-2 whitespace-pre-wrap overflow-scroll"
         v-show="outputSelected === 'Calendar'"
       >
         <iframe
@@ -183,7 +180,7 @@ watchEffect(() => {
         ></iframe>
       </div>
       <div
-        class="bg-zinc-50 rounded-s h-80 font-mono text-xs p-2 whitespace-pre-wrap overflow-scroll"
+        class="bg-zinc-50 rounded-sm h-80 font-mono text-xs p-2 whitespace-pre-wrap overflow-scroll"
         v-show="outputSelected === 'Oneview'"
       >
         <iframe ref="oneviewFrame" :src="ovUrl" class="w-full h-full"></iframe>
