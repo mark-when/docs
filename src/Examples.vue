@@ -99,7 +99,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="flex gap-1 xl:flex-row flex-col">
+  <div class="flex gap-1 flex-col">
     <fieldset
       class="border dark:border-zinc-600 border-zinc-200 p-3 rounded-sm flex flex-col gap-2"
     >
@@ -132,7 +132,7 @@ watchEffect(() => {
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="h-4 w-4 xl:rotate-270 mt-2 xl:mt-0"
+        class="h-4 w-4 mt-2"
       >
         <path d="M12 5v14" />
         <path d="m19 12-7 7-7-7" />

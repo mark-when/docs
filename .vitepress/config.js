@@ -25,38 +25,34 @@ export default {
     },
     sidebar: [
       {
-        text: "Parser",
+        text: "Introduction",
+        link: "/",
         items: [
           {
-            text: "Playground",
-            link: "/parser/playground",
+            text: "Markdown-like",
+            link: "/markdown-like",
           },
           {
-            text: "Output",
-            link: "/parser/output",
+            text: "Journal language",
+            link: "/journal-language",
           },
-        ],
-        collapsible: true,
-        collapsed: false,
-      },
-      {
-        text: "CLI",
-        items: [
           {
-            text: "Overview",
+            text: "Parser",
+            link: "/parser",
+          },
+          {
+            text: "CLI",
             link: "/cli",
           },
         ],
         collapsible: true,
         collapsed: false,
       },
+
       {
         text: "Syntax",
+        link: "/syntax",
         items: [
-          {
-            text: "Overview",
-            link: "/syntax/overview",
-          },
           {
             text: "Header",
             link: "/syntax/header",

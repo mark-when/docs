@@ -1,6 +1,6 @@
 ---
-title: Markwhen
-description: Markwhen documentation
+title: Introduction
+description: Markwhen Introduction
 ---
 
 <script setup lang="ts">
@@ -8,9 +8,9 @@ import Example from "./src/Examples.vue"
 import ExampleButton from "./src/ExampleButton.vue"
 </script>
 
-# Markwhen
+# Introduction
 
-Markwhen is a markdown-like journal language. You write markdown-ish text and it gets converted into JSON which can then be rendered into a timeline or other [view](/visualizations).
+Markwhen is a [markdown-like](/markdown-like) [journal language](/journal-language). You write markdown-ish text and it gets converted into JSON which can then be rendered into a timeline or other [view](/visualizations).
 
 Use the editor at [meridiem.markwhen.com](https://meridiem.markwhen.com).
 

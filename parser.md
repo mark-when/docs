@@ -1,4 +1,20 @@
+<script setup>
+import Examples from "./src/Examples.vue"
+</script>
+
+# Parser
+
+[Markwhen parser on github](https://github.com/mark-when/parser)
+
+<Examples class="vp-raw"/>
+
 # Output
+
+Though views are the most visible output of markwhen, the actual output of the parser is a `JSON` object. Each view ingests this intermediate object to produce its visualization.
+
+::: tip Read more
+Read more about [how views work](/visualizations).
+:::
 
 The parser produces an array of timelines and associated metadata:
 
@@ -60,7 +76,8 @@ const lastInTree = getLast(mw)
 // Groups and sections are flattened to return an array of events only
 const eventsOnly = flat(mw)
 
-const eventTitles = flatMap(mw, (event) => event.firstLine.datePart)
+// The first line is separated into the `datePart` and "the rest" - the title would be considered "the rest"
+const eventTitles = flatMap(mw, (event) => event.firstLine.restTrimmed)
 
 // Determine whether an eventy has an event as its value
 const event = isEvent(mw)
