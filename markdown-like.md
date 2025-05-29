@@ -1,8 +1,8 @@
 # Markdown-like
 
-Markwhen is not markdown, but it is heavily inspired by markdown. Markwhen has its own [parser](https://github.com/mark-when/parser) but does not have a "built in" output format, aside from JSON. This is unlike markdown, which [historically produces `html`](https://daringfireball.net/projects/markdown/). While markdown blocks [correspond to html elements](https://github.github.com/gfm/), there is no analog in markwhen nor is there a preferred rendering for markwhen. Though the timeline view is the most popular view to render markwhen, it is not the only one. Remaining agnostic to whatever view is rendering markwhen is a goal of the language.
+Markwhen is not markdown, but it is heavily inspired by markdown. Markwhen has its own [parser](https://github.com/mark-when/parser) but does not have a "built in" output format, aside from JSON. This is unlike markdown, which [historically produces `html`](https://daringfireball.net/projects/markdown/). While markdown blocks [correspond to html elements](https://github.github.com/gfm/), there is no analog in markwhen nor is there a preferred rendering for markwhen. The timeline view is the most popular view to render markwhen, but it is not the only one. Remaining agnostic to whatever view is rendering markwhen is a goal of the language.
 
-This distinguishment of markwhen from markdown is completely on purpose: the content, structure, and most likely desired rendering of markwhen is different than markdown. They are definitly similar, but it is its own type of file.
+This distinguishment of markwhen from markdown is on purpose: the content, structure, and most likely desired rendering of markwhen is different than markdown. They are definitly similar, but it is its own type of file.
 
 ---
 

@@ -39,3 +39,48 @@
 .VPDoc.has-aside .content-container {
   max-width: unset !important;
 }
+
+code {
+  .listItemIndicator {
+    @apply dark:text-yellow-300 text-yellow-700;
+  }
+  .checkboxItemIndicator {
+    @apply dark:text-yellow-300 text-yellow-700;
+  }
+  .frontMatterDelimiter {
+    @apply dark:text-zinc-500 text-zinc-400;
+  }
+  .headerKey {
+    @apply dark:text-stone-400 text-stone-500;
+  }
+  .headerKeyColon {
+    @apply text-zinc-500;
+  }
+  .headerValue {
+    @apply dark:text-slate-400 text-slate-500;
+  }
+  .propertyKey {
+    @apply dark:text-stone-400 text-stone-500;
+  }
+  .propertyValue {
+    @apply dark:text-slate-400 text-slate-500;
+  }
+  .propertyKeyColon {
+    @apply text-zinc-500;
+  }
+  .recurrence {
+    @apply text-orange-700 dark:text-orange-400;
+  }
+  .dateRange {
+    @apply text-amber-800 dark:text-amber-500;
+  }
+  .dateRangeColon {
+    @apply dark:text-zinc-400 text-zinc-500;
+  }
+  .comment {
+    @apply text-zinc-500 dark:text-zinc-400;
+  }
+  .tag {
+    @apply text-blue-800 dark:text-blue-300;
+  }
+}

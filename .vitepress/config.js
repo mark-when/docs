@@ -1,7 +1,27 @@
 import tailwindcss from "@tailwindcss/vite";
-import { postcssIsolateStyles } from "vitepress";
+import { defineConfig, postcssIsolateStyles } from "vitepress";
+import { highlight } from "./highlight";
 
-export default {
+export function extractTitle(info, html = false) {
+  if (html) {
+    return (
+      info.replace(/<!--[^]*?-->/g, "").match(/data-title="(.*?)"/)?.[1] || ""
+    );
+  }
+  return info.match(/\[(.*)\]/)?.[1] || extractLang(info) || "txt";
+}
+
+function extractLang(info) {
+  return info
+    .trim()
+    .replace(/=(\d*)/, "")
+    .replace(/:(no-)?line-numbers({| |$|=\d*).*/, "")
+    .replace(/(-vue|{| ).*$/, "")
+    .replace(/^vue-html$/, "template")
+    .replace(/^ansi$/, "");
+}
+
+export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     css: {
@@ -12,6 +32,46 @@ export default {
           }),
         ],
       },
+    },
+  },
+  markdown: {
+    config: (md) => {
+      const originalFence =
+        md.renderer.rules.fence ||
+        function (tokens, idx, options, env, renderer) {
+          return renderer.renderToken(tokens, idx, options);
+        };
+
+      md.renderer.rules.fence = function (tokens, idx, options, env, renderer) {
+        const token = tokens[idx];
+
+        const lang = extractLang(token.info);
+        // Handle your custom language
+        if (lang === "mw") {
+          const highlighted = highlight(token.content);
+
+          // remove title from info
+          token.info = token.info.replace(/\[.*\]/, "");
+
+          const active = / active( |$)/.test(token.info) ? " active" : "";
+          token.info = token.info
+            .replace(/ active$/, "")
+            .replace(/ active /, " ");
+
+          return (
+            `<div class="language-${lang}${active}">` +
+            `<button title="${options.codeCopyButtonTitle}" class="copy"></button>` +
+            `<span class="lang">${lang}</span>` +
+            `<pre><code>` +
+            highlighted +
+            `</code></pre>` +
+            "</div>"
+          );
+        }
+
+        // Use original renderer for everything else
+        return originalFence(tokens, idx, options, env, renderer);
+      };
     },
   },
   title: "Markwhen Documentation",
@@ -48,19 +108,10 @@ export default {
         collapsible: true,
         collapsed: false,
       },
-
       {
         text: "Syntax",
         link: "/syntax",
         items: [
-          {
-            text: "Header",
-            link: "/syntax/header",
-          },
-          {
-            text: "Tags",
-            link: "/syntax/tags",
-          },
           {
             text: "Events",
             link: "/syntax/events",
@@ -73,18 +124,27 @@ export default {
             text: "Event Descriptions",
             link: "/syntax/event-descriptions",
           },
+
           {
             text: "Groups and Sections",
             link: "/syntax/groups-and-sections",
           },
           {
-            text: "Reminders",
-            link: "/syntax/reminders",
+            text: "Header",
+            link: "/syntax/header",
+          },
+          {
+            text: "Tags",
+            link: "/syntax/tags",
           },
           {
             text: "Timezones",
             link: "/syntax/timezones",
           },
+          // {
+          //   text: "Reminders",
+          //   link: "/syntax/reminders",
+          // },
         ],
         collapsible: true,
         collapsed: false,
@@ -161,4 +221,4 @@ export default {
       },
     ],
   ],
-};
+});
