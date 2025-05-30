@@ -6,9 +6,9 @@ import Exposition from "../src/Exposition.vue"
 
 Markwhen supports a variety of date formats and mechanisms for expressing periods of time.
 
-[Extended date time format](https://www.loc.gov/standards/datetime/) (EDTF) is the recommended syntax for expressing dates and ranges. When parsing, EDTF takes precedence over other date formats mentioned here. So if there is some ambiguity in how a date range is expressed, and it fits the EDTF range format, it will be parsed as EDTF.
+[Extended date time format](https://www.loc.gov/standards/datetime/) (EDTF) is the recommended syntax for expressing dates and ranges. When parsing, EDTF takes precedence over other date formats mentioned here -- if there is some ambiguity in how a date range is expressed, and it fits the EDTF range format, it will be parsed as EDTF.
 
-Every event has an associated date range, whether it has an explicitly written end date or not. A date range is a period from one date to another.
+Every event has an associated **date range**, whether it has an explicitly written end date or not. A **date range** is a **period from one date to another**.
 
 ## EDTF Date
 
@@ -74,8 +74,7 @@ starts January 1, 2001, and lasts through December 31, 2001.
 
 ::: warning Ambiguous formats
 
-Markwhen is meant to be easy to pick up and immediately useful. Part of that includes support for dates and date ranges that are probably less specific than they should be. For example,
-`April 1 - June 18`, `Nov 11 2:30`, `2020 - now` are all perfectly valid markwhen date ranges but, due to either their lack of year or changing ranges, **will mean something different if parsed in the future - i.e. next year**. You should think twice about using any date syntax that is ambiguous to ensure it's really what you want.
+Markwhen is meant to be easy to pick up and immediately useful. Part of that simplicity means including support for dates and date ranges that are probably less specific than they should be. For example, `April 1 - June 18`, `Nov 11 2:30`, and `2020 - now` are all perfectly valid markwhen date ranges but, due to either their lack of year or changing ranges, **will mean something different when parsed in the future**. You should **think twice about using any date syntax that is ambiguous** to ensure it's really what you want.
 :::
 
 ## Relative Dates
@@ -129,9 +128,7 @@ Relative dates base themselves off the previous date, and this goes all the way 
 
 This works well enough for serial dates that are each dependent on the last, but what if we have multiple events that are all dependent on the same event? We can do that using event ids:
 
-<Exposition :expo="[[[1, 2], 'Event id']]">
-
-```mw
+```mw{2}
 01/01/2023 - 2 weeks: Phase 1 #Exploratory
 id: Phase1
 
@@ -144,8 +141,6 @@ after !Phase1 1 month: Phase 3, in parallel with Phase 2 #Implementation
 // 3 days, after a one week buffer
 1 week - 3 days: Phase 4 - kickoff! #Launch
 ```
-
-</Exposition>
 
 The word `after` is optional, we could say `!Phase1 2 weeks: Phase 2, in parallel with Phase 3 #Implementation` to have the same effect.
 
@@ -179,7 +174,7 @@ The only exception to this is the shorthand singular relative date, like `x year
 In the same way you can represent an event taking place after a prior event, you can indicate that an event should come _before_ another. Let's say we wanted to get some things done before Christmas:
 
 ```mw
-2022-12-25: Christmas 
+2022-12-25: Christmas
 id: Christmas
 before !Christmas 1 month: Buy presents
 before !Christmas 2 weeks: Get a tree

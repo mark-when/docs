@@ -7,9 +7,7 @@ const numLines = computed(() => props.lines[1] - props.lines[0]);
 </script>
 
 <template>
-  <div
-    class="bg-zinc-200 dark:bg-zinc-800 flex flex-row exposition rounded-l my-px absolute left-0"
-  >
+  <div class="flex flex-row exposition rounded-l absolute left-0">
     <div class="grow px-2 exposition-text"><slot></slot></div>
     <div class="flex flex-col">
       <div
@@ -42,16 +40,21 @@ const numLines = computed(() => props.lines[1] - props.lines[0]);
   );
 
   height: calc(
-    v-bind(numLines) * var(--vp-code-line-height) * var(--vp-code-font-size) - 1px
+    v-bind(numLines) * var(--vp-code-line-height) * var(--vp-code-font-size)
   );
 
   width: 100%; /* Takes full width of positioned container */
+  background-color: var(--vp-code-block-bg);
 }
 .exposition-text {
+  background-color: var(--vp-code-line-highlight-color);
+
   line-height: var(--vp-code-line-height);
   font-size: var(--vp-code-font-size);
 }
 .svgHolder {
+  background-color: var(--vp-code-line-highlight-color);
+
   height: calc(var(--vp-code-line-height) * var(--vp-code-font-size));
 }
 </style>

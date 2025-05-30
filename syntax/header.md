@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import Exposition from "../src/Exposition.vue"
+</script>
+
 # Header / Frontmatter
 
 The header of a timeline indicates things about the timeline like visual preferences and metadata. It is the first part of a timeline; that is, anything before the first event is considered the header.
@@ -14,7 +18,7 @@ Dec 29 2029: Some date
 
 is parsed the same as
 
-```mw
+```mw{1,5}
 ---
 title: Timeline
 key:
@@ -27,6 +31,20 @@ Dec 29 2029: Some date
 Custom visualizations may prescribe special header values they might look for when parsing your markwhen document.
 
 Some typical header items are as follows:
+
+## Timezone
+
+Indicate what timezone this markwhen document is relative to:
+
+```mw
+timezone: Europe/London
+```
+
+or
+
+```mw
+timezone: -6
+```
 
 ## Title
 

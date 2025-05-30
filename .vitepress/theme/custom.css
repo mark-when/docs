@@ -83,4 +83,7 @@ code {
   .tag {
     @apply text-blue-800 dark:text-blue-300;
   }
+  .section {
+    @apply dark:text-purple-400 text-purple-800;
+  }
 }

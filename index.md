@@ -22,7 +22,7 @@ Use the editor at [meridiem.markwhen.com](https://meridiem.markwhen.com).
 
 ![](https://blog.markwhen.com/images/calendar1.png)
 
-Read more about [markwhen's syntax](/syntax/overview), the [parser](/parser/playground), or [visualizations](/visualizations).
+Read more about [markwhen's syntax](/syntax/overview), the [parser](/parser), or [visualizations](/visualizations).
 
 ## Diagram of repositories
 

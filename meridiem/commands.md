@@ -28,7 +28,7 @@ async function command(
 ```
 
 ::: info
-See the [codemirror documentation](https://codemirror.net/docs) and [markwhen parser documentation](https://docs.markwhen.com/parser/playground.html) for more information about `EditorSelection` and `TransactionSpec` from CodeMirror, and `Timelines`, respectively.
+See the [codemirror documentation](https://codemirror.net/docs) and [markwhen parser documentation](/parser) for more information about `EditorSelection` and `TransactionSpec` from CodeMirror, and `Timelines`, respectively.
 :::
 
 ### Command Context
@@ -94,12 +94,14 @@ Generally, however, you will probably want to be more precise with the changes y
 ```js
 // Inserts 'Hello, World!' at the beginning of the document
 return {
-  changes: [{
-    insert: 'Hello, World!',
-    from: 0,
-    // to: 99 // <- uncommenting this would replace everything from 0 to 99 in the current document with the inserted text
-  }]
-}
+  changes: [
+    {
+      insert: "Hello, World!",
+      from: 0,
+      // to: 99 // <- uncommenting this would replace everything from 0 to 99 in the current document with the inserted text
+    },
+  ],
+};
 ```
 
 ## Accessible Libraries
@@ -109,7 +111,7 @@ return {
 [Luxon](https://moment.github.io/luxon/#/) is a date/time library that is helpful for working with dates and times. It can be accessed in commands via `luxon`:
 
 ```js
-const now = luxon.DateTime.now()
+const now = luxon.DateTime.now();
 ```
 
 ## Built in functions

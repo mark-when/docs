@@ -6,10 +6,6 @@ import Examples from "./src/Examples.vue"
 
 [Markwhen parser on github](https://github.com/mark-when/parser)
 
-<Examples class="vp-raw"/>
-
-# Output
-
 Though views are the most visible output of markwhen, the actual output of the parser is a `JSON` object. Each view ingests this intermediate object to produce its visualization.
 
 ::: tip Read more
