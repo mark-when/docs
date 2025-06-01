@@ -11,12 +11,3 @@ For example, you may find typing `check` easier than `- [] ` - you can define a 
 ![](/images/snippets7.png)
 
 `${}` are cursor positions after the replacement has been made. Read more about snippets and their syntax [here](https://codemirror.net/docs/ref/#autocomplete.snippet).
-
-## Suggested snippets
-
-Have additional suggestions? Make a PR [here](https://github.com/mark-when/docs).
-
-|Prefix|Template|
-|---|---|
-|`check`|`- [${}] ${}`|
-|`location`|`[${}](location)`|

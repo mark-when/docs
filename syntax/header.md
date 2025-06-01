@@ -9,24 +9,26 @@ The header of a timeline indicates things about the timeline like visual prefere
 The header is parsed as yaml, similar to frontmatter in some markdown parsers. Also similarly to frontmatter, you may (but are not required to) sandwich the header between three dashes (`---`).
 
 ```mw
+---
 title: Timeline
 key:
   - entry
+---
 
 Dec 29 2029: Some date
 ```
 
 is parsed the same as
 
-```mw{1,5}
----
+```mw
 title: Timeline
 key:
   - entry
----
 
 Dec 29 2029: Some date
 ```
+
+That being said, the three dash syntax is recommended.
 
 Custom visualizations may prescribe special header values they might look for when parsing your markwhen document.
 

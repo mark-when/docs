@@ -1,6 +1,6 @@
 # Visualizations
 
-Markwhen and markwhen.com are built to be extensible, primarily in that the app does not assume what kind of visualization will be used from the parsed text.
+Markwhen and Meridiem are built to be extensible, primarily in that Meridiem (and other editors) do not assume what kind of visualization will be used from the parsed text.
 
 [List of visualizations](https://github.com/mark-when/visualizations)
 

@@ -176,8 +176,15 @@ export default defineConfig({
             link: "/meridiem/collaborative-editing",
           },
           { text: "Snippets", link: "/meridiem/snippets" },
-          { text: "Commands", link: "/meridiem/commands" },
-          { text: "API", link: "/meridiem/api" },
+          // { text: "Commands", link: "/meridiem/commands" },
+          {
+            text: "Apps & API",
+            link: "/meridiem/api",
+            items: [
+              { text: "API", link: "/meridiem/api/api" },
+              { text: ".mw and .json", link: "/meridiem/api/raw-json" },
+            ],
+          },
         ],
         collapsible: true,
         collapsed: false,
@@ -209,10 +216,6 @@ export default defineConfig({
         collapsed: false,
         items: [
           {
-            text: "Overview",
-            link: "/visualizations",
-          },
-          {
             text: "Starter template",
             link: "/visualizations/starter-template",
           },
@@ -228,18 +231,18 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
           },
-          {
-            text: "Calendar",
-            link: "/visualizations/calendar",
-          },
-          {
-            text: "Oneview",
-            link: "/visualizations/oneview",
-          },
-          {
-            text: "Map",
-            link: "/visualizations/map",
-          },
+          // {
+          //   text: "Calendar",
+          //   link: "/visualizations/calendar",
+          // },
+          // {
+          //   text: "Oneview",
+          //   link: "/visualizations/oneview",
+          // },
+          // {
+          //   text: "Map",
+          //   link: "/visualizations/map",
+          // },
         ],
       },
       {
