@@ -173,7 +173,7 @@ The only exception to this is the shorthand singular relative date, like `x year
 
 In the same way you can represent an event taking place after a prior event, you can indicate that an event should come _before_ another. Let's say we wanted to get some things done before Christmas:
 
-```mw
+```mw{2}
 2022-12-25: Christmas
 id: Christmas
 before !Christmas 1 month: Buy presents

@@ -21,6 +21,27 @@ function extractLang(info) {
     .replace(/^ansi$/, "");
 }
 
+function attrsToLines(attrs) {
+  attrs = attrs.replace(/^(?:\[.*?\])?.*?([\d,-]+).*/, "$1").trim();
+  const result = [];
+  if (!attrs) {
+    return [];
+  }
+  attrs
+    .split(",")
+    .map((v) => v.split("-").map((v) => parseInt(v, 10)))
+    .forEach(([start, end]) => {
+      if (start && end) {
+        result.push(
+          ...Array.from({ length: end - start + 1 }, (_, i) => start + i)
+        );
+      } else {
+        result.push(start);
+      }
+    });
+  return result;
+}
+
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
@@ -48,7 +69,8 @@ export default defineConfig({
         const lang = extractLang(token.info);
         // Handle your custom language
         if (lang === "mw") {
-          const highlighted = highlight(token.content);
+          const lines = attrsToLines(token.attrs?.[0]?.[0] || "");
+          const highlighted = highlight(token.content, true, lines);
 
           // remove title from info
           token.info = token.info.replace(/\[.*\]/, "");
@@ -141,32 +163,50 @@ export default defineConfig({
             text: "Timezones",
             link: "/syntax/timezones",
           },
-          // {
-          //   text: "Reminders",
-          //   link: "/syntax/reminders",
-          // },
         ],
         collapsible: true,
         collapsed: false,
       },
       {
-        text: "Editor",
-        link: "/interface",
+        text: "Meridiem",
+        link: "/meridiem",
         items: [
-          { text: "Overview", link: "/interface/overview" },
           {
             text: "Collaborative editing",
-            link: "/interface/collaborative-editing",
+            link: "/meridiem/collaborative-editing",
           },
-          { text: "Snippets", link: "/interface/snippets" },
-          { text: "Commands", link: "/interface/commands" },
+          { text: "Snippets", link: "/meridiem/snippets" },
+          { text: "Commands", link: "/meridiem/commands" },
+          { text: "API", link: "/meridiem/api" },
         ],
         collapsible: true,
         collapsed: false,
       },
       {
-        text: "Visualizations",
+        text: "Editors",
+        link: "/editors",
+        collapsible: true,
+        collapsed: false,
+        items: [
+          {
+            text: "VS Code Extension",
+            link: "/vscode",
+          },
+          {
+            text: "Obsidian Plugin",
+            link: "/obsidian",
+          },
+        ],
+      },
+      {
+        text: "Remarking",
+        link: "/remarking",
+      },
+      {
+        text: "Views",
         link: "/visualizations",
+        collapsible: true,
+        collapsed: false,
         items: [
           {
             text: "Overview",
@@ -176,9 +216,31 @@ export default defineConfig({
             text: "Starter template",
             link: "/visualizations/starter-template",
           },
+          {
+            text: "Timeline",
+            link: "/visualizations/timeline",
+            items: [
+              {
+                text: "info",
+                link: "/timeline/info",
+              },
+            ],
+            collapsible: true,
+            collapsed: true,
+          },
+          {
+            text: "Calendar",
+            link: "/visualizations/calendar",
+          },
+          {
+            text: "Oneview",
+            link: "/visualizations/oneview",
+          },
+          {
+            text: "Map",
+            link: "/visualizations/map",
+          },
         ],
-        collapsible: true,
-        collapsed: false,
       },
       {
         text: "Links",

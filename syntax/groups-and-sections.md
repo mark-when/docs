@@ -6,7 +6,7 @@ Events can be grouped. To indicate a group, write `group` or `section` at the be
 
 For example,
 
-```mw
+```mw{1,8,13,17}
 group The 90s // The title for this group is "The 90s"
 
   1991: Desert Storm

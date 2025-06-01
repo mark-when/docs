@@ -12,7 +12,7 @@ Here, the event has the tag `#covid`. In views that support different colors, th
 
 You can specify a tag's color in the header:
 
-```mw
+```mw{2}
 ---
 #covid: blue
 ---

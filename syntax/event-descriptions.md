@@ -18,23 +18,27 @@ Everything not on the first line (where the date range is specified) up to the n
 
 ## Properties
 
-Events, groups, and sections can all have optional properties. Properties are key-value pairs that are immediately after the first line of an event or group definition, i.e.
+Events, groups, and sections can all have optional properties. Properties are key-value pairs that are **immediately after the first line** of an event or group definition, i.e.
 
-```mw
+```mw{2,3}
 2025-04-30: Carpooling to work
-riders: Tom, Jerry
-fee: $4
+  riders: Tom, Jerry
+  fee: $4
 
-Some day I'll have my own car
+  Some day I'll have my own car
 ```
 
-In this example, `riders: Tom, Jerry` is one key-value pair and `fee: $4` is another. They are stored in the `event.properties` field as a map and may be used by visualizations. Properties must follow on the line(s) after the event or group definition; you can't put properties at the end of an event description or in the middle of it.
+::: tip Indentation
+While some of examples are indented (like above), indentation in markwhen is optional.
+:::
+
+In this example, `riders: Tom, Jerry` is one key-value pair and `fee: $4` is another. They are stored in the `event.properties` field as a map and may be used by visualizations. **Properties must follow on the line(s) after the event or group definition.** You can't put properties at the end of an event description or in the middle of it.
 
 ### Timezone
 
 `timezone` or `tz` is a special property of an event to set its timezone specifically:
 
-```mw
+```mw{2,5}
 2025-08-03 10am: Meeting
 timezone: America/Los_Angeles
 
@@ -46,7 +50,7 @@ tz: -5
 
 [Event ids](/syntax/dates-and-ranges#event-ids) can be used to create relative dates and let subsequent events refer to it:
 
-```mw
+```mw{2}
 2025-08-03 10am: Meeting
 id: meeting
 ```
@@ -71,12 +75,10 @@ Links are similar to markdown links: link display text in brackets followed by t
 
 For vizualizations that support locations, add a property to the event:
 
-```mw
+```mw{2,5}
 09/2018: Road trip to Seattle
 locations: [Devil's Tower, Glacier National Park, Seattle]
-```
 
-```mw
 1999-05-25: A fond memory
 location: Sam's bar and grill
 ```
