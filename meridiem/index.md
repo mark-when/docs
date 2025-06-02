@@ -23,6 +23,7 @@ const downloadLink = computed(() => `https://storage.googleapis.com/markwhen_bin
 
 [Meridiem](https://meridiem.markwhen.com) is a markwhen editor brought to you by [the team that develops markwhen](https://github.com/kochrt) that includes:
 
+- Syntax highlighting
 - Bidirectional editing (views can edit the document, in addition to editing the text directly)
 - Event hover highlighting
 - [Collaborative editing](/meridiem/collaborative-editing)

@@ -43,6 +43,9 @@ function attrsToLines(attrs) {
 }
 
 export default defineConfig({
+  sitemap: {
+    hostname: "https://docs.markwhen.com"
+  },
   vite: {
     plugins: [tailwindcss()],
     css: {
@@ -210,8 +213,8 @@ export default defineConfig({
         link: "/remarking",
         items: [
           {
-            text: "Entries",
-            link: "/remarking/entries",
+            text: "Remarks",
+            link: "/remarking/remarks",
           },
           {
             text: "Embedding",
