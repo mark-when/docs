@@ -231,18 +231,18 @@ export default defineConfig({
             text: "Starter template",
             link: "/visualizations/starter-template",
           },
-          {
-            text: "Timeline",
-            link: "/visualizations/timeline",
-            items: [
-              {
-                text: "info",
-                link: "/timeline/info",
-              },
-            ],
-            collapsible: true,
-            collapsed: true,
-          },
+          // {
+          //   text: "Timeline",
+          //   link: "/visualizations/timeline",
+          //   items: [
+          //     {
+          //       text: "info",
+          //       link: "/timeline/info",
+          //     },
+          //   ],
+          //   collapsible: true,
+          //   collapsed: true,
+          // },
           // {
           //   text: "Calendar",
           //   link: "/visualizations/calendar",
@@ -273,19 +273,23 @@ export default defineConfig({
             link: "https://markwhen.com",
           },
           {
-            text: "Markwhen blog",
-            link: "https://blog.markwhen.com",
+            text: "Markwhen on Remark.ing",
+            link: "https://remark.ing/markwhen",
           },
           {
             text: "VS Code extension",
             link: "https://marketplace.visualstudio.com/items?itemName=Markwhen.markwhen",
+          },
+          {
+            text: "Obsidian plugin",
+            link: "https://obsidian.md/plugins?id=markwhen",
           },
         ],
       },
     ],
     socialLinks: [
       { icon: "discord", link: "https://discord.gg/3rTpUD94ac" },
-      { icon: "github", link: "https://github.com/mark-when/markwhen" },
+      { icon: "github", link: "https://github.com/mark-when" },
     ],
   },
   head: [

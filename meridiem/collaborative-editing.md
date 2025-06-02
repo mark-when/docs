@@ -1,7 +1,5 @@
 # Collaborative editing
 
-![](/images/team3.png)
-
 Markwhen documents shared via Meridiem support live collaborative editing - simply share the link with those you want to collaborate with. Documents are private by default.
 
 ## Publicly viewable

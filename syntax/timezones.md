@@ -37,9 +37,6 @@ Much of markwhen's parsing, including timezone parsing, is done with [Luxon](htt
 :::
 
 ::: warning When to specify a timezone
-The general advice is you should always specify a timezone - less ambiguity is better. Otherwise, you should specify a timezone:
-
-- if or when you start to use markwhen for "serious" things, like calendaring or keeping track of responsibilities
-- if your events are measured in hours and minutes instead of days, months, and years
+The general advice is you should always specify a timezone - less ambiguity is better. Otherwise, you should specify a timezone if or when you start to use markwhen for things like calendaring or keeping track of responsibilities, where your events are measured in hours and minutes instead of days, months, and years.
 
 :::

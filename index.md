@@ -12,7 +12,7 @@ import ExampleButton from "./src/ExampleButton.vue"
 
 Markwhen is a [markdown-like](/markdown-like) [journal language](/journal-language). You write markdown-ish text and it gets converted into JSON which can then be rendered into a timeline or other [view](/visualizations).
 
-Use the editor at [meridiem.markwhen.com](https://meridiem.markwhen.com).
+Use the editor at [meridiem.markwhen.com](https://meridiem.markwhen.com) or read more about the [syntax](/syntax).
 
 <Example class="vp-raw" />
 

@@ -96,3 +96,7 @@ remarking:
 ```
 
 Indeed, editing the profile page using the Remark.ing UI merely changes these values in the header of your markwhen document.
+
+::: warning Add a timezone
+Add a timezone to any markwhen document you want to use for remark.ing!
+:::
