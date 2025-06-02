@@ -9,7 +9,7 @@ import Examples from "./src/Examples.vue"
 Though views are the most visible output of markwhen, the actual output of the parser is a `JSON` object. Each view ingests this intermediate object to produce its visualization.
 
 ::: tip Read more
-Read more about [how views work](/visualizations).
+Read more about [how views work](/visualizations/).
 :::
 
 The parser produces an array of timelines and associated metadata:

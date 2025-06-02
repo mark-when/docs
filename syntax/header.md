@@ -90,7 +90,7 @@ view:
 
 Lack of a `view` or `edit` entry in the header indicates that the document is private.
 
-See [access control](/interface/overview#access-control).
+See [access control](/meridiem/collaborative-editing).
 
 ## Editors
 

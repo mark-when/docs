@@ -30,7 +30,7 @@ const downloadLink = computed(() => `https://storage.googleapis.com/markwhen_bin
 - Support for multiple views
 - Work with online and offline documents
 - [Per-document Access control](/meridiem/collaborative-editing)
-- [Document editing API and OAuth apps](/meridiem/api)
+- [Document editing API and OAuth apps](/meridiem/api/)
 - Light and dark modes
 - Incremental reparsing
 - [Snippets](/meridiem/snippets.md)

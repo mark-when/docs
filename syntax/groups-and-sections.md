@@ -34,6 +34,6 @@ Sections behave similarly though extend to the width of the entire timeline and 
 
 ![](/images/sections.gif)
 
-The only difference between sections and groups are how they are styled by the [visualization](/visualizations).
+The only difference between sections and groups are how they are styled by the [view](/visualizations/).
 
 Read more about how groups are handled by the [parser](/parser).

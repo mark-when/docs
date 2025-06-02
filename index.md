@@ -10,9 +10,9 @@ import ExampleButton from "./src/ExampleButton.vue"
 
 # Introduction
 
-Markwhen is a [markdown-like](/markdown-like) [journal language](/journal-language). You write markdown-ish text and it gets converted into JSON which can then be rendered into a timeline or other [view](/visualizations).
+Markwhen is a [markdown-like](/markdown-like) [journal language](/journal-language). You write markdown-ish text and it gets converted into JSON which can then be rendered into a timeline or other [view](/visualizations/).
 
-Use the editor at [meridiem.markwhen.com](https://meridiem.markwhen.com) or read more about the [syntax](/syntax).
+Use the editor at [meridiem.markwhen.com](https://meridiem.markwhen.com) or read more about the [syntax](/syntax/).
 
 <Example class="vp-raw" />
 
@@ -22,7 +22,7 @@ Use the editor at [meridiem.markwhen.com](https://meridiem.markwhen.com) or read
 
 ![](https://blog.markwhen.com/images/calendar1.png)
 
-Read more about [markwhen's syntax](/syntax/overview), the [parser](/parser), or [visualizations](/visualizations).
+Read more about [markwhen's syntax](/syntax/overview), the [parser](/parser), or [views](/visualizations/).
 
 ## Diagram of repositories
 

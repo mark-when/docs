@@ -53,7 +53,7 @@ Which then turns each event into something like this:
 
 <blockquote data-remarking-uri="/rob/rob/Example-for-the-documentation"></blockquote>
 
-Remarking is built on top of [Meridiem](/meridiem) and its [OAuth API](/meridiem/api). This way, you can edit your markwhen documents directly via Meridiem, or you can use the Remarking interface.
+Remarking is built on top of [Meridiem](/meridiem/) and its [OAuth API](/meridiem/api/). This way, you can edit your markwhen documents directly via Meridiem, or you can use the Remarking interface.
 
 ::: tip Note
 In the example above, Rob, Kris, and Esteban would all have had to connect and authorize Remarking to access those specific documents.

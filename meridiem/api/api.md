@@ -290,7 +290,7 @@ if (result.ok) {
 
 Append content to an existing document. Note that this will add to the end of the document if the document is "sorted" from oldest to newest (top to bottom), otherwise it will add new entries to the top. Technically it just looks at the top two events (if there are any) and if the first one is newer than the second one, appends to the top of the document (after the header). It does not insert events in sorted order. In fact, this method does not assume that a new event is even being inserted necessarily. One could, for example, insert the text `Hello world` which would presumably just be added to the event description of the last event.
 
-That being said, if you do want to insert a new event, be sure that it is a [valid markwhen event format](/syntax).
+That being said, if you do want to insert a new event, be sure that it is a [valid markwhen event format](/syntax/).
 
 To add an event that corresponds to "now," or, when this API call is made, you may optionally include a date time interpolation token in the text to be added - the server will automatically convert it to the format specified. The token format is `dt` followed by a date time format string surrounded by curly brackets:
 

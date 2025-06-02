@@ -1,6 +1,6 @@
 # Meridiem Apps
 
-Meridiem supports apps that act on a user's behalf via the [OAuth API](/meridiem/api).
+Meridiem supports apps that act on a user's behalf via the [OAuth API](/meridiem/api/).
 
 To create an app, ensure that you are signed into Meridiem. Go to `Settings` -> `Developer` -> Under `Apps`, click `Create`.
 Enter your app's information (it can be changed later) and click `Save`.
