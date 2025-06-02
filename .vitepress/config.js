@@ -189,25 +189,37 @@ export default defineConfig({
         collapsible: true,
         collapsed: false,
       },
+      // {
+      //   text: "Editors",
+      //   link: "/editors",
+      //   collapsible: true,
+      //   collapsed: false,
+      //   items: [
+      //     {
+      //       text: "VS Code Extension",
+      //       link: "/vscode",
+      //     },
+      //     {
+      //       text: "Obsidian Plugin",
+      //       link: "/obsidian",
+      //     },
+      //   ],
+      // },
       {
-        text: "Editors",
-        link: "/editors",
-        collapsible: true,
-        collapsed: false,
+        text: "Remark.ing",
+        link: "/remarking",
         items: [
           {
-            text: "VS Code Extension",
-            link: "/vscode",
+            text: "Entries",
+            link: "/remarking/entries",
           },
           {
-            text: "Obsidian Plugin",
-            link: "/obsidian",
+            text: "Embedding",
+            link: "/remarking/embedding",
           },
         ],
-      },
-      {
-        text: "Remarking",
-        link: "/remarking",
+        collapsed: false,
+        collapsible: true,
       },
       {
         text: "Views",
@@ -283,6 +295,14 @@ export default defineConfig({
         defer: "",
         src: "https://static.cloudflareinsights.com/beacon.min.js",
         "data-cf-beacon": '{"token": "fb4546a09d0e498cac0a8f3630cf0d9f"}',
+      },
+    ],
+    [
+      "script",
+      {
+        async: "",
+        src: "https://embed.remark.ing/static/embed.js",
+        charset: "utf-8",
       },
     ],
   ],
