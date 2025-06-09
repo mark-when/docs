@@ -185,7 +185,7 @@ export default defineConfig({
             link: "/meridiem/api",
             items: [
               { text: "API", link: "/meridiem/api/api" },
-              { text: ".mw and .json", link: "/meridiem/api/raw-json" },
+              { text: "Extension conversions", link: "/meridiem/api/extension-conversions" },
             ],
           },
         ],
