@@ -40,3 +40,14 @@ Much of markwhen's parsing, including timezone parsing, is done with [Luxon](htt
 The general advice is you should always specify a timezone - less ambiguity is better. Otherwise, you should specify a timezone if or when you start to use markwhen for things like calendaring or keeping track of responsibilities, where your events are measured in hours and minutes instead of days, months, and years.
 
 :::
+
+## Different start and end zones
+
+If your start and end ranges for an event are different, separate out the zones with `from` and `to`:
+
+```mw
+2025-06-09 11am / 2025-06-09 6:40pm: 🛫 Going home to NYC from LA
+  timezone: 
+    from: America/Los_Angeles
+    to: America/New_York
+```
