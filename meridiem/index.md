@@ -26,11 +26,11 @@ const downloadLink = computed(() => `https://storage.googleapis.com/markwhen_bin
 - Syntax highlighting
 - Bidirectional editing (views can edit the document, in addition to editing the text directly)
 - Event hover highlighting
-- [Collaborative editing](/meridiem/collaborative-editing)
+- [Collaborative editing](/meridiem/sharing)
 - Integrated tag color picker
 - Support for multiple views
 - Work with online and offline documents
-- [Per-document Access control](/meridiem/collaborative-editing)
+- [Per-document Access control](/meridiem/sharing)
 - [Document editing API and OAuth apps](/meridiem/api/)
 - Light and dark modes
 - Incremental reparsing

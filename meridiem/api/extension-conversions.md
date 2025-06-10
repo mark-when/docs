@@ -1,6 +1,6 @@
 # Extension Conversions
 
-If you have [permission to view a document](/meridiem/collaborative-editing), you may append a supported extension to a Meridiem document link to get its transformed format.
+If you have [permission to view a document](/meridiem/sharing), you may append a supported extension to a Meridiem document link to get its transformed format.
 
 | Extension | Format                         |
 | --------- | ------------------------------ |
@@ -8,7 +8,7 @@ If you have [permission to view a document](/meridiem/collaborative-editing), yo
 | `.json`   | Parsed `json`                  |
 | `.ics`    | [iCal](https://icalendar.org/) |
 
-For example, since [meridiem.markwhen.com/example](https://meridiem.markwhen.com/example) is [publicly viewable](/meridiem/collaborative-editing#publicly-viewable), we can get its raw text and parsed json:
+For example, since [meridiem.markwhen.com/example](https://meridiem.markwhen.com/example) is [publicly viewable](/meridiem/sharing#publicly-viewable), we can get its raw text and parsed json:
 
 | `https://meridiem.markwhen.com/example.mw`                | `https://meridiem.markwhen.com/example.json`                |
 | --------------------------------------------------------- | ----------------------------------------------------------- |
@@ -22,5 +22,5 @@ The `.ics` extension is useful for subscribing to your markwhen events from your
 ![](/images/gcal2.png)
 
 ::: tip Note
-Only [publicly viewable](/meridiem/collaborative-editing) documents can be added to another calendar application via an `.ics` url.
+Only [publicly viewable](/meridiem/sharing) documents can be added to another calendar application via an `.ics` url.
 :::

@@ -176,7 +176,7 @@ export default defineConfig({
         items: [
           {
             text: "Collaborative editing",
-            link: "/meridiem/collaborative-editing",
+            link: "/meridiem/sharing",
           },
           { text: "Snippets", link: "/meridiem/snippets" },
           // { text: "Commands", link: "/meridiem/commands" },
