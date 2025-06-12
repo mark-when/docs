@@ -38,7 +38,7 @@ Remarking adds them all together, and you get:
 
 ::: code-group
 
-```mw [remark.ing]
+```mw [combined.mw]
 2025-07-04: 🎇
 2025-06-01: Example for documentation
 2025-05-01: 🛬 finally

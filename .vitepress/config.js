@@ -220,6 +220,10 @@ export default defineConfig({
             text: "Embedding",
             link: "/remarking/embedding",
           },
+          {
+            text: "RSS",
+            link: "/remarking/rss",
+          },
         ],
         collapsed: false,
         collapsible: true,
