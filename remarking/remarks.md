@@ -28,7 +28,7 @@ function urlFromString(s: string): string {
 }
 ```
 
-::: info Why not use user-defined `id`s from [event properties](/syntax/event-descriptions)?
+::: info Why not use user-defined `id`s from [event properties](/syntax/event-descriptions/)?
 User-defined `id`s are not necessarily unique. Furthermore this would require users to manually `id` all their events, which would be onerous.
 :::
 

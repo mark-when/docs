@@ -1,6 +1,6 @@
 # Events
 
-An event is a [date range](/syntax/dates-and-ranges) followed by a colon followed by an [event description](/syntax/event-descriptions):
+An event is a [date range](/syntax/dates-and-ranges) followed by a colon followed by an [event description](/syntax/event-descriptions/):
 
 ```mw
 12/2012: End of the world

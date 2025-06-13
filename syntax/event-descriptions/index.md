@@ -43,7 +43,7 @@ For example in the following markwhen document:
 ```mw
 2026: Event
 fun: yes
-travel: ['America', 'Europe', 'Africa'],
+travel: ['America', 'Europe', 'Africa']
 people: Family
 ```
 
