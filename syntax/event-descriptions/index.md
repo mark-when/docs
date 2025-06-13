@@ -32,7 +32,38 @@ Events, groups, and sections can all have optional properties. Properties are ke
 While some of examples are indented (like above), indentation in markwhen is optional.
 :::
 
-In this example, `riders: Tom, Jerry` is one key-value pair and `fee: $4` is another. They are stored in the `event.properties` field as a map and may be used by visualizations. **Properties must follow on the line(s) after the event or group definition.** You can't put properties at the end of an event description or in the middle of it.
+In this example, `riders: Tom, Jerry` is one key-value pair and `fee: $4` is another. They are stored in the `event.properties` field as an object and may be used by visualizations. **Properties must follow on the line(s) after the event or group definition.** You can't put properties at the end of an event description or in the middle of it.
+
+### Prop Order
+
+There is an additonal field on groups and events, `propOrder`, which is a `string[]` of keys in the order that they were defined in the document.
+
+For example in the following markwhen document:
+
+```mw
+2026: Event
+fun: yes
+travel: ['America', 'Europe', 'Africa'],
+people: Family
+```
+
+The properties of the (only) event are:
+
+```json
+{
+  "fun": "yes",
+  "travel": ["America", "Europe", "Africa"],
+  "people": "Family"
+}
+```
+
+while `propOrder` will be:
+
+```json
+["fun", "travel", "people"]
+```
+
+You can use `propOrder` to maintain order of property definitions, if desired.
 
 ### Timezone
 
