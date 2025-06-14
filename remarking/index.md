@@ -57,7 +57,9 @@ Which then turns each event into something like this:
 In the example above, Rob, Kris, and Esteban would all have had to connect and authorize Remarking to access those specific documents.
 :::
 
-Remarking is built on top of [Meridiem](/meridiem/) and its [OAuth API](/meridiem/api/). This way, you can edit your markwhen documents directly via Meridiem, or you can use the Remarking interface.
+Remarking is built on top of [Meridiem](/meridiem/) and its [OAuth API](/meridiem/api/). You can edit your markwhen documents directly via Meridiem, or you can use the Remarking interface.
+
+All that being said, you do not need to concern yourself with how Remark.ing works under the hood if you don't want to. You can use it without knowing that it uses markwhen and Meridiem.
 
 ## Benefits of blogging with Markwhen
 
