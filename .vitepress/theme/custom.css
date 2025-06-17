@@ -51,7 +51,7 @@ code {
     @apply dark:text-zinc-500 text-zinc-400;
   }
   .headerKey {
-    @apply dark:text-stone-400 text-stone-500;
+    @apply dark:text-amber-400 text-amber-700;
   }
   .headerKeyColon {
     @apply text-zinc-500;
@@ -60,7 +60,7 @@ code {
     @apply dark:text-slate-400 text-slate-500;
   }
   .propertyKey {
-    @apply dark:text-stone-400 text-stone-500;
+    @apply dark:text-amber-400 text-amber-700;
   }
   .propertyValue {
     @apply dark:text-slate-400 text-slate-500;
