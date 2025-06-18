@@ -41,7 +41,7 @@ timeline:
 
 ## `style`
 
-Customize the styling of the timeline. The precendence of timeline styling is as follows:
+Customize the styling and color of the timeline. The precendence of timeline styling is as follows:
 
 1. Theme
 2. Header definition
@@ -73,7 +73,7 @@ timeline:
       font-size: 19
       bar:
         height: 40
-        rx: 20
+        rx: 4
     group:
       fill: red
       stroke: blue
