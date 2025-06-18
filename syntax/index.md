@@ -14,7 +14,7 @@ const expo = [
 
 # Syntax
 
-The example here is indented but indentation is optional.
+The example here is indented but indentation is optional. That being said, if you do indent like the below example, a monospaced font is recommended.
 
 <Exposition :expo="expo">
 
