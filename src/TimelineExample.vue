@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { parse } from "@markwhen/parser";
 const slot = ref(null);
 
 const b64 = computed(() => {
   const text = slot.value?.textContent?.substring(2) as string;
-  console.log(slot.value?.textContent?.substring(2));
   return btoa(text?.replaceAll(/ /g, "") || "");
 });
 </script>
