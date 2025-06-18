@@ -44,7 +44,7 @@ function attrsToLines(attrs) {
 
 export default defineConfig({
   sitemap: {
-    hostname: "https://docs.markwhen.com"
+    hostname: "https://docs.markwhen.com",
   },
   vite: {
     plugins: [tailwindcss()],
@@ -149,7 +149,6 @@ export default defineConfig({
             text: "Event Descriptions",
             link: "/syntax/event-descriptions",
           },
-
           {
             text: "Groups and Sections",
             link: "/syntax/groups-and-sections",
@@ -185,7 +184,10 @@ export default defineConfig({
             link: "/meridiem/api",
             items: [
               { text: "API", link: "/meridiem/api/api" },
-              { text: "Extension conversions", link: "/meridiem/api/extension-conversions" },
+              {
+                text: "Extension conversions",
+                link: "/meridiem/api/extension-conversions",
+              },
             ],
           },
         ],
@@ -237,6 +239,10 @@ export default defineConfig({
           {
             text: "Starter template",
             link: "/visualizations/starter-template",
+          },
+          {
+            text: "Timeline",
+            link: "/visualizations/timeline",
           },
           // {
           //   text: "Timeline",
