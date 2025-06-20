@@ -7,8 +7,7 @@ Markwhen documents shared via Meridiem support live collaborative editing - simp
 To let anyone view your document, add the following in the header:
 
 ```mw
-view:
-  - \*
+view: "*""
 ```
 
 ## Public access
@@ -16,10 +15,8 @@ view:
 To let anyone view **and** edit your document, add the following in the header:
 
 ```mw
-view: 
-  - \*
-edit:
-  - \*
+view: "*"
+edit: "*"
 ```
 
 ::: info
