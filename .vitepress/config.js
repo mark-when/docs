@@ -146,6 +146,10 @@ export default defineConfig({
             link: "/syntax/dates-and-ranges",
           },
           {
+            text: "Properties",
+            link: "/syntax/properties"
+          },
+          {
             text: "Event Descriptions",
             link: "/syntax/event-descriptions",
           },

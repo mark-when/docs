@@ -7,7 +7,7 @@ const expo = [
   [[13, 18], '<a href="/syntax/event-descriptions">Event description</a>'],
   [[22, 23], '<a href="/syntax/groups-and-sections">Section definition</a>'],
   [[26, 27], 'Comment'],
-  [[28, 30], '<a href="/syntax/event-descriptions#properties">Event properties</a>']
+  [[28, 30], '<a href="/syntax/properties">Event properties</a>']
 ]
 
 </script>
