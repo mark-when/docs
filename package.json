@@ -21,7 +21,7 @@
     "vitepress": "^1.6.3"
   },
   "dependencies": {
-    "@markwhen/parser": "^0.15.0",
+    "@markwhen/parser": "^0.15.1",
     "shiki": "^0.11.1"
   }
 }

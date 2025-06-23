@@ -72,23 +72,24 @@ description: These are the main events for the party, try to stick to the plan!!
 Specifying viewers in the header is a [Meridiem](https://meridiem.markwhen.com)-specific feature.
 :::
 
-Limit access to your timeline by adding a `view:` entry:
+Limit access to your timeline by adding a `meridiem.view:` entry:
 
 ```mw
-view:
-  - onlymypeople@example.com
-  - myteam@example.com
+meridiem:
+  view:
+    - onlymypeople@example.com
+    - myteam@example.com
 ```
 
 Wildcards are also supported:
 
 ```mw
 // Anyone can view
-view:
-  - \*
+meridiem:
+  view: "*"
 ```
 
-Lack of a `view` or `edit` entry in the header indicates that the document is private.
+Lack of a `meridiem.view` or `meridiem.edit` entry in the header indicates that the document is private.
 
 See [access control](/meridiem/sharing).
 
@@ -98,20 +99,21 @@ See [access control](/meridiem/sharing).
 Specifying editors in the header is a [Meridiem](https://meridiem.markwhen.com)-specific feature.
 :::
 
-Allow others to edit your shared document with an `edit` field in the header:
+Allow others to edit your shared document with an `meridiem.edit` field in the header:
 
 ```mw
-edit:
-  - onlymypeople@example.com
-  - myteam@example.com
+meridiem:
+  edit:
+    - onlymypeople@example.com
+    - myteam@example.com
 ```
 
 Wildcards are also supported:
 
 ```mw
 // Anyone can edit
-edit:
-  - \*
+meridiem:
+  edit: "*"
 ```
 
 Lack of an `edit` entry indicates that no one besides the owner can edit it.

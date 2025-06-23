@@ -7,7 +7,8 @@ Markwhen documents shared via Meridiem support live collaborative editing - simp
 To let anyone view your document, add the following in the header:
 
 ```mw
-view: "*""
+meridiem:
+  view: "*"
 ```
 
 ## Public access
@@ -15,8 +16,9 @@ view: "*""
 To let anyone view **and** edit your document, add the following in the header:
 
 ```mw
-view: "*"
-edit: "*"
+meridiem:
+  view: "*"
+  edit: "*"
 ```
 
 ::: info
@@ -28,7 +30,32 @@ edit: "*"
 To restrict editing and viewing to specific people, set those specific email addresses in the view and/or edit fields:
 
 ```mw
-edit: 
-  - jim@company.com
-  - susan@example.com
+meridiem:
+  edit:
+    - jim@company.com
+    - susan@example.com
 ```
+
+::: warning Note
+Previously, `edit` and `view` fields were top level header items -- that syntax has been deprecated. While that syntax will work in the meantime, you should convert any top level `edit` or `view` fields to be nested under `meridiem`.
+
+#### Previously
+
+```mw
+edit:
+  - joan@sterlingcooper.com
+  - don@sterlingcooper.com
+view: "*"
+```
+
+#### Now
+
+```mw
+meridiem:
+  edit:
+    - joan@sterlingcooper.com
+    - don@sterlingcooper.com
+  view: "*"
+```
+
+:::
