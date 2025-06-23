@@ -40,9 +40,3 @@ So the following markwhen document would generate two remarks, with ids `A-long-
 ```
 
 If this markwhen document was owned by `terry` and the name of the doc was `vacation`, one could refer to a specific entry like `remark.ing/terry/vacation/A-long-time-ago`. This is how Remark.ing works and how remark urls are generated.
-
-## Properties
-
-If a remark has properties, they will be put in a table that appears at the end of the remark.
-
-<blockquote data-remarking-uri="/rob/rob/Example-about-properties"></blockquote>
