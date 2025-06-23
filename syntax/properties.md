@@ -17,7 +17,7 @@ While some of examples are indented (like above), indentation in markwhen is opt
 In this example, `riders: Tom, Jerry` is one key-value pair and `fee: $4` is another. They are stored in the `event.properties` field as an object and may be used by visualizations. **Properties must follow on the line(s) after the event or group definition.** You can't put properties at the end of an event description or in the middle of it.
 
 ::: warning Warning
-Unlike the [header](/syntax/header), event properties cannot use multiline list syntax for arrays -- the dash syntax will be interpreted as a list as part of the event description.
+Unlike the [header](/syntax/header), event properties cannot use multiline list syntax for arrays -- the dash syntax will be interpreted as a list as part of the event description. You'll need to use [flow style](https://www.yaml.info/learn/flowstyle.html) if you want an array value for an event or group property:
 
 ##### This won't work:
 
