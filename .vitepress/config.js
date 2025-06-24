@@ -147,7 +147,7 @@ export default defineConfig({
           },
           {
             text: "Properties",
-            link: "/syntax/properties"
+            link: "/syntax/properties",
           },
           {
             text: "Event Descriptions",
@@ -191,6 +191,10 @@ export default defineConfig({
               {
                 text: "Extension conversions",
                 link: "/meridiem/api/extension-conversions",
+              },
+              {
+                text: "SMS & Email",
+                link: "/meridiem/api/sms-email",
               },
             ],
           },
