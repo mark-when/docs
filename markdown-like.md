@@ -62,7 +62,7 @@ Like markdown, the markwhen parser is quite forgiving (though that doesn't mean 
 An important difference from markdown with regards to frontmatter is that markwhen does not require frontmatter to be sandwiched between three dashes `---` - read more [here](/syntax/header).
 :::
 
-```
+```mw
 ---
 title: My markwhen document
 author:
@@ -75,4 +75,4 @@ author:
 
 ## Differences from markdown
 
-- No support for multiline blocks, like code blocks or tables
+- No support for multiline blocks, like code blocks or tables (yet)
