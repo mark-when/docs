@@ -28,8 +28,6 @@ key:
 Dec 29 2029: Some date
 ```
 
-That being said, the three dash syntax is recommended.
-
 Custom visualizations may prescribe special header values they might look for when parsing your markwhen document.
 
 Some typical header items are as follows:
