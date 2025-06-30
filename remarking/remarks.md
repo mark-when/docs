@@ -7,7 +7,7 @@ onMounted(() => {
 })
 </script>
 
-# Entries
+# Remarks
 
 Each event in a blog's corresponding markwhen document is a remarking entry (or "remark").
 
@@ -40,3 +40,15 @@ So the following markwhen document would generate two remarks, with ids `A-long-
 ```
 
 If this markwhen document was owned by `terry` and the name of the doc was `vacation`, one could refer to a specific entry like `remark.ing/terry/vacation/A-long-time-ago`. This is how Remark.ing works and how remark urls are generated.
+
+## Drafts
+
+A remark may be marked as a draft with a simple addition to its [properties](/syntax/properties):
+
+```mw{2,3}
+2028-05-04: Not ready for prime time yet
+remarking:
+  draft: true
+```
+
+If an entry is marked as a draft, it will not show up in yours or others' feeds.

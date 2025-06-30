@@ -1,10 +1,10 @@
 # Properties
 
-Events, groups, and sections can all have optional properties. Properties are key-value pairs that are **immediately after the first line** of an event or group definition, i.e.
+Events, groups, and sections can all have optional properties. Properties are key-value pairs of the form `key: value` that are **immediately after the first line** of an event or group definition, i.e.
 
 ```mw{2,3}
 2025-04-30: Carpooling to work
-  riders: Tom, Jerry
+  riders: [Tom, Jerry]
   fee: $4
 
   Some day I'll have my own car
@@ -14,12 +14,12 @@ Events, groups, and sections can all have optional properties. Properties are ke
 While some of examples are indented (like above), indentation in markwhen is optional.
 :::
 
-In this example, `riders: Tom, Jerry` is one key-value pair and `fee: $4` is another. They are stored in the `event.properties` field as an object and may be used by visualizations. **Properties must follow on the line(s) after the event or group definition.** You can't put properties at the end of an event description or in the middle of it.
+In this example, `riders: [Tom, Jerry]` is one key-value pair and `fee: $4` is another. They are stored in the `event.properties` field as an object and may be used by visualizations. **Properties must follow on the line(s) after the event or group definition.** You can't put properties at the end of an event description or in the middle of it.
 
 ::: warning Warning
 Unlike the [header](/syntax/header), event properties cannot use multiline list syntax for arrays -- the dash syntax will be interpreted as a list as part of the event description. You'll need to use [flow style](https://www.yaml.info/learn/flowstyle.html) if you want an array value for an event or group property:
 
-##### This won't work:
+##### 🚫 This won't work:
 
 ```mw
 2025-09-04: Meeting
@@ -29,7 +29,7 @@ Unlike the [header](/syntax/header), event properties cannot use multiline list 
     - Don
 ```
 
-##### This will work:
+##### ✅ This will work:
 
 ```mw
 2025-09-04: Meeting
