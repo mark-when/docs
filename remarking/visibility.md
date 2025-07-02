@@ -17,7 +17,7 @@ remarking:
 
 Same thing with remarks: set `remarking.view` to `"*"`:
 
-```mw
+```mw{3}
 2025-08-09:
 remarking:
   view: "*"
