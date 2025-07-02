@@ -23,7 +23,7 @@ remarking:
   view: "*"
 ```
 
-If you intend for a document's remarks to be generally visible, set `remarking.view` in the document header. You do not need to set `remarking.view` on every entry if the visibility is already set on the document as a whole. 
+If you intend for a document's remarks to be generally visible, set `remarking.view` in the document header. You do not need to set `remarking.view` on every entry if the visibility is already set on the document as a whole. Documents created via Remark.ing default to public visibility.
 
 ## Precedence
 
