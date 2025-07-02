@@ -223,6 +223,10 @@ export default defineConfig({
         link: "/remarking",
         items: [
           {
+            text: "Visibility",
+            link: "/remarking/visibility",
+          },
+          {
             text: "Remarks",
             link: "/remarking/remarks",
           },

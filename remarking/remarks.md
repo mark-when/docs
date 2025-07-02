@@ -41,7 +41,7 @@ So the following markwhen document would generate two remarks, with ids `A-long-
 
 If this markwhen document was owned by `terry` and the name of the doc was `vacation`, one could refer to a specific entry like `remark.ing/terry/vacation/A-long-time-ago`. This is how Remark.ing works and how remark urls are generated.
 
-## Drafts
+## Drafts and Limiting Visibility
 
 A remark may be marked as a draft with a simple addition to its [properties](/syntax/properties):
 
@@ -52,3 +52,17 @@ remarking:
 ```
 
 If an entry is marked as a draft, it will not show up in yours or others' feeds.
+
+A remark can also be marked as private by setting `remarking.view` to `none`:
+
+```mw{2,3}
+2028-05-04: Not ready for prime time yet
+remarking:
+  view: none
+```
+
+A draft remark and a private remark have the same visibility to others (i.e., none at all) but drafts will show up below to the remark compose area.
+
+::: warning Note
+Individual remarks' visibility settings have a higher precedence than the document's settings. [Read more about remark visibility](/remarking/visibility).
+:::

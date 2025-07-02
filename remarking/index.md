@@ -49,7 +49,7 @@ Remarking adds them all together, and you get:
 
 :::
 
-Which then turns each event into something like this:
+Which then turns each event into something like this (this is an actual embedded remark, you can interact with it):
 
 <blockquote data-remarking-uri="/rob/rob/Example-for-the-documentation"></blockquote>
 
@@ -64,6 +64,7 @@ All that being said, you do not need to concern yourself with how Remark.ing wor
 ## Benefits of blogging with Markwhen
 
 - Future posts can be drafted by just giving them a date in the future
+- Similarly, backfill events and posts to your hearts content - add stuff from the past!
 - Exporting or moving your writing is as simple as copy pasting
 - Everything is very searchable - `ctrl`/`cmd` + `f`
 - Editting and deleting is super easy - you can edit all remarks directly in Meridiem
@@ -88,6 +89,7 @@ The following is the header for `rob/rob` to give it the appearance it has at [r
 
 ```mw
 remarking:
+  view: "*"
   image: https://media.markwhen.com/7mGszd2clHRHudsf0lLX4Kb1ChI3/cef3-a901-e1b7-5585.png
   author:
     name: Rob Koch
