@@ -114,6 +114,10 @@ export default defineConfig({
         link: "/",
         items: [
           {
+            text: "Introduction",
+            link: "/",
+          },
+          {
             text: "Markdown-like",
             link: "/markdown-like",
           },
@@ -135,8 +139,12 @@ export default defineConfig({
       },
       {
         text: "Syntax",
-        link: "/syntax",
+        link: "/syntax/",
         items: [
+          {
+            text: "Syntax",
+            link: "/syntax/",
+          },
           {
             text: "Events",
             link: "/syntax/events",
@@ -175,8 +183,12 @@ export default defineConfig({
       },
       {
         text: "Meridiem",
-        link: "/meridiem",
+        link: "/meridiem/",
         items: [
+          {
+            text: "Meridiem",
+            link: "/meridiem/",
+          },
           {
             text: "Collaborative editing",
             link: "/meridiem/sharing",
@@ -220,8 +232,12 @@ export default defineConfig({
       // },
       {
         text: "Remark.ing",
-        link: "/remarking",
+        link: "/remarking/",
         items: [
+          {
+            text: "Remark.ing",
+            link: "/remarking/",
+          },
           {
             text: "Visibility",
             link: "/remarking/visibility",
@@ -244,10 +260,11 @@ export default defineConfig({
       },
       {
         text: "Views",
-        link: "/visualizations",
+        link: "/visualizations/",
         collapsible: true,
         collapsed: false,
         items: [
+          { text: "Views", link: "/visualizations/" },
           {
             text: "Starter template",
             link: "/visualizations/starter-template",
