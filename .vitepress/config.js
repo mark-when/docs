@@ -190,6 +190,10 @@ export default defineConfig({
             link: "/meridiem/",
           },
           {
+            text: "Data storage and privacy",
+            link: "meridiem/data-storage-privacy",
+          },
+          {
             text: "Collaborative editing",
             link: "/meridiem/sharing",
           },
