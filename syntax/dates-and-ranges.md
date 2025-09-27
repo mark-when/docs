@@ -208,6 +208,35 @@ by !Chistmas 1 day: ...
 before !Christmas 1 day: ...
 ```
 
+## Dependencies
+
+We can express both the start and end date of an event as being relative to other events:
+
+```mw{6,7}
+2025-09-08: School starts
+  id: school
+2025-11-23: Thanksgiving break begins
+  id: thanksgiving
+
+!school / !thanksgiving: Time in school before break
+// == 2025-09-09 / 2025-11-22
+```
+
+Here, `!school / !thanksgiving` goes from the end of the `!school` event to the beginning of the `!thanksgiving` event.
+
+Most of the time, this is probably what we want - from the end of the first event to the start of the second. However, what if we want to align the start of two events? Or the end of two events? We can do that simply by using `.start` or `.end` modifiers when referencing event ids:
+
+```mw
+2025-11-23 / 2025-11-28: Thanksgiving break
+  id: thanksgiving
+
+2025-12-23 / 2026-01-03: Winter break
+  id: winter
+
+!thanksgiving.start / !winter.end: Thanksgiving break to winter break, inclusive
+// == 2025-11-23 / 2026-01-03
+```
+
 ## Week days
 
 ![](/images/weekdays.png)
