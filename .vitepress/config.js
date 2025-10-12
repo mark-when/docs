@@ -276,6 +276,12 @@ export default defineConfig({
           {
             text: "Timeline",
             link: "/visualizations/timeline",
+            items: [
+              {
+                text: "Styling",
+                link: "/visualizations/timeline/styling",
+              },
+            ],
           },
           // {
           //   text: "Timeline",

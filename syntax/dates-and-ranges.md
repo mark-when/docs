@@ -259,6 +259,8 @@ by !trip.end 1 year / 1 month: An even lasting one month, that ends one year bef
 .start / 2 months: From the start of the previous event, lasting for 2 months
 ```
 
+![](/images/dependencies.png)
+
 ## Week days
 
 ![](/images/weekdays.png)

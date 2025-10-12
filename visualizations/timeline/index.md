@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Te from "../src/TimelineExample.vue"
+import Te from "../../src/TimelineExample.vue"
 </script>
 
 # Timeline
@@ -8,7 +8,7 @@ The timeline is the most popular visualization and so gets most of the attention
 
 The original "OG" timeline can be found [here](https://github.com/mark-when/timeline).
 
-# Configuration
+## Configuration
 
 The timeline can be configured through the markwhen file's header. Any configuration that is specific to the timeline will be nested under a `timeline` entry in the header. Reminder that the [header](/syntax/header) is written in [yaml](https://yaml.org/).
 
@@ -35,56 +35,6 @@ Center the starting position of the timeline. Defaults to `now` (that is, the ti
 timeline:
   center: 2000
   ranges: [1 year]
-```
-
-</Te>
-
-## `style`
-
-Customize the styling and color of the timeline. The precendence of timeline styling is as follows:
-
-1. Theme
-2. Header definition
-3. Tag
-4. Entry defition
-
-The timeline has a default theme that, in lieu of other styles being provided, will be used. CSS themes will eventually be supported; those would also fall into this first category of precedence.
-
-Styles defined in the header override any theme styles. Tag definitions override header styles. Individual entry definitions (those that are defined on a specific group or event) override all others.
-
-<Te>
-
-```mw
-timeline:
-  style:
-    marker:
-      stroke: red
-      stroke-opacity: 1
-      stroke-width: 3
-      stroke-dasharray: 10,1
-      fill: #fcf
-      fill-opacity: 0.5
-      hover:
-        fill: black
-    nowLine:
-      stroke-width: 4
-    event:
-      font-weight: 600
-      font-size: 19
-      bar:
-        height: 40
-        rx: 4
-    group:
-      fill: red
-      stroke: blue
-      hover:
-        fill.dark: #445
-        stroke-opacity: 1
-
-  ranges: [1 year]
-
-now: hello!
-
 ```
 
 </Te>

@@ -10,10 +10,10 @@ const b64 = computed(() => {
 
 <template>
   <div class="flex min-h-72">
-    <div ref="slot" class="grow flex code">
+    <div ref="slot" class="w-1/2 flex code overflow-x-auto">
       <slot />
     </div>
-    <div class="grow flex p-2">
+    <div class="w-1/2 flex p-2">
       <iframe
         class="grow"
         :src="`https://timeline2.markwhen.com#mw=${b64}`"
@@ -27,5 +27,6 @@ const b64 = computed(() => {
 <style>
 .code > * {
   flex-grow: 1;
+  min-width: 100%;
 }
 </style>
