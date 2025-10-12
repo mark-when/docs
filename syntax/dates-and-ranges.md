@@ -237,6 +237,28 @@ Most of the time, this is probably what we want - from the end of the first even
 // == 2025-11-23 / 2026-01-03
 ```
 
+We can mix and chain `.start` and `.end` modifiers as much as we want, so long as the resulting date ranges make sense:
+
+```mw
+2021-04-09 / 10 days: Steven in London
+  id: steven
+
+2021-06-04 / 1 week: Isabella out of office
+  id: isabella
+
+2021-06-12 / 2021-06-22: Work trip
+  id: trip
+
+!isabella.start - !trip.end: From the start of Isabella being out of office to the end of the work trip
+
+!steven.end / !isabella.end: From the end of Steven in London to the end of Isabella being out of office
+
+by !trip.end 1 year / 1 month: An even lasting one month, that ends one year before the end of the work trip
+
+// Anonymous .start and .end modifiers refer to the previously defined event
+.start / 2 months: From the start of the previous event, lasting for 2 months
+```
+
 ## Week days
 
 ![](/images/weekdays.png)
