@@ -14,7 +14,7 @@ The timeline visualization consists of several components that can be styled:
 | Component | Description | Status |
 |-----------|-------------|--------|
 | [Markers](#markers) | The vertical lines that represent time units (days, months, years) | ✅ Documented |
-| Now Line | The line indicating the current time | 🚧 Coming soon |
+| [Now Line](#now-line) | The line indicating the current time | ✅ Documented |
 | Events | Individual timeline events | 🚧 Coming soon |
 | Groups | Collections of events | 🚧 Coming soon |
 | Eras/Milestones | Special highlighted periods or points | 🚧 Coming soon |
@@ -189,6 +189,103 @@ timeline:
       weekend:
         fill: rgba(100, 100, 120, 0.2)
         fill.dark: rgba(70, 70, 100, 0.3)
+
+now / 1 day: Hello, world!
+```
+
+</Te>
+
+## Now Line
+
+The Now Line is a vertical line that represents the current time on the timeline.
+
+### Basic Now Line Styling
+
+<Te>
+
+```mw
+timeline:
+  style:
+    nowLine:
+      stroke: var(--color-blue-300)
+      stroke-width: 2
+      stroke-opacity: 1
+
+now / 1 day: Hello, world!
+```
+
+</Te>
+
+### Dark Mode Support
+
+For all Now Line properties, you can specify different values for dark mode by adding `.dark` to the property name:
+
+<Te>
+
+```mw
+timeline:
+  style:
+    nowLine:
+      stroke: var(--color-blue-300)
+      stroke.dark: var(--color-slate-400)
+      stroke-width: 2
+      stroke-width.dark: 3
+      stroke-opacity: 1
+      stroke-opacity.dark: 0.8
+
+now / 1 day: Hello, world!
+```
+
+</Te>
+
+### Examples
+
+#### Bold Red Now Line
+
+<Te>
+
+```mw
+timeline:
+  style:
+    nowLine:
+      stroke: red
+      stroke-width: 3
+
+now / 1 day: Hello, world!
+```
+
+</Te>
+
+#### Subtle Now Line
+
+<Te>
+
+```mw
+timeline:
+  style:
+    nowLine:
+      stroke: #888
+      stroke-width: 1
+      stroke-opacity: 0.5
+
+now / 1 day: Hello, world!
+```
+
+</Te>
+
+#### Dark Mode Optimized Now Line
+
+<Te>
+
+```mw
+timeline:
+  style:
+    nowLine:
+      stroke: rgba(59, 130, 246, 0.7)
+      stroke.dark: rgba(226, 232, 240, 0.8)
+      stroke-width: 2
+      stroke-opacity: 0.8
+      stroke-opacity.dark: 1
 
 now / 1 day: Hello, world!
 ```
