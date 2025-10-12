@@ -10,13 +10,12 @@ import Te from "../../src/TimelineExample.vue"
 
 The timeline visualization consists of several components that can be styled:
 
-| Component                                   | Description                                                        | Status         |
-| ------------------------------------------- | ------------------------------------------------------------------ | -------------- |
-| [Markers](#markers)                         | The vertical lines that represent time units (days, months, years) | ✅ Documented  |
-| [Now Line](#now-line)                       | The line indicating the current time                               | ✅ Documented  |
-| [Events](#events)                           | Individual timeline events                                         | ✅ Documented  |
-| [Groups and Sections](#groups-and-sections) | Collections of events                                              | ✅ Documented  |
-| Eras/Milestones                             | Special highlighted periods or points                              | 🚧 Coming soon |
+| Component                                   | Description                                                        |
+| ------------------------------------------- | ------------------------------------------------------------------ |
+| [Markers](#markers)                         | The vertical lines that represent time units (days, months, years) |
+| [Now Line](#now-line)                       | The line indicating the current time                               |
+| [Events](#events)                           | Individual timeline events                                         |
+| [Groups and Sections](#groups-and-sections) | Groups and sections                                                |
 
 ## Styling Precedence
 
