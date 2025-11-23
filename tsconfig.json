@@ -2,7 +2,7 @@
   "compilerOptions": {
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["ES2022"]
+  "lib": ["ES2022", "DOM"]
   },
   "include": ["./docs/.vitepress/**/*.vue", "./src/**/*.vue"],
   "exclude": ["node_modules/"]
