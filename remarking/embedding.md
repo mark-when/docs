@@ -37,6 +37,24 @@ To embed a full feed instead of only the latest remark, append `?feed=1` to the 
 ></script>
 ```
 
+You can further tweak the iframe with optional query parameters:
+
+- `theme` — choose `light`, `dark`, or `system` (default) to control the color mode.
+- `background` — provide a hex color (e.g. `#ffffff`, `#0f172a`, or `f5f5f580`) to set the iframe's body background.
+
+These parameters can be combined with `feed`. For example:
+
+```html
+<blockquote
+  data-remarking-uri="/${username}/${doc_id}?feed=1&theme=dark&background=%23f8fafc"
+></blockquote>
+<script
+  async
+  src="https://embed.remark.ing/static/embed.js"
+  charset="utf-8"
+></script>
+```
+
 The embedded feed paginates automatically when there are more than 20 remarks, and navigation links are included within the iframe.
 
 For example, this code snippet:

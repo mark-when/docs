@@ -16,6 +16,7 @@ declare global {
 const inputValue = ref("https://remark.ing/markwhen/markwhen");
 const mode = ref<"latest" | "feed">("latest");
 const theme = ref<"system" | "light" | "dark">("system");
+const background = ref("");
 const previewContainer = ref<HTMLElement | null>(null);
 const copyState = ref<"idle" | "copied">("idle");
 let copyTimeout: ReturnType<typeof setTimeout> | undefined;
@@ -54,6 +55,28 @@ const parsed = computed<ParsedInput>(() => {
   }
 });
 
+const normalizedBackground = computed(() => {
+  const trimmed = background.value.trim();
+  if (!trimmed) {
+    return "";
+  }
+  const hex = trimmed.startsWith("#") ? trimmed.slice(1) : trimmed;
+  if (!/^[0-9a-fA-F]{3,8}$/.test(hex)) {
+    return "";
+  }
+  return `#${hex}`;
+});
+
+const backgroundError = computed(() => {
+  if (!background.value.trim()) {
+    return "";
+  }
+  if (!normalizedBackground.value) {
+    return "Use a hex color like #ffffff, #fff, or ffffff.";
+  }
+  return "";
+});
+
 const dataUri = computed(() => {
   if (!parsed.value.path) {
     return "";
@@ -68,6 +91,12 @@ const dataUri = computed(() => {
     url.searchParams.delete("theme");
   } else {
     url.searchParams.set("theme", theme.value);
+  }
+  const backgroundValue = normalizedBackground.value;
+  if (backgroundValue) {
+    url.searchParams.set("background", backgroundValue);
+  } else {
+    url.searchParams.delete("background");
   }
   const pathname = url.pathname || "/";
   const search = url.search;
@@ -219,6 +248,27 @@ onBeforeUnmount(() => {
           <span>Dark</span>
         </label>
       </div>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <span class="text-sm font-medium text-stone-700 dark:text-stone-200"
+        >Background color</span
+      >
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+        <input
+          v-model="background"
+          type="text"
+          placeholder="#ffffff"
+          class="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm text-stone-900 shadow-sm focus:border-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-400/40 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-50"
+        />
+      </div>
+      <p class="text-xs text-stone-500 dark:text-stone-400">
+        Optional hex color for the iframe background. Supports short and long hex like
+        <code>#fff</code>, <code>#ffffff</code>, or <code>ffffffdd</code> for transparency.
+      </p>
+      <p v-if="backgroundError" class="text-xs text-red-600 dark:text-red-400">
+        {{ backgroundError }}
+      </p>
     </div>
 
     <div class="flex flex-col gap-2">
