@@ -15,6 +15,7 @@ declare global {
 }
 const inputValue = ref("https://remark.ing/markwhen/markwhen");
 const mode = ref<"latest" | "feed">("latest");
+const theme = ref<"system" | "light" | "dark">("system");
 const previewContainer = ref<HTMLElement | null>(null);
 const copyState = ref<"idle" | "copied">("idle");
 let copyTimeout: ReturnType<typeof setTimeout> | undefined;
@@ -62,6 +63,11 @@ const dataUri = computed(() => {
     url.searchParams.set("feed", "1");
   } else {
     url.searchParams.delete("feed");
+  }
+  if (theme.value === "system") {
+    url.searchParams.delete("theme");
+  } else {
+    url.searchParams.set("theme", theme.value);
   }
   const pathname = url.pathname || "/";
   const search = url.search;
@@ -170,6 +176,47 @@ onBeforeUnmount(() => {
             class="h-4 w-4 border-stone-300 text-stone-600 focus:ring-stone-500 dark:border-stone-500"
           />
           <span>Full feed (with pagination)</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <span class="text-sm font-medium text-stone-700 dark:text-stone-200"
+        >Theme</span
+      >
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+        <label
+          class="flex items-center gap-2 rounded-md border border-stone-300 px-3 py-2 text-sm text-stone-700 shadow-sm transition hover:border-stone-400 dark:border-stone-600 dark:text-stone-200 dark:hover:border-stone-500"
+        >
+          <input
+            type="radio"
+            value="system"
+            v-model="theme"
+            class="h-4 w-4 border-stone-300 text-stone-600 focus:ring-stone-500 dark:border-stone-500"
+          />
+          <span>Match viewer</span>
+        </label>
+        <label
+          class="flex items-center gap-2 rounded-md border border-stone-300 px-3 py-2 text-sm text-stone-700 shadow-sm transition hover:border-stone-400 dark:border-stone-600 dark:text-stone-200 dark:hover:border-stone-500"
+        >
+          <input
+            type="radio"
+            value="light"
+            v-model="theme"
+            class="h-4 w-4 border-stone-300 text-stone-600 focus:ring-stone-500 dark:border-stone-500"
+          />
+          <span>Light</span>
+        </label>
+        <label
+          class="flex items-center gap-2 rounded-md border border-stone-300 px-3 py-2 text-sm text-stone-700 shadow-sm transition hover:border-stone-400 dark:border-stone-600 dark:text-stone-200 dark:hover:border-stone-500"
+        >
+          <input
+            type="radio"
+            value="dark"
+            v-model="theme"
+            class="h-4 w-4 border-stone-300 text-stone-600 focus:ring-stone-500 dark:border-stone-500"
+          />
+          <span>Dark</span>
         </label>
       </div>
     </div>
