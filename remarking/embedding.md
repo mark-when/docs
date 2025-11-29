@@ -80,4 +80,4 @@ Only public blogs or remarks are embeddable.
 
 Use the generator below to build an embed snippet for any publicly visible remark or feed. Paste a remark.ing URL or path, choose whether you want the latest remark or the full feed, then copy the generated HTML into your site.
 
-<RemarkEmbedGenerator />
+<RemarkEmbedGenerator class="vp-raw"/>

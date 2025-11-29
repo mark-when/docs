@@ -168,7 +168,7 @@ onBeforeUnmount(() => {
         v-model="inputValue"
         type="text"
         placeholder="https://remark.ing/username/doc"
-        class="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm text-stone-900 shadow-sm focus:border-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-400/40 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-50"
+        class="w-full rounded-md border border-stone-300 bg-gray-100 px-4 py-2 text-sm text-stone-900 shadow-sm focus:border-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-400/40 dark:border-stone-600 dark:bg-stone-900 dark:text-stone-50"
       />
       <p class="text-xs text-stone-500 dark:text-stone-400">
         Paste a remark.ing link like <code>https://remark.ing/markwhen/markwhen</code>
