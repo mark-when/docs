@@ -17,6 +17,7 @@ const inputValue = ref("https://remark.ing/markwhen/markwhen");
 const mode = ref<"latest" | "feed">("latest");
 const theme = ref<"system" | "light" | "dark">("system");
 const background = ref("");
+const pageLength = ref("");
 const previewContainer = ref<HTMLElement | null>(null);
 const copyState = ref<"idle" | "copied">("idle");
 let copyTimeout: ReturnType<typeof setTimeout> | undefined;
@@ -77,6 +78,28 @@ const backgroundError = computed(() => {
   return "";
 });
 
+const normalizedPageLength = computed(() => {
+  const trimmed = pageLength.value.trim();
+  if (!trimmed) {
+    return "";
+  }
+  const parsed = Number.parseInt(trimmed, 10);
+  if (Number.isNaN(parsed) || parsed <= 0) {
+    return "";
+  }
+  return `${parsed}`;
+});
+
+const pageLengthError = computed(() => {
+  if (!pageLength.value.trim()) {
+    return "";
+  }
+  if (!normalizedPageLength.value) {
+    return "Enter a positive integer like 10.";
+  }
+  return "";
+});
+
 const dataUri = computed(() => {
   if (!parsed.value.path) {
     return "";
@@ -84,8 +107,15 @@ const dataUri = computed(() => {
   const url = new URL(parsed.value.path, BASE_URL);
   if (mode.value === "feed") {
     url.searchParams.set("feed", "1");
+    const pageLengthValue = normalizedPageLength.value;
+    if (pageLengthValue) {
+      url.searchParams.set("pageLength", pageLengthValue);
+    } else {
+      url.searchParams.delete("pageLength");
+    }
   } else {
     url.searchParams.delete("feed");
+    url.searchParams.delete("pageLength");
   }
   if (theme.value === "system") {
     url.searchParams.delete("theme");
@@ -268,6 +298,29 @@ onBeforeUnmount(() => {
       </p>
       <p v-if="backgroundError" class="text-xs text-red-600 dark:text-red-400">
         {{ backgroundError }}
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <span class="text-sm font-medium text-stone-700 dark:text-stone-200"
+        >Page length</span
+      >
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+        <input
+          v-model="pageLength"
+          type="number"
+          min="1"
+          step="1"
+          inputmode="numeric"
+          placeholder="10"
+          class="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm text-stone-900 shadow-sm focus:border-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-400/40 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-50"
+        />
+      </div>
+      <p class="text-xs text-stone-500 dark:text-stone-400">
+        Optional number of remarks per page (feed mode). Leave blank to use the default.
+      </p>
+      <p v-if="pageLengthError" class="text-xs text-red-600 dark:text-red-400">
+        {{ pageLengthError }}
       </p>
     </div>
 
