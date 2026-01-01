@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import {
+  computed,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  ref,
+  watch,
+} from "vue";
 
 const BASE_URL = "https://remark.ing";
 const SCRIPT_SNIPPET =
@@ -79,11 +86,17 @@ const backgroundError = computed(() => {
 });
 
 const normalizedPageLength = computed(() => {
-  const trimmed = pageLength.value.trim();
-  if (!trimmed) {
-    return "";
+  const value = pageLength.value;
+  let parsed: number;
+  if (typeof value === "string") {
+    const trimmed = pageLength.value.trim();
+    if (!trimmed) {
+      return "";
+    }
+    parsed = Number.parseInt(trimmed, 10);
+  } else {
+    parsed = value;
   }
-  const parsed = Number.parseInt(trimmed, 10);
   if (Number.isNaN(parsed) || parsed <= 0) {
     return "";
   }
@@ -91,7 +104,18 @@ const normalizedPageLength = computed(() => {
 });
 
 const pageLengthError = computed(() => {
-  if (!pageLength.value.trim()) {
+  const value = pageLength.value;
+  let parsed: number;
+  if (typeof value === "string") {
+    const trimmed = pageLength.value.trim();
+    if (!trimmed) {
+      return "";
+    }
+    parsed = Number.parseInt(trimmed, 10);
+  } else {
+    parsed = value;
+  }
+  if (Number.isNaN(parsed) || parsed <= 0) {
     return "";
   }
   if (!normalizedPageLength.value) {
@@ -177,7 +201,9 @@ const copyToClipboard = async () => {
   }
 };
 
-const previewKey = computed(() => (dataUri.value ? `${dataUri.value}` : "empty"));
+const previewKey = computed(() =>
+  dataUri.value ? `${dataUri.value}` : "empty"
+);
 
 onBeforeUnmount(() => {
   if (copyTimeout) {
@@ -201,8 +227,9 @@ onBeforeUnmount(() => {
         class="w-full rounded-md border border-stone-300 bg-gray-100 px-4 py-2 text-sm text-stone-900 shadow-sm focus:border-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-400/40 dark:border-stone-600 dark:bg-stone-900 dark:text-stone-50"
       />
       <p class="text-xs text-stone-500 dark:text-stone-400">
-        Paste a remark.ing link like <code>https://remark.ing/markwhen/markwhen</code>
-        or a path such as <code>/markwhen/markwhen</code>.
+        Paste a remark.ing link like
+        <code>https://remark.ing/markwhen/markwhen</code> or a path such as
+        <code>/markwhen/markwhen</code>.
       </p>
       <p v-if="hasError" class="text-xs text-red-600 dark:text-red-400">
         {{ errorMessage }}
@@ -293,8 +320,10 @@ onBeforeUnmount(() => {
         />
       </div>
       <p class="text-xs text-stone-500 dark:text-stone-400">
-        Optional hex color for the iframe background. Supports short and long hex like
-        <code>#fff</code>, <code>#ffffff</code>, or <code>ffffffdd</code> for transparency.
+        Optional hex color for the iframe background. Supports short and long
+        hex like
+        <code>#fff</code>, <code>#ffffff</code>, or <code>ffffffdd</code> for
+        transparency.
       </p>
       <p v-if="backgroundError" class="text-xs text-red-600 dark:text-red-400">
         {{ backgroundError }}
@@ -317,7 +346,8 @@ onBeforeUnmount(() => {
         />
       </div>
       <p class="text-xs text-stone-500 dark:text-stone-400">
-        Optional number of remarks per page (feed mode). Leave blank to use the default.
+        Optional number of remarks per page (feed mode). Leave blank to use the
+        default.
       </p>
       <p v-if="pageLengthError" class="text-xs text-red-600 dark:text-red-400">
         {{ pageLengthError }}
