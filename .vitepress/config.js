@@ -162,8 +162,8 @@ export default defineConfig({
             link: "/syntax/event-descriptions",
           },
           {
-            text: "Groups and Sections",
-            link: "/syntax/groups-and-sections",
+            text: "Sections",
+            link: "/syntax/sections",
           },
           {
             text: "Header",

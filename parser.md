@@ -59,7 +59,7 @@ const mw = parse(...)
 
 // Use `iterate` to iterate through the tree
 for (const { path, eventy } of iter(mw)) {
-  // Here, path is the path to the event or event group
+  // Here, path is the path to the event or section
 }
 
 // Path in the tree.
@@ -69,7 +69,7 @@ const specificNode = get(mw, path)
 // The rightmost node of the tree
 const lastInTree = getLast(mw)
 
-// Groups and sections are flattened to return an array of events only
+// Sections are flattened to return an array of events only
 const eventsOnly = flat(mw)
 
 // The first line is separated into the `datePart` and "the rest" - the title would be considered "the rest"
@@ -81,7 +81,7 @@ const event = isEvent(mw)
 
 ## Paths
 
-Events and groups are often referred to by their paths in the tree, **starting from the root, or top, of the tree**.
+Events and sections are often referred to by their paths in the tree, **starting from the root, or top, of the tree**.
 
 For example, say we have the following markwhen document:
 
@@ -90,15 +90,13 @@ Path        Text
 --------------------------------
 [0]         2008: Entrance exam
 
-[1]         group Education
+[1]         # Education
 [1, 0]      2009: Start school
 
-[1, 1]      group Sophomore year
+[1, 1]      ## Sophomore year
 [1, 1, 0]   2010: Advanced classes
-            endGroup
 
 [1, 2]      2011: More classes
-            endGroup
 
 [2]         2012: New job
 
@@ -115,9 +113,9 @@ Another view of the tree, viewing it as an actual array of arrays (in pseudocode
 ```
 markwhen =
 ["2008: Entrance exam",
-  "group Education": [
+  "# Education": [
     "2009: Start school",
-    "group Sophomore year": [
+    "## Sophomore year": [
       "2010: Advanced classes"
     ],
     "2011: More classes",

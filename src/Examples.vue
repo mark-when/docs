@@ -12,15 +12,15 @@ const ex = reactive<Record<string, string>>({
 Dec 1 2025: Supports multiple date formats
 And longer descriptions
 `,
-  Groups: `group Part one
+  Sections: `# Part one
+
 2024-12-24: Christmas Eve
 2024-12-25: Christmas
-endGroup
 
-group Part two
+# Part two
+
 2024-12-31: New Year's Eve
 2025-01-01: New Year's Day
-endGroup
 `,
   Tags: `2025-01-01: New Year's Day #holiday
 
@@ -48,13 +48,12 @@ endGroup
 description: Things to do on vacation
 
 2025-08-14 / 1 week: Have a good time`,
-  Properties: `group Reunion Activities
+  Properties: `# Reunion Activities
 leader: Jane Smith
 
 2025-09-09: Video call
 attendees: [sarah@example.com, igor@example.com]
-
-endGroup`,
+`,
 });
 
 const exampleSelected = ref<string>("Basic Syntax");

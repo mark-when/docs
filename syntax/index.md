@@ -5,7 +5,7 @@ const expo = [
   [[0, 7], '<a href="/syntax/header">Header</a>'],
   [[11, 13], '<a href="/syntax/events">Events</a>'],
   [[13, 18], '<a href="/syntax/event-descriptions">Event description</a>'],
-  [[22, 23], '<a href="/syntax/groups-and-sections">Section definition</a>'],
+  [[22, 23], '<a href="/syntax/sections">Section header</a>'],
   [[26, 27], 'Comment'],
   [[28, 30], '<a href="/syntax/properties">Event properties</a>']
 ]
@@ -27,8 +27,10 @@ title: Project plan
 timezone: America/New_York
 ---
 
-section All Projects
-  group Project 1 #Project1
+# All Projects
+
+  ## Project 1 #Project1
+
     // Supports ISO8601
     2025-01/2025-03: Sub task #John
     2025-03/2025-06: Sub task 2 #Michelle
@@ -39,9 +41,9 @@ section All Projects
       - [ ] This one is extra
 
     2025-07: Yearly planning
-endGroup
 
-group Project 2 #Project2
+## Project 2 #Project2
+
   2025-04/4 months: Larger sub task #Danielle
     contact: imeal@example.com
 

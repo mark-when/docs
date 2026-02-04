@@ -8,13 +8,14 @@ description: Hello, world!
 #Travel: blue
 #Education: #ab5
 
-group Travel #Travel
-Jan 2019: The Bahamas [Bahamas](location) #Travel
-endGroup
+# Travel #Travel
 
-section Other stuff
+Jan 2019: The Bahamas [Bahamas](location) #Travel
+
+# Other stuff
+style: section
+
 August 2020 - now: Getting my degree #Education
-endSection
 
 `);
 const parsed = computed(() => parse(text.value));

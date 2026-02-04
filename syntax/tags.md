@@ -22,7 +22,7 @@ You can specify a tag's color in the header:
 
 ## Multiple tags
 
-Events, groups, and sections all support multiple tags, but their behavior with given properties becomes undefined -- or at least less defined.
+Events and sections support multiple tags, but their behavior with given properties becomes undefined -- or at least less defined.
 
 Basically, do not expect smart merging of tags' properties:
 

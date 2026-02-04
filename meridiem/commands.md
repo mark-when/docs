@@ -38,7 +38,7 @@ The `context` parameter contains the raw text of the current document in `contex
 ```ts
 const root = context.markwhen.events.value;
 // This is contrived, there may or may not be an event here
-// (it could be a group or section)
+// (it could be a section)
 const { from, to } = root[0].value.rangeInText;
 const eventText = context.text.substring(from, to);
 // Do something with `eventText`...

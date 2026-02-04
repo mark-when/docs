@@ -1,4 +1,4 @@
-# Groups and Sections
+# Sections
 
 Events can be organized into sections using markdown-style headers. Use `#` through `######` (1-6 hash marks) to create sections at different nesting levels.
 

@@ -15,7 +15,7 @@ The timeline visualization consists of several components that can be styled:
 | [Markers](#markers)                         | The vertical lines that represent time units (days, months, years) |
 | [Now Line](#now-line)                       | The line indicating the current time                               |
 | [Events](#events)                           | Individual timeline events                                         |
-| [Groups and Sections](#groups-and-sections) | Groups and sections                                                |
+| [Sections](#sections)                       | Sections (groups of events)                                        |
 
 ## Styling Precedence
 
@@ -28,7 +28,7 @@ You can customize the styling of the timeline. The precendence of timeline styli
 
 The timeline has a default theme that, in lieu of other styles being provided, will be used. CSS themes will eventually be supported; those would also fall into this last category of precedence.
 
-Styles defined in the header override any theme styles. Tag definitions override header styles. Individual entry definitions (those that are defined on a specific group or event) override all others.
+Styles defined in the header override any theme styles. Tag definitions override header styles. Individual entry definitions (those that are defined on a specific section or event) override all others.
 
 For example, if an individual event specifies its own style, it overrides any other style declaration lower on the list (tag, header, etc).
 
@@ -417,9 +417,9 @@ now / 1 year: Hello, world! 50%
 
 As with other components, all event styling properties support dark mode by adding `.dark` to the property name.
 
-## Groups and Sections
+## Sections
 
-### Basic Group Styling
+### Basic Section Styling
 
 <Te>
 
@@ -440,16 +440,17 @@ timeline:
 
 now / 1 day: Hello, world!
 
-group Group
-  now / 2 days: First event in group
-  3 days / 2 days: Second event in group
+# My Section
+
+now / 2 days: First event in section
+3 days / 2 days: Second event in section
 ```
 
 </Te>
 
-### Group Text Styling
+### Section Text Styling
 
-You can customize how the group titles appear:
+You can customize how the section titles appear:
 
 <Te>
 
@@ -468,16 +469,17 @@ timeline:
 
 now / 1 day: Hello, world!
 
-group Group
-  now / 2 days: First event in group
-  3d / 2 days: Second event in group
+# My Section
+
+now / 2 days: First event in section
+3d / 2 days: Second event in section
 ```
 
 </Te>
 
-### Group Hover State
+### Section Hover State
 
-Define how groups appear when users hover over them:
+Define how sections appear when users hover over them:
 
 <Te>
 
@@ -504,16 +506,17 @@ timeline:
 
 now / 1 day: Hello, world!
 
-group Group
-  now / 2 days: First event in group
-  3d / 2 days: Second event in group
+# My Section
+
+now / 2 days: First event in section
+3d / 2 days: Second event in section
 ```
 
 </Te>
 
-### Group Detail State
+### Section Detail State
 
-The detail state is used when a group is selected or in focus:
+The detail state is used when a section is selected or in focus:
 
 <Te>
 
@@ -540,20 +543,21 @@ timeline:
 
 now / 1 day: Hello, world!
 
-group Group
-  now / 2 days: First event in group
-  3d / 2 days: Second event in group
+# My Section
+
+now / 2 days: First event in section
+3d / 2 days: Second event in section
 ```
 
 </Te>
 
 ### Dark Mode Support
 
-As with other components, all group styling properties support dark mode by adding `.dark` to the property name.
+As with other components, all section styling properties support dark mode by adding `.dark` to the property name.
 
 ### Examples
 
-#### Colored Group Sections
+#### Colored Sections
 
 <Te>
 
@@ -575,13 +579,15 @@ timeline:
 
 now / 1 day: Hello, world!
 
-group Team Alpha
-  now / 2 days: Research phase
-  3d / 3 days: Development
+# Team Alpha
 
-group Team Beta
-  1d / 4 days: Design mockups
-  6d / 5 days: Implementation
+now / 2 days: Research phase
+3d / 3 days: Development
+
+# Team Beta
+
+1d / 4 days: Design mockups
+6d / 5 days: Implementation
 ```
 
 </Te>

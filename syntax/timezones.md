@@ -10,7 +10,7 @@ import Exposition from "../src/Exposition.vue"
 
 We can (and should) specify a timezone for our markwhen documents by adding a `timezone` or `tz` header entry and similar for events:
 
-```mw{2,13}
+```mw{2,12}
 ---
 timezone: America/New_York
 
@@ -21,11 +21,11 @@ timezone: America/New_York
 
 2020: Mostly uneventful year #covid
 
-group year abroad #london
-  2023-06-01: the king was coronated
-    timezone: Europe/London
-  ...
-endGroup
+# Year abroad #london
+
+2023-06-01: the king was coronated
+  timezone: Europe/London
+...
 ```
 
 This way, any event that isn't otherwise explicitly given a zone, like `2023-06-01: the king was coronated` is, will be in the `America/New_York` zone.
