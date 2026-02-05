@@ -3,11 +3,11 @@ import Exposition from "../src/Exposition.vue"
 
 const expo = [
   [[0, 7], '<a href="/syntax/header">Header</a>'],
-  [[11, 13], '<a href="/syntax/events">Events</a>'],
-  [[13, 18], '<a href="/syntax/event-descriptions">Event description</a>'],
-  [[22, 23], '<a href="/syntax/sections">Section header</a>'],
-  [[26, 27], 'Comment'],
-  [[28, 30], '<a href="/syntax/properties">Event properties</a>']
+  [[13, 15], '<a href="/syntax/events">Events</a>'],
+  [[15, 20], '<a href="/syntax/event-descriptions">Event description</a>'],
+  [[23, 24], '<a href="/syntax/sections">Section header</a>'],
+  [[28, 29], 'Comment'],
+  [[30, 32], '<a href="/syntax/properties">Event properties</a>']
 ]
 
 </script>
@@ -18,7 +18,7 @@ The example here is indented but indentation is optional. That being said, if yo
 
 <Exposition :expo="expo">
 
-```mw{1-7,12-14,14-18,23,27,29,30}
+```mw{1-7,14-16,16-20,24,29,31,32}
 ---
 title: Project plan
 
