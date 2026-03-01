@@ -17,24 +17,30 @@ Let's say Rob, Kris, and Esteban all join Remarking and create their markwhen do
 
 ::: code-group
 
-```mw [rob/my-remarks.mw]
+```mw{1,2} [rob/my-remarks.mw]
+remarking:
+  view: "*"
 2025-06-01: Example for documentation
 2025-04-21: Pool day 🏊🏼‍♂️
 ```
 
 ```mw [kris/events.mw]
+remarking:
+  view: "*"
 2025-04-30: 🛫 here we go
 2025-05-01: 🛬 finally
 ```
 
 ```mw [esteban/esteban.mw]
+remarking:
+  view: "*"
 2025-02-30: still cold
 2025-07-04: 🎇
 ```
 
 :::
 
-Remarking adds them all together, and you get:
+Remarking adds them all together behind the scenes, and you get:
 
 ::: code-group
 
@@ -46,16 +52,29 @@ Remarking adds them all together, and you get:
 2025-04-21: Pool day 🏊🏼‍♂️
 2025-02-30: still cold
 ```
+:::
+
+::: tip Note
+
+Remarking doesn't actually make a new markwhen document containing all others, but it is a good way to think about how it works.
+
+:::
+
+::: danger Important!
+Having the remarking view permission in your markwhen is crucial for this to work: 
+```mw
+remarking:
+  view: "*"
+```
+
+Remarking will not overshare your content -- you must explicitly add these two lines in your header for your journal to be visible to others.
 
 :::
 
 Which then turns each event into something like this (this is an actual embedded remark, you can interact with it):
 
-<blockquote data-remarking-uri="/rob/rob/Example-for-the-documentation"></blockquote>
+<blockquote data-remarking-uri="/rob/rob/-/Example-for-the-documentation"></blockquote>
 
-::: tip Note
-In the example above, Rob, Kris, and Esteban would all have had to connect and authorize Remarking to access those specific documents.
-:::
 
 Remarking is built on top of [Meridiem](/meridiem/) and its [OAuth API](/meridiem/api/). You can edit your markwhen documents directly via Meridiem, or you can use the Remarking interface.
 
