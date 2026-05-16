@@ -15,7 +15,7 @@ Remarks can be embedded by copying the below code and replacing the parameters w
 
 ```html
 <blockquote
-  data-remarking-uri="/${username}/${doc_id}/${remark_id}"
+  data-remarking-uri="/${username}/${doc_id}/-/${remark_id}"
 ></blockquote>
 <script
   async
@@ -24,7 +24,7 @@ Remarks can be embedded by copying the below code and replacing the parameters w
 ></script>
 ```
 
-`username` is not optional, but `doc_id` and `remark_id` are. By just providing `username`, you'll be grabbing the latest remark across all of that person's blogs; if you provide both `username` and `doc_id`, you'll get the latest of that blog. By providing all three you'll get that specific remark.
+`username` is not optional, but `doc_id` and `remark_id` are. By just providing `username`, you'll be grabbing the latest remark across all of that person's blogs; if you provide both `username` and `doc_id`, you'll get the latest of that blog. By providing all three with the `/-/` delimiter you'll get that specific remark.
 
 To embed a full feed instead of only the latest remark, append `?feed=1` to the `data-remarking-uri`. This works for both user feeds (`/${username}`) and individual blogs (`/${username}/${doc_id}`).
 
