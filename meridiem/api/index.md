@@ -9,4 +9,7 @@ Your app's `app_id` and `app_secret` will be generated, and there will be additi
 
 - `Optional` icon url that will display on the OAuth page
 - `Optional` scope justification that will also be displayed on the OAuth page, for explaining the purpose of requesting the scopes that your app requests.
+- `Optional` `doc_changed_webhook` url for receiving signed document change webhooks.
+
+For webhook payloads, signature headers, and verification details, see [Webhooks](/meridiem/api/webhooks).
 

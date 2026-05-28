@@ -212,6 +212,10 @@ export default defineConfig({
                 text: "SMS & Email",
                 link: "/meridiem/api/sms-email",
               },
+              {
+                text: "Webhooks",
+                link: "/meridiem/api/webhooks",
+              },
             ],
           },
         ],
