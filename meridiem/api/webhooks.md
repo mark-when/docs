@@ -20,7 +20,9 @@ Sent when a document change has been merged and persisted.
 {
   type: "doc.changed";
   uid: string;
+  username?: string;
   docId: string;
+  docName: string;
   version: number;
   requestTimestampSeconds?: number;
   emittedAt: string;
@@ -31,10 +33,12 @@ Sent when a document change has been merged and persisted.
 | ---------- | ---- | ----- |
 | `type` | `"doc.changed"` | Event name |
 | `uid` | `string` | Document owner uid |
-| `docId` | `string` | Document id |
+| `username` | `string \| undefined` | Document owner username when available |
+| `docId` | `string` | Immutable document id |
+| `docName` | `string` | Current document name (falls back to `docId`) |
 | `version` | `number` | Merged document version |
-| `requestTimestampSeconds` | `number \| undefined` | Internal scheduling timestamp |
-| `emittedAt` | `string` | ISO timestamp generated at send time |
+| `requestTimestampSeconds` | `number \| undefined` | Scheduled task timestamp (debounce target time) |
+| `emittedAt` | `string` | ISO timestamp generated when webhook is emitted |
 
 ## Signature headers
 
