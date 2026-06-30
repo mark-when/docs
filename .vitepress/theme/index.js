@@ -2,6 +2,7 @@ import DiscordButton from "../../src/DiscordButton.vue";
 import DefaultTheme from "vitepress/theme";
 import PageLayout from "../../src/PageLayout.vue";
 import "./custom.css";
+import CopyOrDownloadAsMarkdownButtons from "vitepress-plugin-llms/vitepress-components/CopyOrDownloadAsMarkdownButtons.vue";
 
 export default {
   ...DefaultTheme,
@@ -9,5 +10,9 @@ export default {
   enhanceApp(context) {
     DefaultTheme.enhanceApp(context);
     context.app.component("DiscordButton", DiscordButton);
+    context.app.component(
+      "CopyOrDownloadAsMarkdownButtons",
+      CopyOrDownloadAsMarkdownButtons,
+    );
   },
 };

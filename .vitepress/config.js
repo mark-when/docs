@@ -1,6 +1,8 @@
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, postcssIsolateStyles } from "vitepress";
 import { highlight } from "./highlight";
+import { copyOrDownloadAsMarkdownButtons } from "vitepress-plugin-llms";
+import llmstxt from "vitepress-plugin-llms";
 
 export function extractTitle(info, html = false) {
   if (html) {
@@ -33,7 +35,7 @@ function attrsToLines(attrs) {
     .forEach(([start, end]) => {
       if (start && end) {
         result.push(
-          ...Array.from({ length: end - start + 1 }, (_, i) => start + i)
+          ...Array.from({ length: end - start + 1 }, (_, i) => start + i),
         );
       } else {
         result.push(start);
@@ -47,7 +49,7 @@ export default defineConfig({
     hostname: "https://docs.markwhen.com",
   },
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), llmstxt()],
     css: {
       postcss: {
         plugins: [
@@ -97,6 +99,8 @@ export default defineConfig({
         // Use original renderer for everything else
         return originalFence(tokens, idx, options, env, renderer);
       };
+
+      md.use(copyOrDownloadAsMarkdownButtons);
     },
   },
   title: "Markwhen Documentation",
