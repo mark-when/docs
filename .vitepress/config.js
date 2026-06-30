@@ -207,6 +207,20 @@ export default defineConfig({
             text: "Apps & API",
             link: "/meridiem/api",
             items: [
+              { text: "OAuth quickstart", link: "/meridiem/api/oauth" },
+              {
+                text: "Build an app like Remark.ing",
+                link: "/meridiem/api/build-remarking-app",
+              },
+              {
+                text: "What can you build?",
+                link: "/meridiem/api/what-can-you-build",
+              },
+              { text: "App recipes", link: "/meridiem/api/app-recipes" },
+              {
+                text: "Troubleshooting",
+                link: "/meridiem/api/troubleshooting",
+              },
               { text: "API", link: "/meridiem/api/api" },
               {
                 text: "Extension conversions",

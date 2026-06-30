@@ -2,6 +2,8 @@
 
 Meridiem supports apps that act on a user's behalf via the [OAuth API](/meridiem/api/).
 
+If you want the fastest path, start with the [OAuth quickstart](/meridiem/api/oauth). If you want a concrete model for what an app can be, read [Build an app like Remark.ing](/meridiem/api/build-remarking-app).
+
 To create an app, ensure that you are signed into Meridiem. Go to `Settings` -> `Developer` -> Under `Apps`, click `Create`.
 Enter your app's information (it can be changed later) and click `Save`.
 
@@ -13,3 +15,14 @@ Your app's `app_id` and `app_secret` will be generated, and there will be additi
 
 For webhook payloads, signature headers, and verification details, see [Webhooks](/meridiem/api/webhooks).
 
+## Good first apps
+
+Meridiem apps usually do one or more of these things:
+
+- Read markwhen documents and turn them into a focused UI.
+- Append new entries from a form, button, automation, SMS, email, or agent.
+- Store app-level settings in the document header.
+- Store structured per-entry details as event properties.
+- React to document changes through webhooks.
+
+For more examples, see [What can you build?](/meridiem/api/what-can-you-build).

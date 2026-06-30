@@ -2,6 +2,18 @@
 
 [[toc]]
 
+Base URL: `https://meridiem.markwhen.com`
+
+All `/api/v1/*` endpoints require an OAuth access token. See the [OAuth quickstart](/meridiem/api/oauth) for the authorization flow.
+
+Most document endpoints use a user-facing document name or path in the URL:
+
+```txt
+/api/v1/docs/:user/doc/:docName
+```
+
+Responses include the immutable `doc_id` when you need a stable identity.
+
 ## Get user
 
 ### `GET /api/v1/user`
@@ -78,7 +90,8 @@ List user's documents. Note that this will return the list of documents that the
     "doc_id": string,
     "updated_at": string | null,
     "header": any,
-    "path": string
+    "path": string,
+    "pathEncoded": string
   }[]
 }
 ```
@@ -89,13 +102,14 @@ List user's documents. Note that this will return the list of documents that the
 | `doc_id`     | `string`         | Document ID                                          |
 | `updated_at` | `string \| null` | Timestamp when the document was last updated         |
 | `header`     | `any`            | Document header metadata                             |
-| `path`       | `string`         | Path to the document in the format `username/doc_id` |
+| `path`       | `string`         | Path to the document in the format `username/docName` |
+| `pathEncoded` | `string`       | Encoded path for URLs |
 
 #### Required scopes
 
 | Required scope                        |
 | ------------------------------------- |
-| `docs.read:*` or `docs.read:{doc_id}` |
+| `docs.read:*` or `docs.read:{docName}` |
 
 #### Headers
 
@@ -133,29 +147,33 @@ if (result.ok) {
 
 ## Get document
 
-### `GET /api/v1/docs/:user/doc/:docId`
+### `GET /api/v1/docs/:user/doc/:docName`
 
 Get the content of a specific document.
 
 #### Returns
 
-The document content in the requested format:
+The document content and parsed markwhen:
 
-- If `Accept: application/json` header is provided, returns the parsed document as JSON
-- Otherwise, returns the raw document content as text/markwhen
+```ts
+{
+  version: number;
+  text: string;
+  parsed: any;
+}
+```
 
 #### Required scopes
 
 | Required scope                       |
 | ------------------------------------ |
-| `docs.read:*` or `docs.read:{docId}` |
+| `docs.read:*` or `docs.read:{docName}` |
 
 #### Headers
 
 | Header          | Value                                            |
 | --------------- | ------------------------------------------------ |
 | `Authorization` | `Bearer {your app's access_token}`               |
-| `Accept`        | `application/json` (optional, for JSON response) |
 
 #### Query Parameters
 
@@ -169,13 +187,13 @@ _None_
 
 ::: code-group
 
-```js [JS - Raw Format]
+```js [JS]
 const accessToken = ""; // Your app's access token
 const username = "username"; // Document owner's username
-const docId = "doc123"; // Document ID
+const docName = "journal"; // Document name/path
 
 const result = await fetch(
-  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docId}`,
+  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docName}`,
   {
     headers: {
       authorization: `Bearer ${accessToken}`,
@@ -184,29 +202,8 @@ const result = await fetch(
 );
 
 if (result.ok) {
-  const markwhenText = await result.text();
-  console.log(markwhenText);
-}
-```
-
-```js [JS - JSON Format]
-const accessToken = ""; // Your app's access token
-const username = "username"; // Document owner's username
-const docId = "doc123"; // Document ID
-
-const result = await fetch(
-  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docId}`,
-  {
-    headers: {
-      authorization: `Bearer ${accessToken}`,
-      accept: "application/json",
-    },
-  }
-);
-
-if (result.ok) {
-  const parsedDocument = await result.json();
-  console.log(parsedDocument);
+  const { text, parsed, version } = await result.json();
+  console.log(text, parsed, version);
 }
 ```
 
@@ -214,9 +211,9 @@ if (result.ok) {
 
 ## Create new document
 
-### `POST /api/v1/docs/:user/doc/:docId`
+### `POST /api/v1/docs/:user/doc/:docName`
 
-Create a new document with the specified ID.
+Create a new document with the specified name/path. Meridiem generates and returns the immutable `doc_id`.
 
 #### Returns
 
@@ -260,10 +257,10 @@ _None_
 ```js [JS]
 const accessToken = ""; // Your app's access token
 const username = "username"; // Document owner's username
-const docId = "newdoc123"; // New document ID
+const docName = "garden"; // New document name/path
 
 const result = await fetch(
-  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docId}`,
+  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docName}`,
   {
     method: "POST",
     headers: {
@@ -278,7 +275,8 @@ const result = await fetch(
 );
 
 if (result.ok) {
-  console.log("Document created successfully");
+  const { doc_id, name } = await result.json();
+  console.log("Document created successfully", doc_id, name);
 }
 ```
 
@@ -286,7 +284,7 @@ if (result.ok) {
 
 ## Append to document
 
-### `PATCH /api/v1/docs/:user/doc/:docId`
+### `PATCH /api/v1/docs/:user/doc/:docName`
 
 Append content to an existing document. Note that this will add to the end of the document if the document is "sorted" from oldest to newest (top to bottom), otherwise it will add new entries to the top. Technically it just looks at the top two events (if there are any) and if the first one is newer than the second one, appends to the top of the document (after the header). It does not insert events in sorted order. In fact, this method does not assume that a new event is even being inserted necessarily. One could, for example, insert the text `Hello world` which would presumably just be added to the event description of the last event.
 
@@ -318,7 +316,7 @@ Status code 202 if successful, with a JSON response containing any new URLs adde
 
 | Required scope                         |
 | -------------------------------------- |
-| `docs.write:*` or `docs.write:{docId}` |
+| `docs.write:*` or `docs.write:{docName}` |
 
 #### Headers
 
@@ -335,15 +333,20 @@ _None_
 
 ```ts
 {
-  "text": string,
-  "timezone": string
+  "edits": {
+    "text": string,
+    "timezone"?: string,
+    "from"?: number,
+    "to"?: number,
+    "length"?: number,
+    "version"?: number
+  }[]
 }
 ```
 
-| JSON Field | Type     | Notes                                                                            |
-| ---------- | -------- | -------------------------------------------------------------------------------- |
-| `text`     | `string` | The content to append to the document in markwhen format                         |
-| `timezone` | `string` | The timezone to use for datetime formatting (e.g., "utc", "America/Los_Angeles") |
+| JSON Field | Type | Notes |
+| ---------- | ---- | ----- |
+| `edits` | `array` | One or more edits to apply. Without `from`, Meridiem appends near the top or bottom based on document order. |
 
 #### Examples
 
@@ -352,10 +355,10 @@ _None_
 ```js [JS]
 const accessToken = ""; // Your app's access token
 const username = "username"; // Document owner's username
-const docId = "doc123"; // Document ID
+const docName = "journal"; // Document name/path
 
 const result = await fetch(
-  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docId}`,
+  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docName}`,
   {
     method: "PATCH",
     headers: {
@@ -363,8 +366,12 @@ const result = await fetch(
       "content-type": "application/json",
     },
     body: JSON.stringify({
-      text: "dt{yyyy-MM-dd}: New entry added via API",
-      timezone: "America/New_York",
+      edits: [
+        {
+          text: "dt{yyyy-MM-dd}: New entry added via API",
+          timezone: "America/New_York",
+        },
+      ],
     }),
   }
 );
@@ -379,7 +386,7 @@ if (result.ok) {
 
 ## Delete document
 
-### `DELETE /api/v1/docs/:user/doc/:docId`
+### `DELETE /api/v1/docs/:user/doc/:docName`
 
 Delete a document.
 
@@ -391,7 +398,7 @@ Status code 200 if successful.
 
 | Required scope                         |
 | -------------------------------------- |
-| `docs.write:*` or `docs.write:{docId}` |
+| `docs.write:*` or `docs.write:{docName}` |
 
 #### Headers
 
@@ -414,10 +421,10 @@ _None_
 ```js [JS]
 const accessToken = ""; // Your app's access token
 const username = "username"; // Document owner's username
-const docId = "doc123"; // Document ID
+const docName = "journal"; // Document name/path
 
 const result = await fetch(
-  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docId}`,
+  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docName}`,
   {
     method: "DELETE",
     headers: {
@@ -435,7 +442,7 @@ if (result.ok) {
 
 ## Get document metadata
 
-### `GET /api/v1/docs/:user/doc/:docId/metadata`
+### `GET /api/v1/docs/:user/doc/:docName/metadata`
 
 Get metadata for a specific document.
 
@@ -455,7 +462,7 @@ Get metadata for a specific document.
 
 | Required scope                       |
 | ------------------------------------ |
-| `docs.read:*` or `docs.read:{docId}` |
+| `docs.read:*` or `docs.read:{docName}` |
 
 #### Headers
 
@@ -478,10 +485,10 @@ _None_
 ```js [JS]
 const accessToken = ""; // Your app's access token
 const username = "username"; // Document owner's username
-const docId = "doc123"; // Document ID
+const docName = "journal"; // Document name/path
 
 const result = await fetch(
-  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docId}/metadata`,
+  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docName}/metadata`,
   {
     headers: {
       authorization: `Bearer ${accessToken}`,
@@ -499,7 +506,7 @@ if (result.ok) {
 
 ## Amend document header
 
-### `PATCH /api/v1/docs/:user/doc/:docId/header`
+### `PATCH /api/v1/docs/:user/doc/:docName/header`
 
 Update a document's header.
 
@@ -511,7 +518,7 @@ Status code 200 if successful.
 
 | Required scope                         |
 | -------------------------------------- |
-| `docs.write:*` or `docs.write:{docId}` |
+| `docs.write:*` or `docs.write:{docName}` |
 
 #### Headers
 
@@ -528,15 +535,15 @@ _None_
 
 ```ts
 {
-  "key": string,
-  "value": any
+  "set"?: object,
+  "merge"?: object
 }
 ```
 
-| JSON Field | Type     | Notes                            |
-| ---------- | -------- | -------------------------------- |
-| `key`      | `string` | The header key to update         |
-| `value`    | `any`    | The new value for the header key |
+| JSON Field | Type | Notes |
+| ---------- | ---- | ----- |
+| `set` | `object` | Replace header values with these values |
+| `merge` | `object` | Merge these values into the existing header |
 
 #### Examples
 
@@ -545,10 +552,10 @@ _None_
 ```js [JS]
 const accessToken = ""; // Your app's access token
 const username = "username"; // Document owner's username
-const docId = "doc123"; // Document ID
+const docName = "journal"; // Document name/path
 
 const result = await fetch(
-  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docId}/header`,
+  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docName}/header`,
   {
     method: "PATCH",
     headers: {
@@ -556,8 +563,9 @@ const result = await fetch(
       "content-type": "application/json",
     },
     body: JSON.stringify({
-      key: "title",
-      value: "Updated Document Title",
+      merge: {
+        title: "Updated Document Title",
+      },
     }),
   }
 );
@@ -571,9 +579,9 @@ if (result.ok) {
 
 ## Get all entries (events) from a document
 
-### `GET /api/v1/docs/:user/doc/:docId/entries`
+### `POST /api/v1/docs/:user/doc/:docName/entries`
 
-Get all entries from a document.
+Get all entries from a document, optionally filtered by properties.
 
 #### Returns
 
@@ -595,7 +603,7 @@ Get all entries from a document.
 
 | Required scope                       |
 | ------------------------------------ |
-| `docs.read:*` or `docs.read:{docId}` |
+| `docs.read:*` or `docs.read:{docName}` |
 
 #### Headers
 
@@ -609,7 +617,12 @@ _None_
 
 #### Body
 
-_None_
+```ts
+{
+  "property_filter"?: object,
+  "property_exclude"?: object
+}
+```
 
 #### Examples
 
@@ -618,14 +631,17 @@ _None_
 ```js [JS]
 const accessToken = ""; // Your app's access token
 const username = "username"; // Document owner's username
-const docId = "doc123"; // Document ID
+const docName = "journal"; // Document name/path
 
 const result = await fetch(
-  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docId}/entries`,
+  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docName}/entries`,
   {
+    method: "POST",
     headers: {
       authorization: `Bearer ${accessToken}`,
+      "content-type": "application/json",
     },
+    body: JSON.stringify({}),
   }
 );
 
@@ -639,7 +655,7 @@ if (result.ok) {
 
 ## Get entry by url
 
-### `GET /api/v1/docs/:user/doc/:docId/entries/:entry_url`
+### `GET /api/v1/docs/:user/doc/:docName/entries/:entry_url`
 
 Get a specific entry from a document by its URL.
 
@@ -667,7 +683,7 @@ Get a specific entry from a document by its URL.
 
 | Required scope                       |
 | ------------------------------------ |
-| `docs.read:*` or `docs.read:{docId}` |
+| `docs.read:*` or `docs.read:{docName}` |
 
 #### Headers
 
@@ -690,11 +706,11 @@ _None_
 ```js [JS]
 const accessToken = ""; // Your app's access token
 const username = "username"; // Document owner's username
-const docId = "doc123"; // Document ID
+const docName = "journal"; // Document name/path
 const entryUrl = "entry-url"; // Entry URL
 
 const result = await fetch(
-  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docId}/entries/${entryUrl}`,
+  `https://meridiem.markwhen.com/api/v1/docs/${username}/doc/${docName}/entries/${entryUrl}`,
   {
     headers: {
       authorization: `Bearer ${accessToken}`,
@@ -772,21 +788,21 @@ if (result.ok) {
 
 ## Upload media
 
-### `POST /api/v1/media`
+### `GET /api/v1/media/upload`
 
-Upload media files.
+Create signed upload links for media files.
 
 #### Returns
 
 ```ts
 {
-  "paths": string[]
+  "links": string[]
 }
 ```
 
-| JSON Field | Type       | Notes                                      |
-| ---------- | ---------- | ------------------------------------------ |
-| `paths`    | `string[]` | Array of paths to the uploaded media files |
+| JSON Field | Type       | Notes                   |
+| ---------- | ---------- | ----------------------- |
+| `links`    | `string[]` | Signed upload URLs      |
 
 #### Required scopes
 
@@ -799,15 +815,16 @@ Upload media files.
 | Header          | Value                              |
 | --------------- | ---------------------------------- |
 | `Authorization` | `Bearer {your app's access_token}` |
-| `Content-Type`  | `multipart/form-data`              |
 
 #### Query Parameters
 
-_None_
+| Parameter | Type | Notes |
+| --------- | ---- | ----- |
+| `extensions` | `string` | Comma-separated extension counts, for example `.jpg:2,.png:1` |
 
 #### Body
 
-A multipart form with one or more files.
+_None_
 
 #### Examples
 
@@ -815,25 +832,25 @@ A multipart form with one or more files.
 
 ```js [JS]
 const accessToken = ""; // Your app's access token
-const fileInput = document.querySelector('input[type="file"]');
-const formData = new FormData();
 
-// Add files from file input
-for (const file of fileInput.files) {
-  formData.append("files", file);
-}
-
-const result = await fetch("https://meridiem.markwhen.com/api/v1/media", {
-  method: "POST",
-  headers: {
-    authorization: `Bearer ${accessToken}`,
-  },
-  body: formData,
-});
+const result = await fetch(
+  "https://meridiem.markwhen.com/api/v1/media/upload?extensions=.jpg:1",
+  {
+    headers: {
+      authorization: `Bearer ${accessToken}`,
+    },
+  }
+);
 
 if (result.ok) {
-  const { paths } = await result.json();
-  console.log("Uploaded file paths:", paths);
+  const { links } = await result.json();
+  await fetch(links[0], {
+    method: "PUT",
+    headers: {
+      "content-type": "image/jpeg",
+    },
+    body: file,
+  });
 }
 ```
 
