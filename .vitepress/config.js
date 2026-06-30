@@ -217,6 +217,7 @@ export default defineConfig({
                 link: "/meridiem/api/what-can-you-build",
               },
               { text: "App recipes", link: "/meridiem/api/app-recipes" },
+              { text: "Schema guide", link: "/meridiem/api/schema-guide" },
               {
                 text: "Troubleshooting",
                 link: "/meridiem/api/troubleshooting",

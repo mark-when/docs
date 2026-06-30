@@ -8,6 +8,16 @@ If you are using an auth library, Meridiem behaves like an OAuth/OIDC provider. 
 
 In Meridiem, open `Settings` -> `Developer` -> `Apps` -> `Manage Apps` -> `Create App`.
 
+![](/images/app1.png)
+
+![](/images/app2.png)
+
+![](/images/app3.png)
+
+![](/images/app4.png)
+
+![](/images/app5.png)
+
 You will enter:
 
 | Field | What to put there |
@@ -15,6 +25,8 @@ You will enter:
 | `Name` | The app name shown to users |
 | `Description` | A short explanation of the app |
 | `Redirect URIs` | One or more callback URLs, one per line |
+
+You'll need to enter at least one redirect uri to create the app -- don't worry, you can change it later, and it isn't super important right now.
 
 After saving, Meridiem gives you an `app_id` and `app_secret`.
 
