@@ -14,8 +14,9 @@ Responses include the immutable `doc_id` when you need a stable identity.
 
 ## Get user
 
-### `GET /api/v1/user`
+<TryIt method="GET" path="/api/v1/user" scope="openid">
 
+<template #description>
 Get user info (email and username) for the user that is using your app.
 
 #### Returns
@@ -73,6 +74,14 @@ if (result.ok) {
 
 :::
 
+</template>
+
+</TryIt>
+
+<TryIt method="GET" path="/api/v1/docs" scope="docs.read:*">
+
+<template #description>
+
 ## List documents
 
 ### `GET /api/v1/docs`
@@ -94,19 +103,19 @@ List user's documents. Note that this will return the list of documents that the
 }
 ```
 
-| JSON Field   | Type             | Notes                                                |
-| ------------ | ---------------- | ---------------------------------------------------- |
-| `uid`        | `string`         | User ID of the document owner                        |
-| `doc_id`     | `string`         | Document ID                                          |
-| `updated_at` | `string \| null` | Timestamp when the document was last updated         |
-| `header`     | `any`            | Document header metadata                             |
-| `path`       | `string`         | Path to the document in the format `username/docName` |
-| `pathEncoded` | `string`       | Encoded path for URLs |
+| JSON Field    | Type             | Notes                                                 |
+| ------------- | ---------------- | ----------------------------------------------------- |
+| `uid`         | `string`         | User ID of the document owner                         |
+| `doc_id`      | `string`         | Document ID                                           |
+| `updated_at`  | `string \| null` | Timestamp when the document was last updated          |
+| `header`      | `any`            | Document header metadata                              |
+| `path`        | `string`         | Path to the document in the format `username/docName` |
+| `pathEncoded` | `string`         | Encoded path for URLs                                 |
 
 #### Required scopes
 
-| Required scope                        |
-| ------------------------------------- |
+| Required scope                         |
+| -------------------------------------- |
 | `docs.read:*` or `docs.read:{docName}` |
 
 #### Headers
@@ -143,6 +152,10 @@ if (result.ok) {
 
 :::
 
+</template>
+
+</TryIt>
+
 ## Get document
 
 ### `GET /api/v1/docs/:user/doc/:docName`
@@ -163,15 +176,15 @@ The document content and parsed markwhen:
 
 #### Required scopes
 
-| Required scope                       |
-| ------------------------------------ |
+| Required scope                         |
+| -------------------------------------- |
 | `docs.read:*` or `docs.read:{docName}` |
 
 #### Headers
 
-| Header          | Value                                            |
-| --------------- | ------------------------------------------------ |
-| `Authorization` | `Bearer {your app's access_token}`               |
+| Header          | Value                              |
+| --------------- | ---------------------------------- |
+| `Authorization` | `Bearer {your app's access_token}` |
 
 #### Query Parameters
 
@@ -196,7 +209,7 @@ const result = await fetch(
     headers: {
       authorization: `Bearer ${accessToken}`,
     },
-  }
+  },
 );
 
 if (result.ok) {
@@ -269,7 +282,7 @@ const result = await fetch(
       text: "title: My New Document\n\n2023-01-01: Created a new document",
       timezone: "America/New_York",
     }),
-  }
+  },
 );
 
 if (result.ok) {
@@ -290,10 +303,10 @@ That being said, if you do want to insert a new event, be sure that it is a [val
 
 To add an event that corresponds to "now," or, when this API call is made, you may optionally include a date time interpolation token in the text to be added - the server will automatically convert it to the format specified. The token format is `dt` followed by a date time format string surrounded by curly brackets:
 
-| Input string                                  | Interpolated value                  |
-| --------------------------------------------- | ----------------------------------- |
-| `dt{yyyy}`                                    | `2025`                              |
-| `this month (dt{MMMM})`                       | `this month (August)`               |
+| Input string                                | Interpolated value                  |
+| ------------------------------------------- | ----------------------------------- |
+| `dt{yyyy}`                                  | `2025`                              |
+| `this month (dt{MMMM})`                     | `this month (August)`               |
 | `It's been dt{HH 'hours and' mm 'minutes'}` | `It's been 20 hours and 55 minutes` |
 
 For example, `"dt{yyyy-MM-dd}: Hello world!` will be interpolated to `2025-06-01: Hello world!` (or whatever today's date is when the request is made).
@@ -312,8 +325,8 @@ Status code 202 if successful, with a JSON response containing any new URLs adde
 
 #### Required scopes
 
-| Required scope                         |
-| -------------------------------------- |
+| Required scope                           |
+| ---------------------------------------- |
 | `docs.write:*` or `docs.write:{docName}` |
 
 #### Headers
@@ -342,9 +355,9 @@ _None_
 }
 ```
 
-| JSON Field | Type | Notes |
-| ---------- | ---- | ----- |
-| `edits` | `array` | One or more edits to apply. Without `from`, Meridiem appends near the top or bottom based on document order. |
+| JSON Field | Type    | Notes                                                                                                        |
+| ---------- | ------- | ------------------------------------------------------------------------------------------------------------ |
+| `edits`    | `array` | One or more edits to apply. Without `from`, Meridiem appends near the top or bottom based on document order. |
 
 #### Examples
 
@@ -371,7 +384,7 @@ const result = await fetch(
         },
       ],
     }),
-  }
+  },
 );
 
 if (result.ok) {
@@ -394,8 +407,8 @@ Status code 200 if successful.
 
 #### Required scopes
 
-| Required scope                         |
-| -------------------------------------- |
+| Required scope                           |
+| ---------------------------------------- |
 | `docs.write:*` or `docs.write:{docName}` |
 
 #### Headers
@@ -428,7 +441,7 @@ const result = await fetch(
     headers: {
       authorization: `Bearer ${accessToken}`,
     },
-  }
+  },
 );
 
 if (result.ok) {
@@ -458,8 +471,8 @@ Get metadata for a specific document.
 
 #### Required scopes
 
-| Required scope                       |
-| ------------------------------------ |
+| Required scope                         |
+| -------------------------------------- |
 | `docs.read:*` or `docs.read:{docName}` |
 
 #### Headers
@@ -491,7 +504,7 @@ const result = await fetch(
     headers: {
       authorization: `Bearer ${accessToken}`,
     },
-  }
+  },
 );
 
 if (result.ok) {
@@ -514,8 +527,8 @@ Status code 200 if successful.
 
 #### Required scopes
 
-| Required scope                         |
-| -------------------------------------- |
+| Required scope                           |
+| ---------------------------------------- |
 | `docs.write:*` or `docs.write:{docName}` |
 
 #### Headers
@@ -538,10 +551,10 @@ _None_
 }
 ```
 
-| JSON Field | Type | Notes |
-| ---------- | ---- | ----- |
-| `set` | `object` | Replace header values with these values |
-| `merge` | `object` | Merge these values into the existing header |
+| JSON Field | Type     | Notes                                       |
+| ---------- | -------- | ------------------------------------------- |
+| `set`      | `object` | Replace header values with these values     |
+| `merge`    | `object` | Merge these values into the existing header |
 
 #### Examples
 
@@ -565,7 +578,7 @@ const result = await fetch(
         title: "Updated Document Title",
       },
     }),
-  }
+  },
 );
 
 if (result.ok) {
@@ -599,8 +612,8 @@ Get all entries from a document, optionally filtered by properties.
 
 #### Required scopes
 
-| Required scope                       |
-| ------------------------------------ |
+| Required scope                         |
+| -------------------------------------- |
 | `docs.read:*` or `docs.read:{docName}` |
 
 #### Headers
@@ -640,7 +653,7 @@ const result = await fetch(
       "content-type": "application/json",
     },
     body: JSON.stringify({}),
-  }
+  },
 );
 
 if (result.ok) {
@@ -679,8 +692,8 @@ Get a specific entry from a document by its URL.
 
 #### Required scopes
 
-| Required scope                       |
-| ------------------------------------ |
+| Required scope                         |
+| -------------------------------------- |
 | `docs.read:*` or `docs.read:{docName}` |
 
 #### Headers
@@ -713,7 +726,7 @@ const result = await fetch(
     headers: {
       authorization: `Bearer ${accessToken}`,
     },
-  }
+  },
 );
 
 if (result.ok) {
@@ -738,10 +751,10 @@ const basicAuth = btoa(`${appId}:${appSecret}`);
 
 Use the header:
 
-| Header | Value |
-| ------ | ----- |
-| `Authorization` | `Basic ${basicAuth}` |
-| `Content-Type` | `application/json` for `POST` requests |
+| Header          | Value                                  |
+| --------------- | -------------------------------------- |
+| `Authorization` | `Basic ${basicAuth}`                   |
+| `Content-Type`  | `application/json` for `POST` requests |
 
 Aggregate queries return only resources matching the app's authorized scopes. `docs.read:*` or `docs.write:*` can read all documents a user granted to the app. Document-specific scopes like `docs.read:{docName}` or `docs.read:{doc_id}` read only matching documents. The optional `docs` field narrows the result set; it is not required for document-specific scopes to work.
 
@@ -763,13 +776,13 @@ Query document metadata across authorized documents.
 }
 ```
 
-| JSON Field | Type | Notes |
-| ---------- | ---- | ----- |
-| `docs` | `string[]` | Optional document/user filters, for example `["alice/journal"]` or `["alice"]` |
-| `limit` | `number` | Defaults to `40`; maximum `100` |
-| `offset` | `number` | Defaults to `0` |
-| `header_filter` | `object[]` | Return docs whose header contains at least one object |
-| `header_exclude` | `object[]` | Exclude docs whose header contains any object |
+| JSON Field       | Type       | Notes                                                                          |
+| ---------------- | ---------- | ------------------------------------------------------------------------------ |
+| `docs`           | `string[]` | Optional document/user filters, for example `["alice/journal"]` or `["alice"]` |
+| `limit`          | `number`   | Defaults to `40`; maximum `100`                                                |
+| `offset`         | `number`   | Defaults to `0`                                                                |
+| `header_filter`  | `object[]` | Return docs whose header contains at least one object                          |
+| `header_exclude` | `object[]` | Exclude docs whose header contains any object                                  |
 
 #### Returns
 
@@ -806,7 +819,7 @@ const response = await fetch(
       header_filter: [{ remarking: { view: "*" } }],
       limit: 20,
     }),
-  }
+  },
 );
 
 const docs = await response.json();
@@ -835,18 +848,18 @@ Query entries across authorized documents.
 }
 ```
 
-| JSON Field | Type | Notes |
-| ---------- | ---- | ----- |
-| `docs` | `string[]` | Optional document/user filters |
-| `limit` | `number` | Defaults to `40`; maximum `100` |
-| `offset` | `number` | Defaults to `0` |
-| `header_filter` | `object[]` | Return entries from docs whose header contains at least one object |
-| `header_exclude` | `object[]` | Exclude entries from docs whose header contains any object |
-| `property_filter` | `object[]` | Return entries whose properties contain at least one object |
-| `property_exclude` | `object[]` | Exclude entries whose properties contain any object |
-| `merge_with` | `string[]` | Header path whose value names additional docs to include |
-| `from_ts_gte` | `string` | ISO timestamp lower bound for entry start |
-| `from_ts_lte` | `string` | ISO timestamp upper bound for entry start; defaults to now |
+| JSON Field         | Type       | Notes                                                              |
+| ------------------ | ---------- | ------------------------------------------------------------------ |
+| `docs`             | `string[]` | Optional document/user filters                                     |
+| `limit`            | `number`   | Defaults to `40`; maximum `100`                                    |
+| `offset`           | `number`   | Defaults to `0`                                                    |
+| `header_filter`    | `object[]` | Return entries from docs whose header contains at least one object |
+| `header_exclude`   | `object[]` | Exclude entries from docs whose header contains any object         |
+| `property_filter`  | `object[]` | Return entries whose properties contain at least one object        |
+| `property_exclude` | `object[]` | Exclude entries whose properties contain any object                |
+| `merge_with`       | `string[]` | Header path whose value names additional docs to include           |
+| `from_ts_gte`      | `string`   | ISO timestamp lower bound for entry start                          |
+| `from_ts_lte`      | `string`   | ISO timestamp upper bound for entry start; defaults to now         |
 
 #### Returns
 
@@ -890,7 +903,7 @@ const response = await fetch(
       from_ts_gte: "2026-01-01T00:00:00.000Z",
       limit: 20,
     }),
-  }
+  },
 );
 
 const entries = await response.json();
@@ -904,10 +917,10 @@ Fetch content and metadata for one authorized document by user-facing path.
 
 #### Query Parameters
 
-| Parameter | Type | Notes |
-| --------- | ---- | ----- |
+| Parameter  | Type     | Notes                     |
+| ---------- | -------- | ------------------------- |
 | `username` | `string` | Document owner's username |
-| `doc_path` | `string` | Document name/path |
+| `doc_path` | `string` | Document name/path        |
 
 #### Returns
 
@@ -941,7 +954,7 @@ const response = await fetch(
     headers: {
       authorization: `Basic ${basicAuth}`,
     },
-  }
+  },
 );
 
 const document = await response.json();
@@ -953,12 +966,12 @@ const document = await response.json();
 
 Aggregate also includes helper endpoints for path-based apps:
 
-| Endpoint | Purpose |
-| -------- | ------- |
-| `GET /api/v1/aggregate/documents/resolve?username={username}&doc_path={docPath}` | Resolve a user-facing document path to `uid`, `doc_id`, and canonical path |
-| `GET /api/v1/aggregate/documents/canonical?uid={uid}&doc_id={doc_id}` | Get the current canonical path for a stable document identity |
-| `GET /api/v1/aggregate/entries/by-path?username={username}&doc_path={docPath}&entry_url={entryUrl}` | Fetch one entry by user-facing document path and entry URL |
-| `GET /api/v1/aggregate/entries/by-id?uid={uid}&doc_id={doc_id}&entry_url={entryUrl}` | Fetch one entry by stable document identity and entry URL |
+| Endpoint                                                                                            | Purpose                                                                    |
+| --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `GET /api/v1/aggregate/documents/resolve?username={username}&doc_path={docPath}`                    | Resolve a user-facing document path to `uid`, `doc_id`, and canonical path |
+| `GET /api/v1/aggregate/documents/canonical?uid={uid}&doc_id={doc_id}`                               | Get the current canonical path for a stable document identity              |
+| `GET /api/v1/aggregate/entries/by-path?username={username}&doc_path={docPath}&entry_url={entryUrl}` | Fetch one entry by user-facing document path and entry URL                 |
+| `GET /api/v1/aggregate/entries/by-id?uid={uid}&doc_id={doc_id}&entry_url={entryUrl}`                | Fetch one entry by stable document identity and entry URL                  |
 
 ## List media
 
@@ -1034,9 +1047,9 @@ Create signed upload links for media files.
 }
 ```
 
-| JSON Field | Type       | Notes                   |
-| ---------- | ---------- | ----------------------- |
-| `links`    | `string[]` | Signed upload URLs      |
+| JSON Field | Type       | Notes              |
+| ---------- | ---------- | ------------------ |
+| `links`    | `string[]` | Signed upload URLs |
 
 #### Required scopes
 
@@ -1052,8 +1065,8 @@ Create signed upload links for media files.
 
 #### Query Parameters
 
-| Parameter | Type | Notes |
-| --------- | ---- | ----- |
+| Parameter    | Type     | Notes                                                         |
+| ------------ | -------- | ------------------------------------------------------------- |
 | `extensions` | `string` | Comma-separated extension counts, for example `.jpg:2,.png:1` |
 
 #### Body
@@ -1073,7 +1086,7 @@ const result = await fetch(
     headers: {
       authorization: `Bearer ${accessToken}`,
     },
-  }
+  },
 );
 
 if (result.ok) {
