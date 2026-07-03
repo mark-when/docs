@@ -1,7 +1,5 @@
 # Meridiem API
 
-[[toc]]
-
 Base URL: `https://meridiem.markwhen.com`
 
 Most `/api/v1/*` endpoints require an OAuth access token. See the [OAuth quickstart](/meridiem/api/oauth) for the authorization flow. Aggregate query endpoints use app credentials with Basic auth instead.

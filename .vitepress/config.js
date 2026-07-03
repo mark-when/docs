@@ -45,6 +45,7 @@ function attrsToLines(attrs) {
 }
 
 export default defineConfig({
+  cleanUrls: true,
   sitemap: {
     hostname: "https://docs.markwhen.com",
   },
@@ -226,7 +227,7 @@ export default defineConfig({
                 text: "Troubleshooting",
                 link: "/meridiem/api/troubleshooting",
               },
-              { text: "API", link: "/meridiem/api/api" },
+              { text: "▶️ API Playground", link: "/meridiem/api/api" },
               {
                 text: "Extension conversions",
                 link: "/meridiem/api/extension-conversions",
