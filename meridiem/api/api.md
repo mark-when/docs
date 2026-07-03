@@ -4,7 +4,7 @@
 
 Base URL: `https://meridiem.markwhen.com`
 
-All `/api/v1/*` endpoints require an OAuth access token. See the [OAuth quickstart](/meridiem/api/oauth) for the authorization flow.
+Most `/api/v1/*` endpoints require an OAuth access token. See the [OAuth quickstart](/meridiem/api/oauth) for the authorization flow. Aggregate query endpoints use app credentials with Basic auth instead.
 
 Most document endpoints use a user-facing document name or path in the URL:
 
@@ -725,6 +725,242 @@ if (result.ok) {
 ```
 
 :::
+
+## Aggregate queries
+
+Aggregate endpoints let server-side apps query metadata, entries, and document content across the documents the app is authorized to read. They are useful for feeds, search, dashboards, notification jobs, and apps that need to combine entries from multiple documents.
+
+For a fuller walkthrough and examples, see [Aggregate queries](/meridiem/api/aggregate-queries).
+
+Unlike the document endpoints above, aggregate endpoints authenticate with the app's `app_id` and `app_secret`:
+
+```js
+const basicAuth = btoa(`${appId}:${appSecret}`);
+```
+
+Use the header:
+
+| Header | Value |
+| ------ | ----- |
+| `Authorization` | `Basic ${basicAuth}` |
+| `Content-Type` | `application/json` for `POST` requests |
+
+Aggregate queries return only resources matching the app's authorized scopes. `docs.read:*` or `docs.write:*` can read all documents a user granted to the app. Document-specific scopes like `docs.read:{docName}` or `docs.read:{doc_id}` read only matching documents. The optional `docs` field narrows the result set; it is not required for document-specific scopes to work.
+
+`docs` values use `username/docName` or `username/path/to/doc`. A bare username such as `alice` means documents owned by that user. Responses include `doc_id` for stable identity and `doc_path` for the current user-facing path when available.
+
+### `POST /api/v1/aggregate/metadata`
+
+Query document metadata across authorized documents.
+
+#### Body
+
+```ts
+{
+  docs?: string[];
+  limit?: number;
+  offset?: number;
+  header_filter?: object[];
+  header_exclude?: object[];
+}
+```
+
+| JSON Field | Type | Notes |
+| ---------- | ---- | ----- |
+| `docs` | `string[]` | Optional document/user filters, for example `["alice/journal"]` or `["alice"]` |
+| `limit` | `number` | Defaults to `40`; maximum `100` |
+| `offset` | `number` | Defaults to `0` |
+| `header_filter` | `object[]` | Return docs whose header contains at least one object |
+| `header_exclude` | `object[]` | Exclude docs whose header contains any object |
+
+#### Returns
+
+```ts
+{
+  uid: string;
+  username: string;
+  doc_id: string;
+  doc_version: number;
+  header: any;
+  updated_at: string;
+  doc_path: string;
+  canonical_url?: string;
+}[]
+```
+
+#### Example
+
+::: code-group
+
+```js [JS]
+const basicAuth = btoa(`${appId}:${appSecret}`);
+
+const response = await fetch(
+  "https://meridiem.markwhen.com/api/v1/aggregate/metadata",
+  {
+    method: "POST",
+    headers: {
+      authorization: `Basic ${basicAuth}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      docs: ["alice"],
+      header_filter: [{ remarking: { view: "*" } }],
+      limit: 20,
+    }),
+  }
+);
+
+const docs = await response.json();
+```
+
+:::
+
+### `POST /api/v1/aggregate/entries`
+
+Query entries across authorized documents.
+
+#### Body
+
+```ts
+{
+  docs?: string[];
+  limit?: number;
+  offset?: number;
+  header_filter?: object[];
+  header_exclude?: object[];
+  property_filter?: object[];
+  property_exclude?: object[];
+  merge_with?: string[];
+  from_ts_gte?: string;
+  from_ts_lte?: string;
+}
+```
+
+| JSON Field | Type | Notes |
+| ---------- | ---- | ----- |
+| `docs` | `string[]` | Optional document/user filters |
+| `limit` | `number` | Defaults to `40`; maximum `100` |
+| `offset` | `number` | Defaults to `0` |
+| `header_filter` | `object[]` | Return entries from docs whose header contains at least one object |
+| `header_exclude` | `object[]` | Exclude entries from docs whose header contains any object |
+| `property_filter` | `object[]` | Return entries whose properties contain at least one object |
+| `property_exclude` | `object[]` | Exclude entries whose properties contain any object |
+| `merge_with` | `string[]` | Header path whose value names additional docs to include |
+| `from_ts_gte` | `string` | ISO timestamp lower bound for entry start |
+| `from_ts_lte` | `string` | ISO timestamp upper bound for entry start; defaults to now |
+
+#### Returns
+
+```ts
+{
+  id: number;
+  created_at: string;
+  from_ts: string;
+  to_ts: string;
+  doc_id: string;
+  uid: string;
+  username: string;
+  url: string;
+  tags: any;
+  entry: any;
+  properties: any;
+  header: any;
+  doc_path: string;
+  canonical_url?: string;
+}[]
+```
+
+#### Example
+
+::: code-group
+
+```js [JS]
+const basicAuth = btoa(`${appId}:${appSecret}`);
+
+const response = await fetch(
+  "https://meridiem.markwhen.com/api/v1/aggregate/entries",
+  {
+    method: "POST",
+    headers: {
+      authorization: `Basic ${basicAuth}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      docs: ["alice/journal"],
+      property_filter: [{ mood: "great" }],
+      from_ts_gte: "2026-01-01T00:00:00.000Z",
+      limit: 20,
+    }),
+  }
+);
+
+const entries = await response.json();
+```
+
+:::
+
+### `GET /api/v1/aggregate/content`
+
+Fetch content and metadata for one authorized document by user-facing path.
+
+#### Query Parameters
+
+| Parameter | Type | Notes |
+| --------- | ---- | ----- |
+| `username` | `string` | Document owner's username |
+| `doc_path` | `string` | Document name/path |
+
+#### Returns
+
+```ts
+{
+  uid: string;
+  doc_id: string;
+  doc_path: string;
+  doc_type: string;
+  header: any;
+  content: string;
+  doc_version: number;
+  updated_at: string;
+}
+```
+
+#### Example
+
+::: code-group
+
+```js [JS]
+const basicAuth = btoa(`${appId}:${appSecret}`);
+const params = new URLSearchParams({
+  username: "alice",
+  doc_path: "journal",
+});
+
+const response = await fetch(
+  `https://meridiem.markwhen.com/api/v1/aggregate/content?${params}`,
+  {
+    headers: {
+      authorization: `Basic ${basicAuth}`,
+    },
+  }
+);
+
+const document = await response.json();
+```
+
+:::
+
+### Path and entry helpers
+
+Aggregate also includes helper endpoints for path-based apps:
+
+| Endpoint | Purpose |
+| -------- | ------- |
+| `GET /api/v1/aggregate/documents/resolve?username={username}&doc_path={docPath}` | Resolve a user-facing document path to `uid`, `doc_id`, and canonical path |
+| `GET /api/v1/aggregate/documents/canonical?uid={uid}&doc_id={doc_id}` | Get the current canonical path for a stable document identity |
+| `GET /api/v1/aggregate/entries/by-path?username={username}&doc_path={docPath}&entry_url={entryUrl}` | Fetch one entry by user-facing document path and entry URL |
+| `GET /api/v1/aggregate/entries/by-id?uid={uid}&doc_id={doc_id}&entry_url={entryUrl}` | Fetch one entry by stable document identity and entry URL |
 
 ## List media
 

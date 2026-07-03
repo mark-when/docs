@@ -25,4 +25,4 @@ Meridiem apps usually do one or more of these things:
 - Store structured per-entry details as event properties.
 - React to document changes through webhooks.
 
-For more examples, see [What can you build?](/meridiem/api/what-can-you-build).
+For cross-document feeds, search, dashboards, and jobs, see [Aggregate queries](/meridiem/api/aggregate-queries). For more examples, see [What can you build?](/meridiem/api/what-can-you-build).

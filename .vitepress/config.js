@@ -217,6 +217,10 @@ export default defineConfig({
                 link: "/meridiem/api/what-can-you-build",
               },
               { text: "App recipes", link: "/meridiem/api/app-recipes" },
+              {
+                text: "Aggregate queries",
+                link: "/meridiem/api/aggregate-queries",
+              },
               { text: "Schema guide", link: "/meridiem/api/schema-guide" },
               {
                 text: "Troubleshooting",
