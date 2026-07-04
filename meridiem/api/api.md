@@ -156,7 +156,17 @@ if (result.ok) {
 
 ## Get document
 
-### `GET /api/v1/docs/:user/doc/:docName`
+<TryIt
+  method="GET"
+  path="/api/v1/docs/:user/doc/:docName"
+  scope="docs.read:*"
+  :path-params="[
+    { name: 'user', label: 'User', placeholder: 'alice' },
+    { name: 'docName', label: 'Document', placeholder: 'journal' }
+  ]"
+>
+
+<template #description>
 
 Get the content of a specific document.
 
@@ -217,6 +227,10 @@ if (result.ok) {
 ```
 
 :::
+
+</template>
+
+</TryIt>
 
 ## Create new document
 
