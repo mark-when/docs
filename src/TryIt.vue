@@ -123,42 +123,34 @@ onMounted(async () => {
 
 <template>
   <section
-    class="my-6 mb-8 overflow-hidden rounded-lg border border-[var(--vp-c-divider)] bg-[var(--vp-c-bg)]"
+    class="my-6 mb-8 rounded-lg border border-[var(--vp-c-divider)] bg-[var(--vp-c-bg)]"
   >
     <div
-      class="flex flex-col gap-4 border-b border-[var(--vp-c-divider)] bg-[var(--vp-c-bg-soft)] p-3 md:flex-row md:items-center md:justify-between"
+      class="sticky top-12 md:top-28 lg:top-28 xl:top-16 z-10 flex flex-col gap-4 border-b border-[var(--vp-c-divider)] bg-[var(--vp-c-bg-soft)] p-3 md:flex-row md:items-center md:justify-between"
     >
       <div class="flex min-w-0 items-center gap-2">
         <span
           class="shrink-0 rounded border border-[var(--vp-c-brand-2)] px-1.5 py-0.5 text-xs font-bold text-[var(--vp-c-brand-1)]"
           >{{ method }}</span
         >
-        <code class="break-words">{{ path }}</code>
+        <code class="break-words text-xs">{{ path }}</code>
       </div>
-      <div class="flex flex-wrap gap-2">
+      <div class="flex flex-wrap gap-2 vp-raw">
         <button
           type="button"
-          class="cursor-pointer rounded-md border px-3 py-2 font-semibold"
-          :class="
-            activeTab === 'description'
-              ? 'border-[var(--vp-c-divider)] bg-[var(--vp-c-bg)] text-[var(--vp-c-text-1)]'
-              : 'border-transparent bg-transparent text-[var(--vp-c-text-2)]'
-          "
+          class="cursor-pointer rounded-md px-3 py-1 text-sm"
+          :class="activeTab === 'description' ? 'bg-[var(--vp-code-bg)]' : ''"
           @click="activeTab = 'description'"
         >
           Description
         </button>
         <button
           type="button"
-          class="cursor-pointer rounded-md border px-3 py-2 font-semibold"
-          :class="
-            activeTab === 'try'
-              ? 'border-[var(--vp-c-divider)] bg-[var(--vp-c-bg)] text-[var(--vp-c-text-1)]'
-              : 'border-transparent bg-transparent text-[var(--vp-c-text-2)]'
-          "
+          class="cursor-pointer rounded-md px-3 py-1 text-sm"
+          :class="activeTab === 'try' ? 'bg-[var(--vp-code-bg)]' : ''"
           @click="activeTab = 'try'"
         >
-          Try it
+          → Try it
         </button>
       </div>
     </div>
@@ -170,13 +162,10 @@ onMounted(async () => {
 
     <div v-show="activeTab === 'try'" class="p-4">
       <div v-if="!isAuthorized" class="grid gap-4">
-        <div>
-          <strong>Connect to try this endpoint</strong>
-          <p class="m-0 mt-1 text-[var(--vp-c-text-2)]">
-            This request needs <code>{{ scope }}</code
-            >. Authorization is stored for this browser session.
-          </p>
-        </div>
+        <p class="m-0 text-[var(--vp-c-text-2)]">
+          This request needs <code>{{ scope }}</code
+          >. Authorization is stored for this browser session.
+        </p>
         <button
           type="button"
           class="cursor-pointer rounded-md border border-[var(--vp-button-brand-border)] bg-[var(--vp-button-brand-bg)] px-3 py-2 font-semibold text-[var(--vp-button-brand-text)] hover:border-[var(--vp-button-brand-hover-border)] hover:bg-[var(--vp-button-brand-hover-bg)]"
@@ -263,7 +252,7 @@ onMounted(async () => {
           <span class="text-sm font-bold text-[var(--vp-c-text-2)]">{{
             method
           }}</span>
-          <code class="break-words">{{ requestUrl }}</code>
+          <code class="break-words text-xs">{{ requestUrl }}</code>
         </div>
 
         <div class="flex flex-wrap gap-2">

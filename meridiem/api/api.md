@@ -78,13 +78,11 @@ if (result.ok) {
 
 </TryIt>
 
+## List documents
+
 <TryIt method="GET" path="/api/v1/docs" scope="docs.read:*">
 
 <template #description>
-
-## List documents
-
-### `GET /api/v1/docs`
 
 List user's documents. Note that this will return the list of documents that the user has granted your app to access, not necessarily all the user's documents.
 
