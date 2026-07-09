@@ -142,13 +142,17 @@ Documentation for advanced tag configurations, including timezones and reminders
 
 ## Date formatting
 
-Non-ISO8601 dates default to American formatting (Month/Day/Year). This can be changed to `d/M/y` formatting by adding the following line in the header area (before any event):
+Non-ISO8601 slash dates default to American formatting (Month/Day/Year). Add `dateFormat` rules in the header to support other date syntaxes.
 
-```
-dateFormat: d/M/y
+```mw
+dateFormat:
+  - pattern: '^\d{1,2}/\d{1,2}/\d{4}$'
+    fromFormat: d/M/yyyy
+
+05/09/2026: Parsed as 5 September 2026
 ```
 
-This is a hardcoded line, any other format attempt will not work. [See all supported date formats](/syntax/dates-and-ranges).
+Rules can also use capture groups, custom ranges, durations, and `priority: first | last | only`. [See custom date format examples](/syntax/dates-and-ranges#custom-date-formats).
 
 ## Imports
 
@@ -171,7 +175,7 @@ Events from imported timelines will be merged into visualizations.
 | Item                                                  | Syntax                       | Example                                         |
 | ----------------------------------------------------- | ---------------------------- | ----------------------------------------------- |
 | Coloring tags                                         | `#[tag name]: <color>`       | `#Movies: aquamarine`                           |
-| Date format. Change the formatting to European style. | `dateFormat: d/M/y`          | `dateFormat: d/M/y`                             |
+| Date format. Add custom date parsing rules.          | `dateFormat: [...]`         | `dateFormat:\n  - pattern: ...`               |
 | Title of the page                                     | `title: <title>`             | `title: My timeline`                            |
 | Description of the page                               | `description: <description>` | `description: If anything looks off here, lmk!` |
 | Viewers                                               | `view: <viewer emails>`      | `view: you@example.com`                         |

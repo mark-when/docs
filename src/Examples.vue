@@ -38,6 +38,19 @@ And longer descriptions
 - [] [Google](https://google.com)
 - [] [DuckDuckGo](https://duckduckgo.com)
 - [] [Bing](https://bing.com)`,
+  "Custom Date Formats": `dateFormat:
+  - pattern: '^release (\\d{4}_\\d{2}_\\d{2})$'
+    from:
+      group: 1
+      format: yyyy_MM_dd
+    duration: 1 day
+  - pattern: '^week (\\d{2})/(\\d{4})$'
+    from: '$2-W$1'
+    fromFormat: "kkkk-'W'WW"
+    duration: 1 week
+
+release 2026_04_03: Launch date
+week 15/2026: Launch support window`,
   Timezones: `timezone: America/New_York
 
 2025-01-01 12:00: New Year's Day`,

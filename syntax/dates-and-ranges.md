@@ -45,7 +45,7 @@ While the `now` keyword is and will continue to be supported, it is not recommen
 
 ## Non-EDTF Dates
 
-Other date formats besides EDTF are supported out of the box. Human readable dates are supported, like `1665`, `03/2222`, `09/11/2001`, `18 March 2026`, `Aug 30 9:45am`, as well as IO8601 dates, like `2031-11-19T01:35:10Z`. Human readable date formatting defaults to the American Month/Day/Year but can be changed to European formatting via the [header](/syntax/header).
+Other date formats besides EDTF are supported out of the box. Human readable dates are supported, like `1665`, `03/2222`, `09/11/2001`, `18 March 2026`, `Aug 30 9:45am`, as well as ISO8601 dates, like `2031-11-19T01:35:10Z`. Human readable slash dates default to American Month/Day/Year. You can define additional date formats in the [header](/syntax/header) with `dateFormat` rules.
 
 ## Non-EDTF Date Ranges
 
@@ -77,6 +77,62 @@ starts January 1, 2001, and lasts through December 31, 2001.
 Markwhen is meant to be easy to pick up and immediately useful. Part of that simplicity means including support for dates and date ranges that are probably less specific than they should be. For example, `April 1 - June 18`, `Nov 11 2:30`, and `2020 - now` are all perfectly valid markwhen date ranges but, due to either their lack of year or changing ranges, **will mean something different when parsed in the future**. You should **think twice about using any date syntax that is ambiguous** to ensure it's really what you want.
 :::
 
+## Custom Date Formats
+
+Use `dateFormat` in the header to define your own date syntax. A rule has a `pattern` that matches the date text before the event colon and then describes how to turn that match into a date range.
+
+For example, this adds European day/month/year slash dates:
+
+```mw
+dateFormat:
+  - pattern: '^\d{1,2}/\d{1,2}/\d{4}$'
+    fromFormat: d/M/yyyy
+
+05/09/2026: Parsed as 5 September 2026
+```
+
+Use capture groups when you need to rearrange parts of the text before parsing it:
+
+```mw
+dateFormat:
+  - pattern: '^week (\d{2})/(\d{4})$'
+    from: '$2-W$1'
+    fromFormat: "kkkk-'W'WW"
+    duration: 1 week
+
+week 03/2026: Third ISO week of 2026
+```
+
+Use `from` and `to` for custom ranges:
+
+```mw
+dateFormat:
+  - pattern: '^(\d{2}\.\d{2}\.\d{4}) - (\d{2}\.\d{2}\.\d{4})$'
+    from:
+      group: 1
+      format: MM.dd.yyyy
+    to:
+      group: 2
+      format: MM.dd.yyyy
+
+01.15.2026 - 01.18.2026: Long kickoff
+```
+
+By default custom `dateFormat` rules are tried before built-in parsing. To change that, use the expanded form with `priority`:
+
+```mw
+dateFormat:
+  priority: last # first | last | only
+  rules:
+    - pattern: '^release (\d{4}_\d{2}_\d{2})$'
+      from:
+        group: 1
+        format: yyyy_MM_dd
+      duration: 1 day
+```
+
+`fromFormat`, `toFormat`, and object `format` values use [Luxon format tokens](https://moment.github.io/luxon/#/formatting?id=table-of-tokens). Use `iso` as the format for ISO date/time captures.
+
 ## Relative Dates
 
 If you have events that are based off of, or relative to, other events, you can describe their relationship to get the range you want.
@@ -85,7 +141,18 @@ For example, say you are working on a project tracker. You could outline the pha
 
 ```mw
 // To indicate we are using European date formatting
-dateFormat: d/M/y
+dateFormat:
+  - pattern: '^\d{1,2}/\d{1,2}/\d{4}$'
+    fromFormat: d/M/yyyy
+  - pattern: '^(\d{1,2}/\d{1,2}/\d{4}) - (\d{1,2}/\d{1,2}/\d{4})$'
+    from:
+      group: 1
+      format: d/M/yyyy
+    to:
+      group: 2
+      format: d/M/yyyy
+  - pattern: '^(\d{1,2}/\d{4})$'
+    fromFormat: M/yyyy
 
 // 2 weeks
 01/01/2023 - 14/01/2023: Phase 1 #Exploratory

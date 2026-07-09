@@ -22,7 +22,7 @@
     "vitepress-plugin-llms": "^1.13.2"
   },
   "dependencies": {
-    "@markwhen/parser": "^1.0.1",
+    "@markwhen/parser": "^1.1.0",
     "shiki": "^0.11.1"
   }
 }
