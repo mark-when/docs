@@ -4,6 +4,8 @@ This page shows the smallest useful Meridiem OAuth flow: send a user to Meridiem
 
 If you are using an auth library, Meridiem behaves like an OAuth/OIDC provider. If you are building by hand, start here.
 
+If you are connecting an MCP client or agent, start with [MCP](/meridiem/api/mcp). MCP uses the same OAuth endpoints, but agent clients often use OAuth Client ID Metadata Documents instead of manually created Meridiem apps.
+
 ## Create an app
 
 In Meridiem, open `Settings` -> `Developer` -> `Apps` -> `Manage Apps` -> `Create App`.

@@ -222,6 +222,7 @@ export default defineConfig({
                 text: "Aggregate queries",
                 link: "/meridiem/api/aggregate-queries",
               },
+              { text: "MCP", link: "/meridiem/api/mcp" },
               { text: "Schema guide", link: "/meridiem/api/schema-guide" },
               {
                 text: "Troubleshooting",
