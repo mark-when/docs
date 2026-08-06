@@ -5,7 +5,7 @@ const latestBinaryVersion = ref("0.2.5");
 onMounted(async () => {
   try {
     const res = await fetch(
-      "https://storage.googleapis.com/markwhen_binaries/Meridiem/darwin/arm64/RELEASES.json"
+      "https://downloads.markwhen.com/Meridiem/darwin/arm64/RELEASES.json"
     );
     const json = await res.json();
     latestBinaryVersion.value = json.currentRelease;
@@ -14,7 +14,7 @@ onMounted(async () => {
   }
 });
 
-const downloadLink = computed(() => `https://storage.googleapis.com/markwhen_binaries/Meridiem/darwin/arm64/Meridiem-darwin-arm64-${latestBinaryVersion.value}.zip`)
+const downloadLink = computed(() => `https://downloads.markwhen.com/Meridiem/darwin/arm64/Meridiem-darwin-arm64-${latestBinaryVersion.value}.zip`)
 </script>
 
 # Meridiem
