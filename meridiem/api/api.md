@@ -783,6 +783,8 @@ Query document metadata across authorized documents.
   docs?: string[];
   limit?: number;
   offset?: number;
+  sort?: "updated_at" | "doc_path" | "username";
+  sort_order?: "asc" | "desc";
   header_filter?: object[];
   header_exclude?: object[];
 }
@@ -793,6 +795,8 @@ Query document metadata across authorized documents.
 | `docs`           | `string[]` | Optional document/user filters, for example `["alice/journal"]` or `["alice"]` |
 | `limit`          | `number`   | Defaults to `40`; maximum `100`                                                |
 | `offset`         | `number`   | Defaults to `0`                                                                |
+| `sort`           | `string`   | `updated_at` (default), `doc_path`, or `username`                              |
+| `sort_order`     | `string`   | `desc` (default) or `asc`                                                      |
 | `header_filter`  | `object[]` | Return docs whose header contains at least one object                          |
 | `header_exclude` | `object[]` | Exclude docs whose header contains any object                                  |
 
