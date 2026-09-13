@@ -59,7 +59,7 @@ Like markdown, the markwhen parser is quite forgiving (though that doesn't mean 
 ### Frontmatter
 
 ::: info
-An important difference from markdown with regards to frontmatter is that markwhen does not require frontmatter to be sandwiched between three dashes `---` - read more [here](/syntax/header).
+An important difference from markdown with regards to frontmatter is that markwhen does not require frontmatter to be sandwiched between three dashes `---`. The exception is a header that defines a custom `dateFormat` for the first event, because delimiters are needed to mark the end of that header. Read more [here](/syntax/header).
 :::
 
 ```mw

@@ -81,12 +81,20 @@ Markwhen is meant to be easy to pick up and immediately useful. Part of that sim
 
 Use `dateFormat` in the header to define your own date syntax. A rule has a `pattern` that matches the date text before the event colon and then describes how to turn that match into a date range.
 
+::: tip Use header delimiters with custom date formats
+
+Surround a `dateFormat` header with `---` when the first event uses that custom syntax. The parser needs to finish reading the header before it can recognize the custom event. Delimiters make that boundary explicit.
+
+:::
+
 For example, this adds European day/month/year slash dates:
 
 ```mw
+---
 dateFormat:
   - pattern: '^\d{1,2}/\d{1,2}/\d{4}$'
     fromFormat: d/M/yyyy
+---
 
 05/09/2026: Parsed as 5 September 2026
 ```
@@ -94,11 +102,13 @@ dateFormat:
 Use capture groups when you need to rearrange parts of the text before parsing it:
 
 ```mw
+---
 dateFormat:
   - pattern: '^week (\d{2})/(\d{4})$'
     from: '$2-W$1'
     fromFormat: "kkkk-'W'WW"
     duration: 1 week
+---
 
 week 03/2026: Third ISO week of 2026
 ```
@@ -106,6 +116,7 @@ week 03/2026: Third ISO week of 2026
 Use `from` and `to` for custom ranges:
 
 ```mw
+---
 dateFormat:
   - pattern: '^(\d{2}\.\d{2}\.\d{4}) - (\d{2}\.\d{2}\.\d{4})$'
     from:
@@ -114,6 +125,7 @@ dateFormat:
     to:
       group: 2
       format: MM.dd.yyyy
+---
 
 01.15.2026 - 01.18.2026: Long kickoff
 ```

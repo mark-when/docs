@@ -6,7 +6,7 @@ import Exposition from "../src/Exposition.vue"
 
 The header of a timeline indicates things about the timeline like visual preferences and metadata. It is the first part of a timeline; that is, anything before the first event is considered the header.
 
-The header is parsed as yaml, similar to frontmatter in some markdown parsers. Also similarly to frontmatter, you may (but are not required to) sandwich the header between three dashes (`---`).
+The header is parsed as yaml, similar to frontmatter in some markdown parsers. Also similarly to frontmatter, you may (but are not required to) sandwich the header between three dashes (`---`). When the header defines a custom `dateFormat` for the first event, delimiters are required so the parser knows where the header ends.
 
 ```mw
 ---
@@ -145,9 +145,11 @@ Documentation for advanced tag configurations, including timezones and reminders
 Non-ISO8601 slash dates default to American formatting (Month/Day/Year). Add `dateFormat` rules in the header to support other date syntaxes.
 
 ```mw
+---
 dateFormat:
   - pattern: '^\d{1,2}/\d{1,2}/\d{4}$'
     fromFormat: d/M/yyyy
+---
 
 05/09/2026: Parsed as 5 September 2026
 ```
