@@ -38,7 +38,8 @@ And longer descriptions
 - [] [Google](https://google.com)
 - [] [DuckDuckGo](https://duckduckgo.com)
 - [] [Bing](https://bing.com)`,
-  "Custom Date Formats": `dateFormat:
+  "Custom Date Formats": `---
+dateFormat:
   - pattern: '^release (\\d{4}_\\d{2}_\\d{2})$'
     from:
       group: 1
@@ -48,6 +49,7 @@ And longer descriptions
     from: '$2-W$1'
     fromFormat: "kkkk-'W'WW"
     duration: 1 week
+---
 
 release 2026_04_03: Launch date
 week 15/2026: Launch support window`,
