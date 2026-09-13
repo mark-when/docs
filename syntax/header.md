@@ -6,7 +6,13 @@ import Exposition from "../src/Exposition.vue"
 
 The header of a timeline indicates things about the timeline like visual preferences and metadata. It is the first part of a timeline; that is, anything before the first event is considered the header.
 
-The header is parsed as yaml, similar to frontmatter in some markdown parsers. Also similarly to frontmatter, you may (but are not required to) sandwich the header between three dashes (`---`). When the header defines a custom `dateFormat` for the first event, delimiters are required so the parser knows where the header ends.
+The header is parsed as yaml, similar to frontmatter in some markdown parsers. Also similarly to frontmatter, you may (but are not required to) sandwich the header between three dashes (`---`). 
+
+::: tip Frontmatter delimiters `---`
+In most cases and for "casual" use, the pair of three dashes `---` to delimit the frontmatter area are not required. However, separating the frontmatter from the rest of the document cleanly does confer some benefits, like an increased unlikelihood of messing up edit or view permissions for shared Meridiem docs, or proper parsing for custom date formats, particularly if you're going to use those formats exclusively. 
+
+Therefore, delimiting frontmatter using the three dash syntax is recommended.
+:::
 
 ```mw
 ---

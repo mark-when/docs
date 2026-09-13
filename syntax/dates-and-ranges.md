@@ -79,11 +79,11 @@ Markwhen is meant to be easy to pick up and immediately useful. Part of that sim
 
 ## Custom Date Formats
 
-Use `dateFormat` in the header to define your own date syntax. A rule has a `pattern` that matches the date text before the event colon and then describes how to turn that match into a date range.
+Unsatisfied with the format options laid out so far? No problem - you can define your own! Use `dateFormat` in the header to define your own date syntax. A rule has a `pattern` that matches the date text before the event colon and then describes how to turn that match into a date range.
 
 ::: tip Use header delimiters with custom date formats
 
-Surround a `dateFormat` header with `---` when the first event uses that custom syntax. The parser needs to finish reading the header before it can recognize the custom event. Delimiters make that boundary explicit.
+You should probably use `---` delimiters for your header if you're defining a custom date format. The parser needs to finish reading the header before it can recognize the custom format, and delimiters make that boundary explicit.
 
 :::
 
