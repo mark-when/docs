@@ -8,6 +8,16 @@ https://meridiem.markwhen.com/_mcp
 
 The MCP server uses OAuth. A client starts with the MCP URL, discovers the protected resource metadata, sends the user through Meridiem authorization, and then calls MCP tools with the returned bearer token.
 
+## Document formats and syntax help
+
+Use `.mw` for Markwhen timelines and schedules, and `.md` for Markdown notes and prose. Pass raw source text to document tools, without enclosing code fences.
+
+The read-only `get_markwhen_guide` tool returns a [document format and syntax guide](/meridiem/api/markwhen-guide) through the existing MCP connection, including for clients without web browsing. It is available even when document write access is not granted.
+
+Agents with URL fetching can also use [llms.txt](https://docs.markwhen.com/llms.txt) for the documentation index or [llms-full.txt](https://docs.markwhen.com/llms-full.txt) for the full bundle.
+
+The tool serves a bundled snapshot of the guide, so it does not require a live request to the docs site. Maintainers updating the guide should run `npm run generate:markwhen-guide` in `packages/private/api` and commit the generated `src/mcp/markwhenGuide.ts`. Run `npm run check:markwhen-guide` with the docs checkout present to verify that the snapshot matches its source.
+
 ## Connect Codex
 
 Codex can connect to Meridiem using Meridiem's hosted Codex client metadata document:
