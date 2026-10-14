@@ -1,18 +1,18 @@
 # Extension Conversions
 
-If you have [permission to view a document](/meridiem/sharing), you may append a supported extension to a Meridiem document link to get its transformed format.
+If you have [permission to view a document](/meridiem/sharing), you may append a supported extension to a Meridiem document link to get its transformed format. Append the extension to the full document URL, including any `.mw` or `.md` filename extension. For example, `https://meridiem.markwhen.com/username/plan.mw.raw` returns the raw text of `plan.mw`.
 
 | Extension | Format                         |
 | --------- | ------------------------------ |
-| `.mw`     | Raw `text/markwhen` file       |
+| `.raw`    | Raw `text/markwhen` file       |
 | `.json`   | Parsed `json`                  |
 | `.ics`    | [iCal](https://icalendar.org/) |
 
 For example, since [meridiem.markwhen.com/example](https://meridiem.markwhen.com/example) is [publicly viewable](/meridiem/sharing#publicly-viewable), we can get its raw text and parsed json:
 
-| `https://meridiem.markwhen.com/example.mw`                | `https://meridiem.markwhen.com/example.json`                |
+| `https://meridiem.markwhen.com/example.raw`                | `https://meridiem.markwhen.com/example.json`                |
 | --------------------------------------------------------- | ----------------------------------------------------------- |
-| <iframe src="https://meridiem.markwhen.com/example.mw" /> | <iframe src="https://meridiem.markwhen.com/example.json" /> |
+| <iframe src="https://meridiem.markwhen.com/example.raw" /> | <iframe src="https://meridiem.markwhen.com/example.json" /> |
 
 ## Calendar
 
